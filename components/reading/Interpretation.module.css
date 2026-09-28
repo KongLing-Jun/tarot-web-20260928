@@ -1,0 +1,96 @@
+.body {
+  overflow-wrap: anywhere;
+  font-family: var(--font-body);
+}
+.disclosure {
+  margin-top: 1.5rem;
+  border-block: 1px solid var(--ink-line-strong);
+}
+.disclosure summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.75rem;
+  padding-block: 1rem;
+  color: var(--gold);
+  cursor: pointer;
+  list-style: none;
+  touch-action: manipulation;
+}
+.disclosure summary::-webkit-details-marker {
+  display: none;
+}
+.disclosure summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.disclosureTitle {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.disclosureStatus {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--bone-dim);
+  font-size: 0.8125rem;
+}
+.toggleLabel {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+}
+.detailContent {
+  padding-block: 0.5rem 1.25rem;
+}
+.secondary {
+  border-color: var(--ink-line);
+}
+.secondary summary {
+  color: var(--bone-dim);
+}
+
+@media (max-width: 767px) {
+  .header {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .header > p,
+  .header > span {
+    display: none;
+  }
+  .header h3 {
+    font-size: 1.25rem;
+  }
+  .result .body p,
+  .result .body ul,
+  .result .body ol,
+  .structured p,
+  .structured ul,
+  .structured ol {
+    font-size: var(--mobile-body, 1rem);
+    line-height: 1.8;
+    margin-block: 0 1rem;
+    font-weight: 400;
+  }
+  .result .body li,
+  .structured li {
+    line-height: 1.8;
+  }
+  .result .body h2,
+  .structured h2 {
+    font-size: 1.125rem;
+    letter-spacing: 0.04em;
+    margin-block: 1.5rem 0.75rem;
+  }
+  .result .body h2:first-child,
+  .structured h2:first-child {
+    margin-top: 0;
+  }
+  .result .body h3,
+  .structured h3 {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    margin-block: 1.25rem 0.5rem;
+  }
+}

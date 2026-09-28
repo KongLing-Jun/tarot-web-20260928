@@ -1,0 +1,44 @@
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--gold-faint);
+  border-radius: 50%;
+  background: var(--ink-veil);
+  color: var(--gold-pale);
+  transition:
+    border-color var(--dur-quick) var(--ease-veil),
+    background var(--dur-quick) var(--ease-veil);
+}
+
+.back span {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  background: currentColor;
+  -webkit-mask: url('/brand/ritual-theme/icons/chevron-left.svg') center / contain no-repeat;
+  mask: url('/brand/ritual-theme/icons/chevron-left.svg') center / contain no-repeat;
+}
+
+.back:active {
+  background: var(--gold-faint);
+  border-color: var(--gold);
+}
+.back:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .back:hover {
+    border-color: var(--gold-dim);
+    background: var(--ink-surface);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .back {
+    transition: none;
+  }
+}

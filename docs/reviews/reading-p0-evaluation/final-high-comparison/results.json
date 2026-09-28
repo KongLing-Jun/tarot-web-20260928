@@ -1,0 +1,194 @@
+[
+  {
+    "id": "correct-fact-1",
+    "source": "synthetic",
+    "promptHash": "096c4dddc4f88cf42a24642285c527863927362343ef581f12bddf4db7cd5c87",
+    "messagesHash": "c73a35d28b5580776a790990d4f56930b9857ea1759b1819739e55ba56fafa93",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 6362,
+    "firstAnswerMs": 6376,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2522,
+      "completion_tokens": 1016,
+      "total_tokens": 3538,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 738
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2522
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 8137
+  },
+  {
+    "id": "three-card-1",
+    "source": "synthetic",
+    "promptHash": "75c2ead33b1b22f29eb698490bded31a1ceca04e916b3601698cdd6fed48489d",
+    "messagesHash": "eb2ba1be74a21182dd6421a6b37704468ffb1cfa01a1bcc1d5d6df72ff1159b3",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 13848,
+    "firstAnswerMs": 13848,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2178,
+      "completion_tokens": 2252,
+      "total_tokens": 4430,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1934
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2178
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 15240
+  },
+  {
+    "id": "context-specific-1",
+    "source": "synthetic",
+    "promptHash": "d842be72a5decbdbbc1645966d85b3c92b0d2363ef9db40a8f64b26ed5fc43d1",
+    "messagesHash": "7b710dfbc5f5974da427e785fe33a7cb3b096f14e7217c670a221331133e9b9b",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 6899,
+    "firstAnswerMs": 6899,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2186,
+      "completion_tokens": 1225,
+      "total_tokens": 3411,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 842
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1034
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 9059
+  },
+  {
+    "id": "listen-only-1",
+    "source": "synthetic",
+    "promptHash": "1cd5c0396638d51c69778f148faf307f46fd0cc6e4f6419bc2bc6326786bc6c6",
+    "messagesHash": "1de0a8ca72e01eccd9f9a2f046cf29f0d1573738fcde0f1ac72c08d3d17dfedb",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 7762,
+    "firstAnswerMs": 7763,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2174,
+      "completion_tokens": 1224,
+      "total_tokens": 3398,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 964
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1022
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 9177
+  },
+  {
+    "id": "daily-no-context-1",
+    "source": "synthetic",
+    "promptHash": "186d4184d0345fa5b19587890f31f002dc2f71899db0941ba0d97f77493d7b4c",
+    "messagesHash": "d59456f65144cec197e43ccaafdcf4f5fa96b1b592724be389f520cf5c7cce88",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 2985,
+    "firstAnswerMs": 2985,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 1565,
+      "completion_tokens": 265,
+      "total_tokens": 1830,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 152
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 413
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 3634
+  },
+  {
+    "id": "two-options-1",
+    "source": "synthetic",
+    "promptHash": "1a9755610e8d1f1403476cb17e367e397c1159de2c1ad36f6c209bb81cb106c4",
+    "messagesHash": "da1f8d426ef4430ea3deeab3c4d19ea3abaceef691857545dd438482615042b9",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 28158,
+    "firstAnswerMs": 28159,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2285,
+      "completion_tokens": 4845,
+      "total_tokens": 7130,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4364
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1133
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 30245
+  }
+]

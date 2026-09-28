@@ -1,0 +1,31 @@
+{
+  "id": "goal-not-reconcile-1",
+  "source": "synthetic",
+  "promptHash": "9d43d68f14653948edfdfe32b567950d3e5c26ed8137d077922d51991ea22b21",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 13121,
+  "firstAnswerMs": 13121,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2534,
+    "completion_tokens": 1999,
+    "total_tokens": 4533,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1844
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1126
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 14226
+}

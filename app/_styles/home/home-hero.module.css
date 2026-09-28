@@ -1,0 +1,299 @@
+@font-face {
+  font-family: 'Miying Home WenKai';
+  src: url('/brand/home-wenkai.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miying Home Title';
+  src: url('/brand/home-title-yueying.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miying Home Italic';
+  src: url('/brand/home-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+.hero {
+  position: relative;
+  padding: 0 2rem;
+  isolation: isolate;
+  font-weight: 300;
+}
+
+.content {
+  position: relative;
+  max-width: 48rem;
+  padding: 4.5rem 0 1.5rem;
+}
+
+.cornerLeft,
+.cornerRight,
+.mascot,
+.divider {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cornerLeft,
+.cornerRight {
+  position: absolute;
+  top: 2.25rem;
+  width: 2.5rem;
+  height: auto;
+  opacity: 1;
+}
+
+.cornerLeft {
+  left: -1.5rem;
+}
+.cornerRight {
+  right: -1.5rem;
+  transform: scaleX(-1);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin: 0;
+  color: var(--gold);
+  font-family: var(--font-chinese), 'Miying Home Italic', Georgia, serif;
+  font-size: 0.9375rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.eyebrow::before {
+  content: '';
+  flex: 0 0 1.875rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.brand {
+  position: relative;
+  min-height: 11rem;
+  margin-top: 1.5rem;
+}
+
+.wordmark {
+  position: relative;
+  z-index: 1;
+  width: max-content;
+}
+
+.title {
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(165deg, #e8d5a3 5%, #c9a961 65%, #dbbf7a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: 'Miying Home Title', 'Songti SC', 'STSong', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0.08em;
+}
+
+.title > span {
+  display: block;
+}
+
+.english {
+  margin: 0.625rem 0 0;
+  color: var(--gold);
+  font-family: var(--font-chinese), 'Miying Home Italic', Georgia, serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.mascot {
+  position: absolute;
+  right: -1.5rem;
+  top: -0.375rem;
+  width: 17.5rem;
+  height: auto;
+  max-width: 88%;
+  aspect-ratio: 650 / 445;
+}
+
+.description {
+  position: relative;
+  margin: 0.5rem 0 0;
+  max-width: 36rem;
+  color: rgba(234, 228, 212, 0.85);
+  font-family: var(--font-chinese), 'Miying Home WenKai', "Kaiti SC", "KaiTi", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.625rem;
+  margin-top: 1rem;
+  max-width: 36rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 3.25rem;
+  padding: 0.75rem;
+  border: 1px solid;
+  border-radius: 0;
+  color: var(--gold-pale);
+  font-family: var(--font-chinese), 'Miying Home WenKai', "Kaiti SC", "KaiTi", serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.primary {
+  border-color: rgba(201, 169, 97, 0.85);
+  background: linear-gradient(165deg, rgba(201, 169, 97, 0.19), rgba(201, 169, 97, 0.06));
+  box-shadow: inset 0 0 0 0.5px rgba(232, 213, 163, 0.12);
+}
+.secondary {
+  border-color: rgba(201, 169, 97, 0.4);
+  background: linear-gradient(165deg, rgba(201, 169, 97, 0.06), rgba(201, 169, 97, 0.02));
+}
+.button:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+.button:active {
+  border-color: var(--gold-pale);
+  background: rgba(201, 169, 97, 0.22);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    border-color: var(--gold-pale);
+    background: rgba(201, 169, 97, 0.2);
+  }
+}
+
+.divider {
+  display: block;
+  width: calc(100% + 1.5rem);
+  max-width: 37.5rem;
+  height: auto;
+  margin: 1.5rem 0 0 -0.75rem;
+}
+
+@media (max-width: 359px) {
+  .hero {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .brand {
+    min-height: 9.625rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .english {
+    font-size: 1.125rem;
+  }
+  .eyebrow {
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .mascot {
+    right: -1.125rem;
+    width: 15rem;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 389px) {
+  .mascot {
+    width: 16.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  .content {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+  .brand {
+    min-height: 16rem;
+    margin-top: 2.25rem;
+  }
+  .title {
+    font-size: 5rem;
+  }
+  .english {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  .mascot {
+    top: -0.5rem;
+    right: 0;
+    width: 24rem;
+  }
+  .description {
+    font-size: 1.125rem;
+  }
+  .actions {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+  .button {
+    min-height: 3.5rem;
+  }
+  .cornerLeft {
+    left: -1.5rem;
+  }
+  .cornerRight {
+    right: -1.5rem;
+  }
+  .cornerLeft,
+  .cornerRight {
+    top: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "celtic-cross-1",
+  "source": "synthetic",
+  "promptHash": "de1b514a5d164b3d5aab4edda9042b09ea4cbc910b9f3c211ca58df94ae17afa",
+  "messagesHash": "5ec1d75f89a8d5e6543763c0816a6bfc12aaef2b44f9b3949f345d0fd4f89731",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 10135,
+  "firstAnswerMs": 10135,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2576,
+    "completion_tokens": 2041,
+    "total_tokens": 4617,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1327
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 1424
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 14406
+}

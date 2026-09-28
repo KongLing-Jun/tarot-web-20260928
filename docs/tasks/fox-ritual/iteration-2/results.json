@@ -1,0 +1,119 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dimensions": {
+        "scrollWidth": 390,
+        "width": 390,
+        "height": 844,
+        "ringTop": 285.5,
+        "ringBottom": 501.4375,
+        "dockTop": 721.609375,
+        "dockBottom": 844,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "dimensions": {
+        "scrollWidth": 320,
+        "width": 320,
+        "height": 740,
+        "ringTop": 241.5,
+        "ringBottom": 416.125,
+        "dockTop": 627.609375,
+        "dockBottom": 740,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "dimensions": {
+        "scrollWidth": 360,
+        "width": 360,
+        "height": 800,
+        "ringTop": 285.5,
+        "ringBottom": 483.734375,
+        "dockTop": 677.609375,
+        "dockBottom": 800,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 659
+      },
+      "dimensions": {
+        "scrollWidth": 390,
+        "width": 390,
+        "height": 659,
+        "ringTop": 226.5,
+        "ringBottom": 442.4375,
+        "dockTop": 546.609375,
+        "dockBottom": 659,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "dimensions": {
+        "scrollWidth": 430,
+        "width": 430,
+        "height": 932,
+        "ringTop": 292.359375,
+        "ringBottom": 531.890625,
+        "dockTop": 809.609375,
+        "dockBottom": 932,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dimensions": {
+        "scrollWidth": 1440,
+        "width": 1440,
+        "height": 1000,
+        "ringTop": 326.078125,
+        "ringBottom": 689.515625,
+        "dockTop": 877.609375,
+        "dockBottom": 1000,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "limitations": "Chrome 隔离会话，模拟登录/配置/保存；没有验证微信真机和真实模型。"
+}

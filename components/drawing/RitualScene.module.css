@@ -1,0 +1,474 @@
+@font-face {
+  font-family: 'Miying Ritual Serif';
+  src: url('/brand/ritual-theme/ritual-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+.theme {
+  --ritual-font: 'Miying Ritual Serif', 'Songti SC', 'SimSun', serif;
+  --ritual-width: 44rem;
+  --ritual-inset: 1.125rem;
+  position: relative;
+  min-height: 0;
+  /* 透出布局层的流动星尘，与首页使用同一套背景动画。 */
+  background: transparent;
+  color: var(--bone);
+  font-family: var(--font-chinese), var(--ritual-font);
+  font-weight: 300;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-width: var(--ritual-width);
+  margin: auto;
+  overflow: hidden;
+}
+.shuffleScene {
+  position: relative;
+  isolation: isolate;
+  background: #211e29 url('/brand/spread-theme/sky.webp') center top / cover no-repeat;
+}
+/* 星尘覆盖星盘底图，保持在狐狸、牌堆与操作按钮下方。 */
+.shuffleScene::before,
+.shuffleScene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+.shuffleScene::before {
+  background-image:
+    radial-gradient(
+      circle at 18px 28px,
+      rgba(234, 228, 212, 0.65) 0,
+      rgba(212, 184, 115, 0.24) 1px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 95px 107px,
+      rgba(232, 213, 163, 0.5) 0,
+      rgba(212, 184, 115, 0.16) 1px,
+      transparent 2.5px
+    ),
+    radial-gradient(
+      circle at 61px 174px,
+      rgba(200, 210, 240, 0.35) 0,
+      rgba(139, 159, 212, 0.12) 1px,
+      transparent 2.5px
+    );
+  background-size:
+    137px 211px,
+    193px 277px,
+    251px 337px;
+  animation: shuffle-dust-rise 16s linear infinite;
+}
+.shuffleScene::after {
+  background-image:
+    radial-gradient(
+      circle at 47px 83px,
+      rgba(248, 231, 185, 0.8) 0,
+      rgba(212, 184, 115, 0.25) 1.25px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 173px 227px,
+      rgba(232, 213, 163, 0.6) 0,
+      rgba(212, 184, 115, 0.18) 1px,
+      transparent 3px
+    );
+  background-size:
+    283px 359px,
+    349px 431px;
+  animation:
+    shuffle-dust-rise-near 18s linear -8s infinite,
+    shuffle-dust-twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes shuffle-dust-rise {
+  to {
+    background-position:
+      0 -422px,
+      0 -554px,
+      0 -674px;
+  }
+}
+@keyframes shuffle-dust-rise-near {
+  to {
+    background-position:
+      0 -718px,
+      0 -862px;
+  }
+}
+@keyframes shuffle-dust-twinkle {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+:global([data-page-hidden]) .shuffleScene::before,
+:global([data-page-hidden]) .shuffleScene::after {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shuffleScene::before,
+  .shuffleScene::after {
+    animation: none;
+  }
+}
+.drawScene {
+  background: radial-gradient(ellipse at 0 0, rgba(232, 213, 163, 0.13), transparent 47%), #211e29;
+}
+.drawScene .heading h2 {
+  font-size: 1.875rem;
+}
+.drawScene .heading p {
+  font-family: var(--font-chinese), var(--ritual-font);
+  font-style: normal;
+  font-size: 0.875rem;
+  letter-spacing: 0.16em;
+}
+.drawScene .intro {
+  border-bottom-color: rgba(232, 213, 163, 0.18);
+}
+.drawScene .intro::after,
+.drawScene .dock::before {
+  background-color: transparent;
+  opacity: 0.8;
+}
+.drawScene .dock {
+  background: rgba(33, 30, 41, 0.72);
+  border-top-color: rgba(232, 213, 163, 0.18);
+}
+.shuffleScene .heading h2 {
+  font-size: 1.875rem;
+}
+.shuffleScene .intro {
+  border-bottom-color: transparent;
+}
+.shuffleScene .heading p {
+  font-family: var(--font-chinese), var(--ritual-font);
+  font-style: normal;
+  font-size: 0.875rem;
+  letter-spacing: 0.16em;
+  text-transform: capitalize;
+}
+.shuffleScene .dock {
+  background: transparent;
+  border-top-color: transparent;
+}
+.shuffleScene .intro::after,
+.shuffleScene .dock::before {
+  background-color: transparent;
+  opacity: 0.65;
+}
+.shuffleScene .shuffleActions button {
+  border-color: rgba(232, 213, 163, 0.32);
+  background: linear-gradient(140deg, rgba(232, 213, 163, 0.09), rgba(232, 213, 163, 0.025));
+  border-radius: 0.25rem;
+}
+/* Keep the legacy height outside @supports so CSS optimization cannot discard it. */
+@supports (height: 100dvh) {
+  .content {
+    height: 100dvh;
+  }
+}
+.heading {
+  flex-shrink: 0;
+  height: 4.5rem;
+  padding-top: 1.125rem;
+  text-align: center;
+}
+.heading h2 {
+  margin: 0;
+  color: var(--gold-pale);
+  font: 300 1.5rem / 1.35 var(--font-chinese), var(--ritual-font);
+  letter-spacing: 0.18em;
+  padding-left: 0.18em;
+}
+.heading p {
+  margin: 0.375rem 0 0;
+  font: 300 0.625rem / 1.2 var(--font-chinese), var(--ritual-font);
+  letter-spacing: 0.45em;
+  padding-left: 0.45em;
+  color: var(--gold-pale);
+}
+.intro {
+  position: relative;
+  flex-shrink: 0;
+  min-height: 8.75rem;
+  padding: 1.375rem var(--ritual-inset) 1rem;
+  border-bottom: 1px solid var(--gold-faint);
+}
+.context {
+  position: relative;
+  z-index: 1;
+  width: 65%;
+}
+.question {
+  margin: 0;
+  font: 300 clamp(1.125rem, 5.1vw, 1.375rem) / 1.65 var(--font-chinese), var(--ritual-font);
+  color: var(--bone);
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.meta {
+  margin: 0.875rem 0 0;
+  color: var(--bone);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.fox {
+  position: absolute;
+  width: 15rem;
+  height: auto;
+  right: -1rem;
+  bottom: -0.125rem;
+  pointer-events: none;
+  user-select: none;
+}
+.icon {
+  display: inline-block;
+  width: 1.375rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  background: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+.actions {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.625rem;
+  padding: 0.5rem var(--ritual-inset);
+}
+.actions button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 4.25rem;
+  padding: 0.625rem 0.125rem;
+  font: 300 0.8125rem / 1.5 var(--font-chinese), var(--ritual-font);
+  white-space: nowrap;
+}
+.actions .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.shuffleActions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.shuffleActions button {
+  flex-direction: row;
+  min-height: 3.25rem;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+}
+.dock {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 45;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem var(--ritual-inset) max(0.75rem, env(safe-area-inset-bottom, 0px));
+  background: var(--ink-deep);
+  border-top: 1px solid var(--gold-faint);
+}
+.dock p {
+  margin: 0;
+  color: var(--gold-pale);
+  font: 300 0.875rem / 1.6 var(--font-chinese), var(--ritual-font);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.primary {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  outline-offset: 4px;
+  font: 300 1.125rem / 1.5 var(--font-chinese), var(--ritual-font);
+  letter-spacing: 0.03em;
+}
+.secondary {
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  font: 300 0.875rem / 1.5 var(--font-chinese), var(--ritual-font);
+}
+.actions button,
+.primary,
+.secondary {
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 0;
+  background: linear-gradient(165deg, rgba(201, 169, 97, 0.06), rgba(201, 169, 97, 0.02));
+  color: var(--gold-pale);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+.actions button:disabled,
+.primary:disabled,
+.secondary:disabled {
+  color: #a99a7f;
+  border-color: var(--gold-dim);
+  cursor: not-allowed;
+}
+.actions button:active:not(:disabled),
+.primary:active:not(:disabled),
+.secondary:active:not(:disabled) {
+  border-color: var(--gold-pale);
+  background: rgba(201, 169, 97, 0.22);
+}
+@media (hover: hover) and (pointer: fine) {
+  .actions button:hover,
+  .primary:hover,
+  .secondary:hover {
+    color: var(--gold-pale);
+    border-color: var(--gold-pale);
+    background: rgba(201, 169, 97, 0.2);
+  }
+}
+.theme button:focus-visible,
+.theme a:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+@media (max-width: 359px) {
+  .theme {
+    --ritual-inset: 0.875rem;
+  }
+  .context {
+    width: 66%;
+  }
+  .intro {
+    min-height: 8rem;
+    padding-top: 1rem;
+  }
+  .fox {
+    width: 14rem;
+    right: -2rem;
+  }
+  .actions {
+    gap: 0.375rem;
+  }
+  .actions button {
+    font-size: 0.75rem;
+  }
+  .shuffleActions {
+    gap: 0.75rem;
+  }
+  .shuffleActions button {
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+@media (min-width: 768px) {
+  .heading {
+    height: 5rem;
+  }
+  .intro {
+    min-height: 10rem;
+    padding: 1.75rem 2rem;
+  }
+  .context {
+    width: 65%;
+  }
+  .fox {
+    width: 20rem;
+    right: 0;
+  }
+  .question {
+    font-size: 1.625rem;
+  }
+  .actions {
+    padding-inline: 2rem;
+  }
+}
+@media (max-height: 740px) and (max-width: 767px) {
+  .heading {
+    height: 3.25rem;
+    padding-top: 0.5rem;
+  }
+  .intro {
+    min-height: 6.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .fox {
+    width: 11.5rem;
+  }
+  .question {
+    font-size: 1rem;
+  }
+  .meta {
+    margin-top: 0.375rem;
+    font-size: 0.8125rem;
+  }
+  .actions button {
+    min-height: 3.75rem;
+    padding-block: 0.375rem;
+    gap: 0.25rem;
+  }
+  .shuffleActions button {
+    min-height: 2.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme *,
+  .theme *::before,
+  .theme *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
+
+.intro::after,
+.dock::before {
+  content: '';
+  position: absolute;
+  width: 0.75rem;
+  height: 0.875rem;
+  left: calc(50% - 0.375rem);
+  background: var(--ink-deep) url('/brand/spread-theme/star.webp') center / contain no-repeat;
+  pointer-events: none;
+}
+.intro::after {
+  bottom: -0.4375rem;
+  z-index: 2;
+}
+.dock::before {
+  top: -0.4375rem;
+}
+@media (max-width: 359px) {
+  .shuffleScene .fox {
+    right: -0.25rem;
+  }
+}
+@media (max-width: 359px) {
+  .drawScene .fox {
+    right: -0.25rem;
+  }
+}

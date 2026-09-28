@@ -1,0 +1,66 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  min-width: 0;
+}
+.progress {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem var(--ritual-inset, 1rem);
+  color: var(--gold-pale);
+  font: 300 0.9375rem / 1.7 var(--ritual-font, var(--font-chinese), serif);
+}
+.collected {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cardMarks {
+  display: inline-flex;
+  padding-left: 0.25rem;
+}
+.cardMark {
+  width: 0.625rem;
+  height: 1rem;
+  margin-left: -0.25rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+  background: var(--ink-veil);
+}
+.flight {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+.flightCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(5rem, 28vw, 9rem);
+  border: 1px solid var(--gold-pale);
+  border-radius: 4px;
+  background: #211d29;
+  box-shadow:
+    0 0 0 1px rgba(232, 213, 163, 0.18),
+    0 0 24px rgba(232, 213, 163, 0.15),
+    0 8px 24px rgba(12, 9, 18, 0.32);
+  will-change: transform, opacity;
+}
+.flightLabel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--gold-pale);
+  font: 400 1rem / 1.5 var(--font-body);
+  letter-spacing: 0.15em;
+}

@@ -1,0 +1,21 @@
+.eyes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Match the fixed-size top-right slice of the question illustration. */
+.eyes[data-artwork='question'] {
+  left: auto;
+  right: 0;
+  width: var(--art-size);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyes {
+    display: none;
+  }
+}

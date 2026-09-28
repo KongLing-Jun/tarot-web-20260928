@@ -1,0 +1,246 @@
+@font-face {
+  font-family: 'Miying Loading Italic';
+  src: url('/brand/home-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+.waiting {
+  position: relative;
+  isolation: isolate;
+  margin: var(--reading-wait-margin, 28px) 0 20px;
+  padding: 22px 14px 12px;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-top-color: rgba(232, 213, 163, 0.6);
+  border-bottom-color: rgba(201, 169, 97, 0.42);
+  border-radius: 12px;
+  box-shadow: inset 0 1px rgba(255, 241, 208, 0.05);
+  color: var(--bone);
+  text-align: center;
+  /* 提供本地星空底板，screen 图层不再依赖祖先淡入动画的合成背景。 */
+  background:
+    linear-gradient(135deg, rgba(232, 213, 163, 0.075), rgba(166, 151, 190, 0.025)),
+    #171421 url('/brand/spread-theme/sky.webp') center / cover no-repeat;
+}
+.cornerLeft,
+.cornerRight,
+.cornerBottomLeft,
+.cornerBottomRight {
+  position: absolute;
+  width: 30px;
+  height: auto;
+  opacity: 0.85;
+  pointer-events: none;
+}
+.cornerLeft {
+  top: 8px;
+  left: 8px;
+}
+.cornerRight {
+  top: 8px;
+  right: 8px;
+  transform: scaleX(-1);
+}
+.cornerBottomLeft {
+  bottom: 8px;
+  left: 8px;
+  transform: scaleY(-1);
+}
+.cornerBottomRight {
+  bottom: 8px;
+  right: 8px;
+  transform: scale(-1);
+}
+.eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font:
+    italic 400 15px/1.6 var(--font-chinese), 'Miying Loading Italic', Georgia, serif;
+  letter-spacing: 0.025em;
+}
+
+/* 月牙和月相固定；刻度与亮星独立运动，避免把整幅画一起旋转。 */
+.art {
+  position: relative;
+  /* 仅让素材层滤色，父子同时 screen 会隔离素材与卡片底板。 */
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  margin: 12px auto 0;
+  pointer-events: none;
+  user-select: none;
+}
+.astrolabe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  filter: saturate(0.85) brightness(1.1);
+}
+.dial {
+  position: absolute;
+  left: 27%;
+  top: 23.3%;
+  width: 46%;
+  height: 46%;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+  filter: saturate(0.8);
+  animation: dial-turn 24s linear infinite;
+}
+/* 素材圆心位于 (50%, 46.3%)，轨道半径与外侧圆环重合。 */
+.orbit {
+  position: absolute;
+  left: 19.75%;
+  top: 16.05%;
+  width: 60.5%;
+  height: 60.5%;
+  animation: orbit-turn 8s linear infinite;
+}
+.star {
+  position: absolute;
+  left: calc(50% - 10px);
+  top: -12px;
+  width: 20px;
+  height: 25px;
+  filter: saturate(0.3) brightness(1.15) drop-shadow(0 0 3px rgba(232, 213, 163, 0.45));
+}
+.trailNear {
+  transform: translate(-7px, 1px) scale(0.45);
+  opacity: 0.32;
+}
+.trailFar {
+  transform: translate(-13px, 2px) scale(0.25);
+  opacity: 0.14;
+}
+.waiting[data-retrying='true'] .dial,
+.waiting[data-retrying='true'] .orbit {
+  animation-play-state: paused;
+  opacity: 0.45;
+}
+.status h2 {
+  margin: 0;
+  color: var(--bone);
+  font:
+    400 23px/1.5 var(--font-chinese), 'Miying Report Serif', 'Songti SC', 'SimSun', serif;
+  letter-spacing: 0.04em;
+}
+.status p {
+  margin: 10px auto 0;
+  color: #c7c0b2;
+  font-size: 14px;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+.divider {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 26px auto 18px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.info {
+  position: relative;
+  border-top: 1px solid rgba(201, 169, 97, 0.2);
+  text-align: left;
+}
+.waiting > .info {
+  border-top: 0;
+}
+.info summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--gold-pale);
+  font-size: 14px;
+}
+.info summary::-webkit-details-marker {
+  display: none;
+}
+.quill {
+  width: 21px;
+  height: 28px;
+  background: url('/brand/question-icons.webp') no-repeat;
+  background-size: 400% 100%;
+}
+.waiting .quill {
+  display: none;
+}
+.chevron {
+  font: 20px/1 var(--font-chinese), serif;
+}
+.info[open] .chevron {
+  transform: rotate(90deg);
+}
+.infoBody {
+  padding: 8px 0 6px;
+  overflow-wrap: anywhere;
+  font: 14px/1.8 var(--font-body);
+  color: #c4bbaa;
+}
+.infoBody p {
+  margin: 0 0 10px;
+}
+.infoBody .infoLabel {
+  color: #aaa08c;
+  font-size: 13px;
+}
+.thinking {
+  max-height: 210px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 1px solid var(--gold-dim);
+  font: inherit;
+  color: var(--bone-dim);
+}
+
+@keyframes dial-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-turn {
+  from {
+    transform: rotate(48deg);
+  }
+  to {
+    transform: rotate(408deg);
+  }
+}
+:global([data-page-hidden]) .dial,
+:global([data-page-hidden]) .orbit {
+  animation-play-state: paused;
+}
+@media (max-width: 350px) {
+  .waiting {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .status h2 {
+    font-size: 22px;
+  }
+  .status p {
+    font-size: 13px;
+  }
+}
+/* 矮屏通过页面滚动阅读完整卡片，不再把星仪压缩成 216px / 168px。 */
+@media (prefers-reduced-motion: reduce) {
+  .dial,
+  .orbit {
+    animation: none;
+  }
+  .orbit {
+    transform: rotate(48deg);
+  }
+  .trailNear,
+  .trailFar {
+    display: none;
+  }
+}

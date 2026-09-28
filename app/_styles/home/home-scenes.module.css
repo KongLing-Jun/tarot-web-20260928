@@ -1,0 +1,110 @@
+.section {
+  padding: 0 2rem 2.5rem;
+}
+.inner {
+  max-width: 36rem;
+}
+.heading h2 {
+  margin: 0;
+  color: var(--gold-pale);
+  font-family: var(--font-chinese), var(--font-heading), 'Songti SC', 'STSong', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+.heading p {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--bone-dim);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 1.5rem;
+}
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 0 0.75rem 0.75rem;
+  text-align: center;
+  color: var(--gold-pale);
+  text-decoration: none;
+}
+.scene:nth-child(even) {
+  border-left: 1px solid rgba(201, 169, 97, 0.3);
+}
+.scene:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: 50%;
+  justify-self: center;
+}
+.art {
+  display: block;
+  width: 100%;
+  max-width: 14rem;
+  height: auto;
+  margin: 0 auto 0.5rem;
+  object-fit: contain;
+}
+.scene h3 {
+  margin: 0;
+  font-family: var(--font-chinese), var(--font-heading), 'Songti SC', 'STSong', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+.scene h3 span {
+  margin-left: 0.5rem;
+  font-family: var(--font-chinese), serif;
+}
+.scene p {
+  margin: 0.5rem auto 0.75rem;
+  max-width: 12rem;
+  color: var(--bone-dim);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.scene small {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  font-size: 0.75rem;
+  color: var(--gold);
+}
+.scene:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .scene:hover h3 {
+    color: var(--bone);
+  }
+}
+@media (max-width: 359px) {
+  .section {
+    padding-inline: 1.5rem;
+  }
+  .scene {
+    padding-inline: 0.5rem;
+  }
+  .scene h3 {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 768px) {
+  .section {
+    padding-inline: 3rem;
+  }
+  .scene p {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-inline: 5rem;
+  }
+}

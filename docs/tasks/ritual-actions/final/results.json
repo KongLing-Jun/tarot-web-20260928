@@ -1,0 +1,557 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 744
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 140,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 140,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 65.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 65.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 68.5,
+          "height": 70,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 68.5,
+          "height": 70,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 68.5,
+          "height": 70,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 68.5,
+          "height": 70,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 360,
+        "height": 740
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 154,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 154,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 73.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 73.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 73.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 73.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 659
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 169,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 81,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 312,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 312,
+          "height": 52,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 152.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 152.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 152.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 152.5,
+          "height": 71.5,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "limitations": "Chrome 隔离模拟登录/配置；未验证微信真机。"
+}

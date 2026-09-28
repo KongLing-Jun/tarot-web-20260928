@@ -1,0 +1,38 @@
+{
+  "id": "extras-1",
+  "source": "synthetic",
+  "promptHash": "1ad4b69fe51c8781e2a12264beae8f86875806bda1024e6282fef59c41757c50",
+  "messagesHash": "62e57e18c7a353cdef4d27c545480b189453e9953592afb9ef0e1040ead1b0ae",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 4326,
+  "firstAnswerMs": 4329,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2569,
+    "completion_tokens": 795,
+    "total_tokens": 3364,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 438
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1161
+  },
+  "quality": {
+    "issues": [
+      {
+        "code": "structure",
+        "severity": "warning",
+        "message": "部分牌位标题未写清牌位或正逆位，已保留原文供核对。"
+      }
+    ],
+    "needsRetry": false
+  },
+  "durationMs": 6704
+}

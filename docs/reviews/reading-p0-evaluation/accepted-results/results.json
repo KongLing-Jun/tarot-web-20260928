@@ -1,0 +1,450 @@
+[
+  {
+    "id": "single-1",
+    "source": "synthetic",
+    "promptHash": "9a55f2bbe58fed33dcc888c5e0f749ef1b21979944cf1fc6fac7982f926513d2",
+    "messagesHash": "0135a6ee6b4ce5b0eea62a2f56de20f6a758e0623e15e6952d342d91cee336c7",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4755,
+    "firstAnswerMs": 4756,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 1901,
+      "completion_tokens": 634,
+      "total_tokens": 2535,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 456
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 1901
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 6047
+  },
+  {
+    "id": "correct-fact-1",
+    "source": "synthetic",
+    "promptHash": "657443dbb2b17b212834c03343180a8aeb5121dd4e02f390628bb25b215ef0f8",
+    "messagesHash": "33929cbee93cc12531024daa39a23d3799c898ab215f67274ede6946206b624d",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 7884,
+    "firstAnswerMs": 7884,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2499,
+      "completion_tokens": 1131,
+      "total_tokens": 3630,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 839
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2499
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 9551
+  },
+  {
+    "id": "three-card-1",
+    "source": "synthetic",
+    "promptHash": "ef6dd490ce55906bcfd1b1d5aed94039bf2e03efd2d90a3cae6554536f733be5",
+    "messagesHash": "d5543ff3f9046ba0ce87c8bb7413a9b43e81f238f26fcc31cdad2e8635486d04",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 7540,
+    "firstAnswerMs": 7540,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2155,
+      "completion_tokens": 1324,
+      "total_tokens": 3479,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 959
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1003
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 9599
+  },
+  {
+    "id": "two-options-1",
+    "source": "synthetic",
+    "promptHash": "69734633c09f5411e5dd349b96d6e3d56feffeb2cea64290efa18de3406b5c11",
+    "messagesHash": "7ca03e897c7ae5e085f93ad1cd048fa124549c47058af5af0922f61d40ef808e",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 10501,
+    "firstAnswerMs": 10596,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2262,
+      "completion_tokens": 2032,
+      "total_tokens": 4294,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1487
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1110
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 13747
+  },
+  {
+    "id": "relationship-1",
+    "source": "synthetic",
+    "promptHash": "d20afcad92f0b2c71fbc871cfe51bdecac9e200e5eb9934ecf0199b2e15563f6",
+    "messagesHash": "b70237bb9e6d6d4cb80361fe7da37652562d6dfde589aa9d8db3366b75558648",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 12556,
+    "firstAnswerMs": 12556,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2241,
+      "completion_tokens": 2289,
+      "total_tokens": 4530,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1794
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1089
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 15071
+  },
+  {
+    "id": "timeline-1",
+    "source": "synthetic",
+    "promptHash": "2a8ec4f99ca5b7cd3d8576f40082908d2fc7cfabb62ae1280448684a8b4ba8b6",
+    "messagesHash": "b986b1366e3b31d465632ccd8780ef159857a818ad19f03283940f8e68b3c746",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4016,
+    "firstAnswerMs": 4042,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2216,
+      "completion_tokens": 919,
+      "total_tokens": 3135,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 367
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1064
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 7698
+  },
+  {
+    "id": "celtic-cross-1",
+    "source": "synthetic",
+    "promptHash": "de1b514a5d164b3d5aab4edda9042b09ea4cbc910b9f3c211ca58df94ae17afa",
+    "messagesHash": "5ec1d75f89a8d5e6543763c0816a6bfc12aaef2b44f9b3949f345d0fd4f89731",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 10135,
+    "firstAnswerMs": 10135,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2576,
+      "completion_tokens": 2041,
+      "total_tokens": 4617,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1327
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1424
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 14406
+  },
+  {
+    "id": "direct-1",
+    "source": "synthetic",
+    "promptHash": "ed5abcdf246cb13f04e59d6921a694ac7cab292c421f78d0610fc1197b39cccd",
+    "messagesHash": "65cbaa8ccfffeda6027d77949ca74ad43e5879b0cb3b4bf19fa609ff65d6959f",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 18722,
+    "firstAnswerMs": 18723,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2711,
+      "completion_tokens": 3443,
+      "total_tokens": 6154,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2964
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1559
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 20451
+  },
+  {
+    "id": "context-vague-1",
+    "source": "synthetic",
+    "promptHash": "5d45161e008834acaef782547abdee089e47146e26c71a1c40ee58e2bf2d0968",
+    "messagesHash": "d047b47a4673427a4c4312c23e56de5fae087f8ff44ba0f66335b9ab4ef65283",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 2016,
+    "firstAnswerMs": 2016,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2132,
+      "completion_tokens": 286,
+      "total_tokens": 2418,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 980
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 2943
+  },
+  {
+    "id": "extras-1",
+    "source": "synthetic",
+    "promptHash": "f8bb8eda129ef3f5a7206dddf22db22ae578185b960ee7ec34e0c2284ada6520",
+    "messagesHash": "0263a587a95aaae604cd70ceafb3f78116b6c4fa74a159625bbbf3c26b42622b",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 20368,
+    "firstAnswerMs": 20368,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2546,
+      "completion_tokens": 3544,
+      "total_tokens": 6090,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3202
+      },
+      "prompt_cache_hit_tokens": 1408,
+      "prompt_cache_miss_tokens": 1138
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 21980
+  },
+  {
+    "id": "context-specific-1",
+    "source": "synthetic",
+    "promptHash": "f5b56f4d75cec97d76e7749a3f02ddf1a3c02966424dc2272ffc8ab43524b19e",
+    "messagesHash": "39a5b155df741046adb15c71c723ba91d30a0f0fc482c3b03b7db36e2bd4131c",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 16021,
+    "firstAnswerMs": 16021,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2163,
+      "completion_tokens": 2621,
+      "total_tokens": 4784,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2300
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1011
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 17098
+  },
+  {
+    "id": "goal-not-reconcile-1",
+    "source": "synthetic",
+    "promptHash": "001eff28aa266e4cefadbc30c8ff19f6d74d642190a4e07add3b6d89e38a5105",
+    "messagesHash": "96b7fc249da0714d524ed6b4e1b3d4f12dd1f961c3380e64580ad85303b2abd1",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 9159,
+    "firstAnswerMs": 9159,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2663,
+      "completion_tokens": 1635,
+      "total_tokens": 4298,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1253
+      },
+      "prompt_cache_hit_tokens": 1536,
+      "prompt_cache_miss_tokens": 1127
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 10852
+  },
+  {
+    "id": "listen-only-1",
+    "source": "synthetic",
+    "promptHash": "05848273e1e4a343de2f7f00f86bacc2e3b3533232d2f0dfc0d7a7dd026a9e3f",
+    "messagesHash": "7880c1df90bb5e7d738b6f25157ca0328d940c597c3c22336f3d0ed52feeec6a",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 6400,
+    "firstAnswerMs": 6439,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2151,
+      "completion_tokens": 1053,
+      "total_tokens": 3204,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 727
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 999
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 8432
+  },
+  {
+    "id": "daily-no-context-1",
+    "source": "synthetic",
+    "promptHash": "64dad750a9d84cd5c68ffa920b4fcd452e9fd3888cb78de3e43a3a4163e9ebf1",
+    "messagesHash": "777d8db4e19a7110a6395145e301e6dd1efc108b42d3afe4a2be774e789677d6",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 2187,
+    "firstAnswerMs": 2187,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 1542,
+      "completion_tokens": 236,
+      "total_tokens": 1778,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 114
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 390
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 3265
+  }
+]

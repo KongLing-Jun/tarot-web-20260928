@@ -1,0 +1,106 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "cards": 1,
+      "dimensions": {
+        "width": 360,
+        "scroll": 360,
+        "zoom": 100,
+        "ringTop": 273.5,
+        "ringBottom": 488.53125,
+        "progressGap": 12,
+        "dockTop": 651.609375,
+        "dockBottom": 800,
+        "clipped": false
+      },
+      "pointerHit": 44,
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "cards": 3,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "zoom": 100,
+        "ringTop": 275.921875,
+        "ringBottom": 510.15625,
+        "progressGap": 12,
+        "dockTop": 695.609375,
+        "dockBottom": 844,
+        "clipped": false
+      },
+      "pointerHit": 44,
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "cards": 10,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "zoom": 100,
+        "ringTop": 282.671875,
+        "ringBottom": 542.5,
+        "progressGap": 12,
+        "dockTop": 783.609375,
+        "dockBottom": 932,
+        "clipped": false
+      },
+      "pointerHit": 44,
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 659
+      },
+      "cards": 3,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "zoom": 100,
+        "ringTop": 217.5,
+        "ringBottom": 451.734375,
+        "progressGap": 8,
+        "dockTop": 520.609375,
+        "dockBottom": 659,
+        "clipped": false
+      },
+      "pointerHit": 44,
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "cards": 1,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "zoom": 100,
+        "ringTop": 322.078125,
+        "ringBottom": 716.3125,
+        "progressGap": 12,
+        "dockTop": 851.609375,
+        "dockBottom": 1000,
+        "clipped": false
+      },
+      "pointerHit": 44,
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "limitation": "隔离浏览器与模拟会话；未验证 iOS/Android 微信真机或实际模型。"
+}

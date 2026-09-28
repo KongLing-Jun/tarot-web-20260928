@@ -1,0 +1,31 @@
+{
+  "id": "context-vague-1",
+  "source": "synthetic",
+  "promptHash": "a41d7c2111d46645f081161cd759cb5295a439e95b951d0b3097eb90ad4257b3",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 2426,
+  "firstAnswerMs": 2453,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 1890,
+    "completion_tokens": 628,
+    "total_tokens": 2518,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 225
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 994
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 5292
+}

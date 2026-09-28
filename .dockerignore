@@ -1,0 +1,26 @@
+# Only send build inputs to Docker; never send private configuration or Windows dependencies.
+**
+!package.json
+!package-lock.json
+!next.config.ts
+!tsconfig.json
+!postcss.config.mjs
+!instrumentation.ts
+!model.config.example.json
+!LICENSE
+!app/**
+!components/**
+!hooks/**
+!lib/**
+!miniprogram/brand.js
+!miniprogram/app.json
+!public/**
+!scripts/**
+!tests/**
+!vitest.config.ts
+!database/**
+**/AGENTS.md
+**/CLAUDE.md
+**/.env*
+**/model.config.json
+**/*.pem

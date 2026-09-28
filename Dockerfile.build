@@ -1,0 +1,15 @@
+# syntax=docker/dockerfile:1
+# Build on the target Linux architecture. This exports files, not a runtime image.
+FROM node:24-bookworm AS build
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY package.json package-lock.json ./
+RUN npm ci --include=dev
+COPY . .
+# The real runtime config is excluded from the Docker build context.
+RUN cp model.config.example.json model.config.json && npm run build
+ARG TARGETARCH
+RUN node scripts/package-linux.mjs "$TARGETARCH"
+
+FROM scratch AS export
+COPY --from=build /artifacts/ /

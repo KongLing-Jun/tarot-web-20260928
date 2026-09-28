@@ -1,0 +1,543 @@
+@font-face {
+  font-family: 'Miying Spread Serif';
+  src: url('/brand/spread-theme/spread-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Miying Spread Serif';
+  src: url('/brand/spread-theme/spread-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+.selector {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-chinese), 'Miying Spread Serif', 'Songti SC', serif;
+  font-weight: 300;
+}
+.heading {
+  padding: 0 1rem;
+  text-align: center;
+  color: var(--bone);
+}
+.moonCrown {
+  display: block;
+  width: 12.5rem;
+  height: 4.375rem;
+  margin: 0 auto 0.75rem;
+  background: url('/brand/spread-theme/moon-crown.webp') center / contain no-repeat;
+}
+.heading h3 {
+  margin: 0 0 0.375rem;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.4;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em;
+}
+.heading p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.stage {
+  --card-step: 0.94;
+  --confirm-duration: 350ms;
+  position: relative;
+  display: grid;
+  align-items: stretch;
+  perspective: 1000px;
+  overflow: hidden;
+  padding: 1rem 0 1.125rem;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  cursor: grab;
+}
+.stage[data-phase='dragging'] {
+  cursor: grabbing;
+}
+.card {
+  grid-area: 1 / 1;
+  justify-self: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(66%, 21rem);
+  min-width: 0;
+  padding: 4.75rem 1.625rem 2.25rem;
+  isolation: isolate;
+  border: 0;
+  background: transparent;
+  color: var(--bone);
+  font: inherit;
+  text-align: center;
+  transform: translateX(calc(var(--position) * var(--card-step) * 100%)) scale(var(--scale))
+    rotateY(var(--turn));
+  cursor: inherit;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/brand/spread-theme/arch-frame-v2.webp') center / 100% 100% no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+.stage[data-phase='settling'] .card {
+  transition:
+    transform var(--dur-soft) var(--ease-veil),
+    opacity var(--dur-soft) var(--ease-veil);
+}
+.descriptionMark {
+  display: block;
+  background: url('/brand/spread-theme/star.webp') center / contain no-repeat;
+}
+.card h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.5em;
+  margin: 0;
+  font:
+    400 clamp(1.375rem, 8vw, 2rem) / 1.5 var(--font-chinese), 'Miying Spread Serif', 'Songti SC', serif;
+  letter-spacing: 0.12em;
+  color: var(--gold-pale);
+}
+.titleDivider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 88%;
+  height: 0.75rem;
+  margin: 0.375rem 0;
+}
+.titleDivider::before,
+.titleDivider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid rgba(232, 213, 163, 0.35);
+}
+.titleDivider > span {
+  width: 0.5rem;
+  height: 0.75rem;
+  background: url('/brand/spread-theme/star.webp') center / contain no-repeat;
+}
+.purpose {
+  font-size: clamp(0.8125rem, 3.8vw, 1rem);
+  line-height: 1.65;
+  margin-top: 0.375rem;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 0.75rem;
+  color: var(--gold-pale);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+.meta::before,
+.meta::after {
+  content: '';
+  width: 1.25rem;
+  border-top: 1px solid var(--gold-dim);
+}
+.diagramWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 8rem;
+  margin-top: 1rem;
+}
+.diagramWrap::before {
+  content: '';
+  position: absolute;
+  width: 115%;
+  max-width: 14rem;
+  aspect-ratio: 1;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('/brand/spread-theme/orbit.webp') center / contain no-repeat;
+  opacity: 0.68;
+  pointer-events: none;
+}
+.diagramCanvas {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.positionName,
+.positionNumber {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  color: var(--bone);
+  line-height: 1;
+}
+.positionName {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.positionNumber {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-shadow:
+    0 1px 2px var(--ink-deep),
+    0 -1px 2px var(--ink-deep);
+}
+.descriptionMark {
+  width: 0.875rem;
+  height: 1.0625rem;
+  margin: 0.625rem 0 0.75rem;
+}
+.card p {
+  width: 100%;
+  margin: 0;
+  color: var(--bone);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  height: 1rem;
+}
+.pagination span {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: var(--gold-dim);
+}
+.pagination span[data-active='true'] {
+  width: 0.375rem;
+  height: 0.375rem;
+  background: var(--gold-pale);
+}
+.hint > span:not(:global(.sr-only)) {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--gold-pale);
+  letter-spacing: 0.025em;
+}
+.card[aria-pressed='true'] {
+  cursor: pointer;
+}
+.stage[data-phase='dragging'] .card {
+  cursor: grabbing;
+}
+.hint {
+  margin: 0.75rem 0 0;
+  padding: 0 0.75rem;
+  color: var(--bone-dim);
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+}
+.stage:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: -3px;
+}
+.card:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+@media (min-width: 768px) {
+  .card {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage[data-phase='settling'] .card {
+    transition: none;
+  }
+}
+
+.confirmHint {
+  display: block;
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--gold-dim);
+  color: var(--gold-pale);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.confirmHint > span {
+  display: inline-block;
+  margin-left: 0.375rem;
+}
+.card {
+  -webkit-tap-highlight-color: transparent;
+}
+.stage[data-phase='idle'] .card[aria-pressed='true']:active {
+  scale: 0.985;
+  transition: scale 80ms ease-out;
+}
+.stage[data-phase='confirming'] .card[data-slot='0'] {
+  animation: confirm-spread var(--confirm-duration) ease-out both;
+}
+.stage[data-phase='confirming'] .card[data-slot='0']::before {
+  animation: confirm-foil var(--confirm-duration) ease-out both;
+}
+.stage[data-phase='confirming'] .card:not([data-slot='0']) {
+  animation: recede-spread var(--confirm-duration) ease-out both;
+}
+@keyframes confirm-spread {
+  0% {
+    scale: 0.985;
+  }
+  60% {
+    scale: 1.025;
+  }
+  100% {
+    scale: 1.015;
+  }
+}
+@keyframes confirm-foil {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  45% {
+    filter: brightness(1.15);
+  }
+}
+@keyframes recede-spread {
+  to {
+    scale: 0.95;
+    opacity: 0.12;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage .card,
+  .stage .card::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Shared moon-arch presentation for browsing and in-flow selection. */
+.heading h1 {
+  margin: 0 0 0.375rem;
+  font:
+    400 1.875rem/1.4 var(--font-chinese), 'Miying Spread Serif', 'Songti SC', serif;
+  letter-spacing: 0.16em;
+  color: var(--gold-pale);
+}
+.english {
+  font:
+    italic 1rem/1.6 var(--font-chinese), var(--font-heading), Georgia, serif;
+  color: var(--gold-pale);
+  margin-bottom: 0.875rem !important;
+}
+.selector .moonCrown {
+  height: 3rem;
+  margin-bottom: 0.5rem;
+}
+.selector .card {
+  padding: 3.875rem 1.625rem 2rem;
+}
+.cardSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.cardSelect:focus-visible,
+.detailsButton:focus-visible,
+.primary:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+.selector .cardMark {
+  display: none;
+}
+.selector .diagramWrap {
+  margin-top: 1rem;
+  height: 8rem;
+}
+.selector .card p {
+  min-height: 3.3em;
+}
+.detailsButton {
+  margin-top: 1rem;
+  min-height: 44px;
+  width: 100%;
+  padding: 0.5rem;
+  border-top: 1px solid var(--gold-dim);
+  color: var(--gold-pale);
+  font: inherit;
+  cursor: pointer;
+}
+.pageNumber {
+  text-align: center;
+  margin: 0.625rem 0 1rem;
+  font:
+    italic 1rem/1.5 var(--font-chinese), var(--font-heading), Georgia, serif;
+  color: var(--gold-pale);
+  letter-spacing: 0.1em;
+}
+.primary {
+  display: block;
+  width: min(78%, 22rem);
+  min-height: 54px;
+  margin: 0 auto;
+  padding: 0.875rem 1rem;
+  background: var(--ink-veil);
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold-faint);
+  outline-offset: 4px;
+  color: var(--gold-pale);
+  font:
+    400 1.125rem/1.5 var(--font-chinese), 'Miying Spread Serif', 'Songti SC', serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.primary:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.detailsPanel {
+  width: min(78%, 30rem);
+  max-height: 18rem;
+  overflow-y: auto;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-block: 1px solid var(--gold-faint);
+  background: var(--ink-veil);
+}
+.detailsPanel ol {
+  padding-left: 1.25rem;
+  list-style: decimal;
+}
+.detailsPanel li {
+  padding: 0.5rem 0;
+  color: var(--gold-pale);
+  line-height: 1.7;
+}
+.detailsPanel p {
+  color: var(--bone);
+  font-size: 0.875rem;
+}
+.guidancePanel {
+  width: min(88%, 30rem);
+  margin: 1rem auto;
+  padding-block: 1rem;
+  border-block: 1px solid var(--gold-faint);
+}
+.guidancePanel dl {
+  display: grid;
+  gap: 0.875rem;
+  margin: 0;
+}
+.guidancePanel dt {
+  margin-bottom: 0.25rem;
+  color: var(--gold-pale);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.guidancePanel dd {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) and (max-height: 780px) {
+  .selector .moonCrown {
+    height: 2.625rem;
+    margin-bottom: 0.25rem;
+  }
+  .heading h1 {
+    font-size: 1.75rem;
+  }
+  .stage {
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+  .selector .card {
+    padding: 3.5rem 1.25rem 1.625rem;
+  }
+  .selector .diagramWrap {
+    height: 6.75rem;
+    margin-top: 0.5rem;
+  }
+  .diagramCanvas {
+    max-height: 6.75rem;
+    width: auto;
+    max-width: 100%;
+  }
+  .card p,
+  .purpose {
+    font-size: 0.8125rem;
+  }
+  .meta {
+    margin-top: 0.375rem;
+  }
+  .descriptionMark {
+    height: 0.75rem;
+    margin-block: 0.25rem;
+  }
+  .confirmHint {
+    margin-top: 0.625rem;
+    padding-top: 0.5rem;
+    font-size: 0.8125rem;
+  }
+  .hint {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+@media (max-width: 359px) {
+  .selector .card {
+    width: 70%;
+    padding-inline: 1.25rem;
+  }
+  .card p,
+  .confirmHint {
+    font-size: 0.75rem;
+  }
+  .heading h1 {
+    font-size: 1.625rem;
+  }
+}
+@media (max-width: 767px) and (max-height: 680px) {
+  .selector .moonCrown {
+    height: 2.25rem;
+  }
+  .titleDivider {
+    height: 0.5rem;
+    margin-block: 0.125rem;
+  }
+  .hint {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+}

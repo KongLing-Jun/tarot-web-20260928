@@ -1,0 +1,193 @@
+.launcher {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.launchButton,
+.replay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  color: var(--gold-pale);
+  font: 14px/1.5 var(--font-body);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-faint);
+}
+.launchButton[aria-disabled='true'] {
+  cursor: wait;
+}
+.launchButton:hover,
+.replay:hover {
+  color: var(--bone);
+}
+.launchButton:focus-visible,
+.replay:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+.status {
+  margin: 0;
+  color: var(--bone-dim);
+  font: 13px/1.6 var(--font-body);
+}
+.status:not(:empty) {
+  margin-top: 8px;
+}
+.replay {
+  margin-top: 16px;
+  padding-left: 0;
+}
+
+.popover:global(.driver-popover) {
+  box-sizing: border-box;
+  width: 340px;
+  min-width: 0;
+  max-width: calc(100vw - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  max-height: calc(100vh - 32px);
+  max-height: calc(
+    100svh - 32px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
+  );
+  padding: 24px;
+  color: var(--bone);
+  background-color: #131212;
+  background-image: radial-gradient(ellipse at 0 0, rgba(232, 213, 163, 0.04), transparent 72%);
+  border: 1px solid rgba(232, 213, 163, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 16px 48px rgba(4, 3, 8, 0.32);
+  font-family: var(--font-body);
+}
+.popover:focus {
+  outline: none;
+}
+.eyebrow {
+  margin: 0 60px 16px 0;
+  color: #c2b8a8;
+  font: 12px/1.5 var(--font-body);
+  letter-spacing: 0.14em;
+}
+.popover :global(.driver-popover-title) {
+  color: #eee0c2;
+  font:
+    400 23px/1.5 'Songti SC',
+    'STSong',
+    'SimSun',
+    serif;
+  letter-spacing: 0.035em;
+}
+.popover :global(.driver-popover-description) {
+  margin-top: 12px !important;
+  color: var(--bone);
+  font: 15px/1.85 var(--font-body);
+}
+.popover :global(.driver-popover-close-btn) {
+  top: 12px;
+  right: 12px;
+  width: auto;
+  height: auto;
+  min-width: 60px;
+  min-height: 44px;
+  border-radius: 999px;
+  color: var(--bone-dim);
+  font: 13px/1.5 var(--font-body);
+}
+.popover :global(.driver-popover-footer) {
+  margin-top: 24px;
+  padding-top: 0;
+  gap: 10px;
+}
+.popover :global(.driver-popover-progress-text) {
+  color: #c2b8a8;
+  font: 13px/1.5 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.popover :global(.driver-popover-navigation-btns) {
+  gap: 8px;
+}
+.popover :global(.driver-popover-footer-btn) {
+  text-align: center;
+  min-height: 44px;
+  min-width: 72px;
+  padding: 8px 16px;
+  margin: 0 !important;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bone);
+  text-shadow: none;
+  font: 14px/1.5 var(--font-body);
+}
+.popover :global(.driver-popover-next-btn) {
+  min-width: 88px;
+  border-color: transparent;
+  background: #e4cfaa;
+  color: var(--ink-void);
+}
+.popover :global(.driver-popover-footer-btn):hover,
+.popover :global(.driver-popover-footer-btn):focus-visible {
+  background: rgba(232, 213, 163, 0.08);
+  color: var(--bone);
+}
+.popover :global(.driver-popover-next-btn):hover,
+.popover :global(.driver-popover-next-btn):focus-visible {
+  background: var(--gold-pale);
+  color: var(--ink-void);
+}
+.popover button:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+.popover :global(.driver-popover-close-btn):hover {
+  color: var(--bone);
+  background: rgba(232, 213, 163, 0.08);
+}
+.popover :global(.driver-popover-arrow-side-top) {
+  border-top-color: #131212;
+}
+.popover :global(.driver-popover-arrow-side-bottom) {
+  border-bottom-color: #1c1a18;
+}
+.popover :global(.driver-popover-arrow-side-left) {
+  border-left-color: #131212;
+}
+.popover :global(.driver-popover-arrow-side-right) {
+  border-right-color: #1c1a18;
+}
+@media (max-width: 359px) {
+  .popover:global(.driver-popover) {
+    padding: 18px;
+  }
+  .popover :global(.driver-popover-footer-btn) {
+    min-width: 60px;
+    padding: 8px;
+  }
+}
+@media (max-height: 440px) {
+  .popover:global(.driver-popover) {
+    overflow-y: auto;
+    padding: 16px;
+  }
+  /* An external arrow would create a horizontal scrollbar in this scrollable panel. */
+  .popover :global(.driver-popover-arrow) {
+    display: none;
+  }
+  .eyebrow {
+    margin-bottom: 4px;
+  }
+  .popover :global(.driver-popover-description) {
+    margin-top: 6px !important;
+    line-height: 1.6;
+  }
+  .popover :global(.driver-popover-footer) {
+    margin-top: 10px;
+    padding-top: 0;
+  }
+  .popover :global(.driver-popover-close-btn) {
+    top: 4px;
+    right: 8px;
+  }
+}

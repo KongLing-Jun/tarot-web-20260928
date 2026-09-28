@@ -1,0 +1,451 @@
+.stage {
+  --reveal-inset: 1.25rem;
+  --reveal-gap: 1rem;
+  --reveal-radius: 0.25rem;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: var(--ritual-width);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--bone);
+  background:
+    radial-gradient(ellipse at 0 0, rgba(232, 213, 163, 0.1), transparent 48%),
+    #211e29 url('/brand/spread-theme/sky.webp') center top / cover no-repeat;
+}
+/* 星盘原画、流动星尘、内容依次叠放，星尘贯穿页头与底部提示区。 */
+.stage::before,
+.stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+.stage::before {
+  background-image:
+    radial-gradient(
+      circle at 18px 28px,
+      rgba(234, 228, 212, 0.65) 0,
+      rgba(212, 184, 115, 0.24) 1px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 95px 107px,
+      rgba(232, 213, 163, 0.5) 0,
+      rgba(212, 184, 115, 0.16) 1px,
+      transparent 2.5px
+    ),
+    radial-gradient(
+      circle at 61px 174px,
+      rgba(200, 210, 240, 0.35) 0,
+      rgba(139, 159, 212, 0.12) 1px,
+      transparent 2.5px
+    );
+  background-size:
+    137px 211px,
+    193px 277px,
+    251px 337px;
+  animation: reveal-dust-rise 16s linear infinite;
+}
+.stage::after {
+  background-image:
+    radial-gradient(
+      circle at 47px 83px,
+      rgba(248, 231, 185, 0.8) 0,
+      rgba(212, 184, 115, 0.25) 1.25px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 173px 227px,
+      rgba(232, 213, 163, 0.6) 0,
+      rgba(212, 184, 115, 0.18) 1px,
+      transparent 3px
+    );
+  background-size:
+    283px 359px,
+    349px 431px;
+  animation:
+    reveal-dust-rise-near 18s linear -8s infinite,
+    reveal-dust-twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes reveal-dust-rise {
+  to {
+    background-position:
+      0 -422px,
+      0 -554px,
+      0 -674px;
+  }
+}
+@keyframes reveal-dust-rise-near {
+  to {
+    background-position:
+      0 -718px,
+      0 -862px;
+  }
+}
+@keyframes reveal-dust-twinkle {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+:global([data-page-hidden]) .stage::before,
+:global([data-page-hidden]) .stage::after {
+  animation-play-state: paused;
+}
+.header {
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.header [data-ritual-part='heading'] {
+  height: auto;
+  min-height: 5rem;
+  padding: 1.25rem 1rem 0;
+}
+.header [data-ritual-part='heading'] h2 {
+  font-size: 1.875rem;
+  letter-spacing: 0.18em;
+}
+.header [data-ritual-part='heading'] p {
+  margin-top: 0.375rem;
+  font: 300 0.875rem / 1.2 var(--font-chinese), var(--ritual-font);
+  letter-spacing: 0.16em;
+}
+.header [data-ritual-part='intro'] {
+  min-height: 8rem;
+  padding: 1rem var(--reveal-inset);
+  border-bottom-color: rgba(232, 213, 163, 0.18);
+}
+.header [data-ritual-part='intro']::after {
+  background-color: transparent;
+}
+.header [data-ritual-part='context'] {
+  width: 64%;
+}
+.header [data-ritual-part='question'] {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.header [data-ritual-part='fox'] {
+  width: min(13rem, 54%);
+  right: 0;
+  bottom: 0;
+}
+.progress {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--reveal-gap);
+  min-height: 2.75rem;
+  padding: 0.5rem var(--reveal-inset);
+  color: var(--gold-pale);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.progress span:last-child {
+  text-align: right;
+}
+.table {
+  position: relative;
+  display: grid;
+  align-content: center;
+  flex: 1;
+  min-height: 22rem;
+  padding: 2.5rem var(--reveal-inset) 1.5rem;
+}
+.table::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: -1rem 0 -1.5rem;
+  background: url('/brand/reveal-theme/celestial-table.webp') center / 100% 100% no-repeat;
+  mask-image: linear-gradient(transparent, #000 10%, #000 83%, transparent);
+  pointer-events: none;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem var(--reveal-gap);
+}
+.position {
+  width: calc((100% - 2 * var(--reveal-gap)) / 3);
+  max-width: 10rem;
+  min-width: 0;
+  text-align: center;
+}
+.position:only-child {
+  width: 9rem;
+}
+.arc {
+  --reveal-gap: 1.5rem;
+  padding-inline: 0.25rem;
+}
+.arc .position {
+  padding-top: 2rem;
+}
+.arc .position:nth-child(1) {
+  --reveal-angle: -5deg;
+}
+.arc .position:nth-child(2) {
+  padding-top: 0;
+}
+.arc .position:nth-child(3) {
+  --reveal-angle: 5deg;
+}
+.positionName {
+  min-height: 1.75rem;
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+/* The outer frame keeps its table angle while the nested card-flip rotates in 3D. */
+.cardFrame {
+  position: relative;
+  transform: rotate(var(--reveal-angle, 0deg));
+  border-radius: var(--reveal-radius);
+  box-shadow: 0 5px 10px rgba(12, 9, 18, 0.25);
+  transition:
+    translate var(--dur-quick) var(--ease-veil),
+    box-shadow var(--dur-quick) var(--ease-veil);
+}
+/* Animate only the light layers, leaving the tilted frame and inner flip independent. */
+.cardFrame[data-reveal-next='true']::before,
+.cardFrame[data-reveal-next='true']::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  animation: reveal-light-breathe 2.8s ease-in-out infinite;
+}
+.cardFrame[data-reveal-next='true']::before {
+  inset: -3px;
+  border: 1px solid rgba(255, 233, 180, 0.95);
+  border-radius: calc(var(--reveal-radius) + 2px);
+  box-shadow:
+    0 0 6px rgba(255, 229, 170, 0.65),
+    0 0 18px rgba(232, 213, 163, 0.32),
+    inset 0 0 5px rgba(232, 213, 163, 0.25);
+}
+.cardFrame[data-reveal-next='true']::after {
+  left: -10%;
+  right: -10%;
+  bottom: -10px;
+  height: 23px;
+  border-radius: 50%;
+  border-bottom: 2px solid rgba(255, 235, 185, 0.95);
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 226, 157, 0.48), transparent 70%);
+  box-shadow: 0 5px 9px -3px rgba(255, 225, 158, 0.8);
+}
+@keyframes reveal-light-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.card {
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  border-radius: inherit;
+}
+.card :global(.card-flip) > * {
+  border-radius: var(--reveal-radius);
+}
+.identity {
+  min-height: 4rem;
+  padding-top: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.identity p {
+  margin: 0;
+}
+.identity p + p {
+  font-size: 0.875rem;
+  color: var(--gold-pale);
+}
+/* Reserve the completed action's space so the last flip does not move the tableau. */
+.dock {
+  flex: 0 0 auto;
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  min-height: calc(8.25rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.875rem var(--reveal-inset) calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+.hint {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--gold-pale);
+}
+.gestureHint {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--bone-dim);
+}
+.primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(232, 213, 163, 0.4);
+  border-radius: 0.25rem;
+  background: linear-gradient(140deg, rgba(232, 213, 163, 0.1), rgba(232, 213, 163, 0.02));
+  color: var(--gold-pale);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.0625rem;
+  letter-spacing: 0.03em;
+  transition:
+    background var(--dur-quick) var(--ease-veil),
+    border-color var(--dur-quick) var(--ease-veil);
+}
+.primary:disabled {
+  color: var(--bone-dim);
+  border-color: var(--gold-faint);
+  cursor: not-allowed;
+}
+.primary:active:not(:disabled) {
+  border-color: var(--gold-pale);
+  background: var(--gold-faint);
+}
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover:not(:disabled) {
+    border-color: var(--gold-pale);
+    background: var(--gold-faint);
+  }
+}
+.service {
+  margin: 0;
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--bone-dim);
+}
+.stage button:focus-visible,
+.stage [role='button']:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+.compact .header [data-ritual-part='heading'] {
+  height: auto;
+  min-height: 5rem;
+  padding-top: 1.25rem;
+}
+.compact .header [data-ritual-part='intro'] {
+  min-height: 6rem;
+  padding-block: 0.5rem;
+}
+.compact .header [data-ritual-part='fox'] {
+  width: min(10rem, 44%);
+}
+.compact .table {
+  padding-top: 0;
+  min-height: 0;
+  background-size: 100% 100%;
+}
+
+@media (max-width: 359px) {
+  .stage {
+    --reveal-inset: 1rem;
+    --reveal-gap: 0.75rem;
+  }
+  .header [data-ritual-part='heading'] h2 {
+    font-size: 1.625rem;
+  }
+  .header [data-ritual-part='question'] {
+    font-size: 1rem;
+  }
+  .header [data-ritual-part='fox'] {
+    width: min(11.5rem, 54%);
+  }
+  .positionName,
+  .identity {
+    font-size: 0.875rem;
+  }
+  .arc {
+    --reveal-gap: 1.125rem;
+  }
+}
+@media (max-height: 740px) and (max-width: 767px) {
+  .table {
+    min-height: 20rem;
+    padding-block: 1.5rem;
+  }
+  .header [data-ritual-part='question'] {
+    font-size: 1rem;
+  }
+}
+@media (max-height: 680px) and (max-width: 767px) {
+  .header [data-ritual-part='heading'] {
+    min-height: 4.5rem;
+    padding-top: 1rem;
+  }
+  .progress {
+    min-height: 2.5rem;
+  }
+  .table {
+    min-height: 17rem;
+    padding-block: 1rem;
+  }
+  .arc .position {
+    padding-top: 1.5rem;
+  }
+  .identity {
+    min-height: 3.25rem;
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 768px) {
+  .stage {
+    --reveal-inset: 2rem;
+    --reveal-gap: 1.5rem;
+  }
+  .header [data-ritual-part='intro'] {
+    min-height: 9rem;
+  }
+  .header [data-ritual-part='question'] {
+    font-size: 1.375rem;
+  }
+  .header [data-ritual-part='fox'] {
+    width: min(16rem, 44%);
+  }
+  .table {
+    min-height: 25rem;
+  }
+  .dock {
+    width: 100%;
+    max-width: 32rem;
+    margin-inline: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage::before,
+  .stage::after,
+  .stage *,
+  .stage *::before,
+  .stage *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

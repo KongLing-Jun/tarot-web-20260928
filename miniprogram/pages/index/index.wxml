@@ -1,0 +1,7 @@
+<web-view wx:if="{{src}}" src="{{src}}" bindload="onWebLoad" binderror="onWebError" />
+<view wx:else class="fallback">
+  <text class="sigil" aria-hidden="true">✦</text>
+  <text class="title">{{brandName}}</text>
+  <text class="message">{{message}}</text>
+  <button class="small-action retry" bindtap="openWebView">重新加载</button>
+</view>

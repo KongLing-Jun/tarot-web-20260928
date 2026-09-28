@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100" role="img" aria-labelledby="title desc"><title id="title">页面路由 · 入口、回看与继续</title><desc id="desc">13 个页面路径；query 表达入口意图，筛选和占卜阶段留在页面内部。</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#BBB5C7"/></marker></defs><rect width="1200" height="1100" rx="18" fill="#08060F"/><style>text{font-family:'Microsoft YaHei','PingFang SC',sans-serif;fill:#EAE4D4}.mono{font-family:Consolas,'Microsoft YaHei',monospace}.title{font-family:'Microsoft YaHei',serif;font-weight:600}</style>
+<text x="40" y="40" font-size="14" style="fill:#C9A961" class="mono">月映卡语  /  CODE ATLAS</text>
+<text x="40" y="87" font-size="30" style="fill:#EAE4D4" class="title">页面路由 · 入口、回看与继续</text>
+<text x="40" y="121" font-size="17" style="fill:#BBB5C7" class="">13 个页面路径；query 表达入口意图，筛选和占卜阶段留在页面内部。</text>
+<path d="M40 145H1160" stroke="#464052"/>
+<g data-box="主导航" data-x="40" data-y="175" data-w="1120" data-h="96"><rect x="40" y="175" width="1120" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 195h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="221" font-size="20" style="fill:#C9A961" class="">主导航</text>
+<text x="58" y="248" font-size="16" style="fill:#EAE4D4" class="">首页 /    对话 /agent    今日 /daily    牌典 /library    轨迹 /history    我的 /profile</text>
+</g>
+<text x="40" y="308" font-size="16" style="fill:#C9A961" class="">探索与手动占卜</text>
+<g data-box="首页 /" data-x="40" data-y="327" data-w="285" data-h="124"><rect x="40" y="327" width="285" height="124" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 347h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="373" font-size="20" style="fill:#C9A961" class="">首页 /</text>
+<text x="58" y="400" font-size="16" style="fill:#EAE4D4" class="">AI 新对话：new=1</text>
+<text x="58" y="425" font-size="16" style="fill:#EAE4D4" class="">自己选阵：/reading</text>
+</g>
+<g data-box="牌阵 /spreads" data-x="380" data-y="327" data-w="345" data-h="124"><rect x="380" y="327" width="345" height="124" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M398 347h16" stroke="#C9A961" stroke-width="3"/>
+<text x="398" y="373" font-size="20" style="fill:#C9A961" class="">牌阵 /spreads</text>
+<text x="398" y="400" font-size="16" style="fill:#EAE4D4" class="">?spread=牌阵 ID</text>
+<text x="398" y="425" font-size="16" style="fill:#EAE4D4" class="">?scene=四场景 ID</text>
+</g>
+<g data-box="手动 /reading" data-x="790" data-y="327" data-w="370" data-h="124"><rect x="790" y="327" width="370" height="124" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M808 347h16" stroke="#C9A961" stroke-width="3"/>
+<text x="808" y="373" font-size="20" style="fill:#C9A961" class="">手动 /reading</text>
+<text x="808" y="400" font-size="16" style="fill:#EAE4D4" class="">提问 → 抽牌 → 解读</text>
+<text x="808" y="425" font-size="16" style="fill:#EAE4D4" class="">阶段切换不更换 URL</text>
+</g>
+<path d="M325 387H380" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M725 387H790" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="40" y="493" font-size="16" style="fill:#8B9FD4" class="">占卜档案与会话恢复</text>
+<g data-box="轨迹 /history" data-x="40" data-y="512" data-w="285" data-h="96"><rect x="40" y="512" width="285" height="96" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M58 532h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="58" y="558" font-size="20" style="fill:#8B9FD4" class="">轨迹 /history</text>
+<text x="58" y="585" font-size="16" style="fill:#EAE4D4" class="">列表 / 回看 / 删除</text>
+</g>
+<g data-box="详情 /history/[id]" data-x="380" data-y="512" data-w="345" data-h="96"><rect x="380" y="512" width="345" height="96" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M398 532h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="398" y="558" font-size="20" style="fill:#8B9FD4" class="">详情 /history/[id]</text>
+<text x="398" y="585" font-size="16" style="fill:#EAE4D4" class="">保存的牌阵、解读和追问</text>
+</g>
+<g data-box="对话 /agent" data-x="790" data-y="512" data-w="370" data-h="124"><rect x="790" y="512" width="370" height="124" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M808 532h16" stroke="#C9A961" stroke-width="3"/>
+<text x="808" y="558" font-size="20" style="fill:#C9A961" class="">对话 /agent</text>
+<text x="808" y="585" font-size="16" style="fill:#EAE4D4" class="">?readingId=记录 ID</text>
+<text x="808" y="610" font-size="16" style="fill:#EAE4D4" class="">恢复后继续聊</text>
+</g>
+<path d="M325 562H380" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M725 562H790" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M182 608V655H975V636" fill="none" stroke="#BBB5C7" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<text x="392" y="648" font-size="16" style="fill:#BBB5C7" class="">列表也可直接“继续聊”</text>
+<text x="40" y="708" font-size="16" style="fill:#B2A8D6" class="">其他页面与兼容入口</text>
+<g data-box="每日 /daily" data-x="40" data-y="725" data-w="350" data-h="96"><rect x="40" y="725" width="350" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M58 745h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="58" y="771" font-size="20" style="fill:#B2A8D6" class="">每日 /daily</text>
+<text x="58" y="798" font-size="16" style="fill:#EAE4D4" class="">日期与札记在页内切换</text>
+</g>
+<g data-box="牌典 /library" data-x="425" data-y="725" data-w="350" data-h="96"><rect x="425" y="725" width="350" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M443 745h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="443" y="771" font-size="20" style="fill:#B2A8D6" class="">牌典 /library</text>
+<text x="443" y="798" font-size="16" style="fill:#EAE4D4" class="">→ /library/[id]</text>
+</g>
+<g data-box="个人 /profile" data-x="810" data-y="725" data-w="350" data-h="96"><rect x="810" y="725" width="350" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M828 745h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="828" y="771" font-size="20" style="fill:#B2A8D6" class="">个人 /profile</text>
+<text x="828" y="798" font-size="16" style="fill:#EAE4D4" class="">→ /profile/avatar</text>
+</g>
+<text x="40" y="865" font-size="18" style="fill:#EAE4D4" class="">消息日志：/history → /history/messages；可返回轨迹或开启新对话。</text>
+<text x="40" y="903" font-size="18" style="fill:#EAE4D4" class="">场景：relationship（5 张） · two-options（5 张）</text>
+<text x="40" y="939" font-size="18" style="fill:#EAE4D4" class="">场景：progress（3 张） · preparation（1 张）；首次均为空白草稿。</text>
+<text x="40" y="991" font-size="18" style="fill:#BBB5C7" class="">旧购买路径：/profile/credits → /profile（服务端重定向，非当前购买页）。</text>
+<path d="M40 1050H1160" stroke="#464052"/>
+<text x="40" y="1078" font-size="14" style="fill:#BBB5C7" class="">源码基准 4c281c7  ·  2026-09-23  ·  箭头表示调用、跳转或状态方向</text>
+<text x="990" y="1078" font-size="14" style="fill:#C9A961" class="mono">月映卡语 / DOCS</text>
+</svg>

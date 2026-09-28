@@ -1,0 +1,24 @@
+# Generated files and installed dependencies
+node_modules/
+.next/
+out/
+build/
+coverage/
+release/
+next-env.d.ts
+package-lock.json
+
+# Private local configuration
+model.config.json
+project.private.config.json
+.env*
+
+# Documentation, assets and non-JavaScript toolchains are maintained separately
+docs/
+public/
+database/
+*.md
+*.yml
+*.yaml
+*.html
+*.svg

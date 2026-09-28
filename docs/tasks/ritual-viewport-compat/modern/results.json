@@ -1,0 +1,133 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 744
+      },
+      "artwork": {
+        "stageHeight": 347,
+        "cardWidth": 128,
+        "cardHeight": 208
+      },
+      "legacyViewportUnits": false,
+      "shuffle": [
+        {
+          "name": "修改问题",
+          "width": 169,
+          "height": 52,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 169,
+          "height": 52,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "开始洗牌",
+          "width": 354,
+          "height": 53,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "draw": [
+        {
+          "name": "上一张",
+          "width": 72.6875,
+          "height": 44,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "下一张",
+          "width": 72.6875,
+          "height": 44,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "撤回上一张",
+          "width": 81,
+          "height": 71.5,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": true,
+          "opacity": "0.35"
+        },
+        {
+          "name": "修改问题",
+          "width": 81,
+          "height": 71.5,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "修改牌阵",
+          "width": 81,
+          "height": 71.5,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "重新洗牌",
+          "width": 81,
+          "height": 71.5,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        },
+        {
+          "name": "抽取这张",
+          "width": 354,
+          "height": 53,
+          "inViewport": true,
+          "labelFits": true,
+          "hit": true,
+          "labelVisible": true,
+          "disabled": false,
+          "opacity": "1"
+        }
+      ],
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "limitations": "Chrome 隔离模拟登录/配置；未验证微信真机。"
+}

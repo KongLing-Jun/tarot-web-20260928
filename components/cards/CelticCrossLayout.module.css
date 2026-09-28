@@ -1,0 +1,107 @@
+.ritual {
+  color: var(--bone);
+}
+.views {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.views button {
+  flex: 1;
+  padding: 0.5rem;
+  min-height: 44px;
+  border: 0;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--bone-dim);
+}
+.views button[aria-pressed='true'] {
+  color: var(--gold-pale);
+  background: var(--ink-burgundy) url('/brand/ritual-theme/gold-foil.webp') center / cover;
+  background-blend-mode: soft-light;
+  border-radius: 2rem;
+}
+.ritual .grid {
+  gap: 0.5rem 0.25rem;
+  padding: 0.25rem 0 0;
+}
+.grid .cell {
+  min-height: 0;
+  gap: 0.375rem;
+  justify-content: flex-start;
+  align-self: start;
+  width: 100%;
+}
+/* 图片重试必须位于交叉牌之上，避免横置牌拦截按钮。 */
+.grid .cell:has(button) {
+  z-index: 3 !important;
+}
+.cell > span:first-child {
+  min-height: 1.25rem;
+  font: 300 0.875rem / 1.4 var(--font-chinese), var(--ritual-font);
+  color: var(--gold-pale);
+  white-space: normal;
+  overflow: visible;
+  max-width: 100%;
+}
+.cell > span:last-child {
+  min-height: 2.375rem;
+  max-width: 100%;
+  font: 300 0.875rem / 1.35 var(--font-chinese), var(--ritual-font);
+  color: var(--bone);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow: visible;
+}
+.card {
+  width: 3.25rem;
+  aspect-ratio: 3 / 5;
+}
+.next {
+  outline: 1px solid var(--gold-pale);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+.grid [data-reveal-position='1'] > span:last-child,
+.grid [data-reveal-position='2'] > span:last-child {
+  min-height: 6.5rem;
+}
+.challenge > span:last-child {
+  transform: none;
+  translate: 0 2.125rem;
+}
+.positions button {
+  border-color: var(--gold-faint);
+  font-family: var(--font-chinese), var(--ritual-font);
+}
+.positions button:disabled {
+  opacity: 0.6;
+}
+.detail {
+  border-color: var(--gold-faint);
+  overflow-wrap: anywhere;
+}
+.detail h3 {
+  font-family: var(--font-chinese), var(--ritual-font);
+  color: var(--gold-pale);
+}
+@media (min-width: 768px) {
+  .ritual .grid {
+    column-gap: 0.5rem;
+  }
+  .card {
+    width: 4rem;
+  }
+}
+
+/* 未轮到的横置牌不拦截下方当前牌的轻点。 */
+.ritual .cell[data-reveal-pending='true'] {
+  pointer-events: none;
+}
+.positions button[aria-pressed='true'] {
+  border-color: var(--gold-pale);
+  box-shadow: 0 0 10px var(--gold-glow);
+}

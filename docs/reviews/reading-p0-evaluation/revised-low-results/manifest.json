@@ -1,0 +1,805 @@
+{
+  "version": 1,
+  "source": "synthetic",
+  "suite": "empathy",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "dirty": true,
+  "preparedAt": "2026-09-18T13:05:29.045Z",
+  "model": "deepseek-v4-flash",
+  "stream": true,
+  "thinking": "enabled",
+  "reasoningEffort": "low",
+  "timeoutMs": 180000,
+  "maxOutputTokens": 65536,
+  "cases": [
+    {
+      "scenario": {
+        "id": "correct-fact",
+        "mode": "direct",
+        "spreadId": "three-card",
+        "question": "我最近两周投了六份简历，收到一次面试邀请，还没有结果。接下来应该调整求职方向，还是继续投当前岗位？",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-02",
+              "name": "The High Priestess",
+              "nameCn": "女祭司",
+              "type": "major",
+              "number": 2,
+              "image": "/cards/major/02-high-priestess.jpg",
+              "keywords": {
+                "upright": [
+                  "直觉",
+                  "神秘",
+                  "内在智慧",
+                  "潜意识",
+                  "灵性"
+                ],
+                "reversed": [
+                  "秘密",
+                  "隐藏",
+                  "忽视直觉",
+                  "表面"
+                ]
+              },
+              "meaning": {
+                "upright": "提醒你倾听内心的声音，相信直觉。答案可能隐藏在潜意识深处。",
+                "reversed": "可能忽视了重要的直觉信号，或有秘密尚未揭露。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-1",
+              "name": "Past",
+              "nameCn": "过去",
+              "description": "影响当前情况的过去因素"
+            }
+          },
+          {
+            "card": {
+              "id": "major-03",
+              "name": "The Empress",
+              "nameCn": "女皇",
+              "type": "major",
+              "number": 3,
+              "image": "/cards/major/03-empress.jpg",
+              "keywords": {
+                "upright": [
+                  "丰饶",
+                  "母性",
+                  "自然",
+                  "创造",
+                  "美丽"
+                ],
+                "reversed": [
+                  "依赖",
+                  "空虚",
+                  "创造力受阻",
+                  "忽视自我"
+                ]
+              },
+              "meaning": {
+                "upright": "代表丰盛、创造力和滋养。可能暗示怀孕、新项目诞生或物质丰裕。",
+                "reversed": "可能感到创造力枯竭或过度依赖他人。需要重新连接自然和内在力量。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "three-2",
+              "name": "Present",
+              "nameCn": "现在",
+              "description": "当前的状态和挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-04",
+              "name": "The Emperor",
+              "nameCn": "皇帝",
+              "type": "major",
+              "number": 4,
+              "image": "/cards/major/04-emperor.jpg",
+              "keywords": {
+                "upright": [
+                  "权威",
+                  "结构",
+                  "控制",
+                  "父性",
+                  "稳定"
+                ],
+                "reversed": [
+                  "专制",
+                  "僵化",
+                  "缺乏纪律",
+                  "滥用权力"
+                ]
+              },
+              "meaning": {
+                "upright": "象征权威、秩序和稳定。暗示需要建立结构或寻求有经验者的指导。",
+                "reversed": "可能暗示过度控制或缺乏纪律。需要在权威和灵活性之间找到平衡。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-3",
+              "name": "Future",
+              "nameCn": "未来",
+              "description": "如果继续当前道路可能的结果"
+            }
+          }
+        ],
+        "previousInterpretation": "你可能因面试结果焦虑。可以选一份已投岗位，对照招聘要求检查简历，观察能否找到需要补充的经历。",
+        "followUpQuestion": "你理解错了：我只是收到面试邀请，还没面试。我想知道今天能准备什么。",
+        "source": "synthetic",
+        "knownFacts": [
+          "我最近两周投了六份简历，收到一次面试邀请，还没有结果。接下来应该调整求职方向，还是继续投当前岗位？",
+          "你理解错了：我只是收到面试邀请，还没面试。我想知道今天能准备什么。"
+        ],
+        "goal": "你理解错了：我只是收到面试邀请，还没面试。我想知道今天能准备什么。",
+        "rejectedGoals": [],
+        "review": [
+          "优先回应本轮明确补充",
+          "旧模型解释不能覆盖用户事实和纠正"
+        ]
+      },
+      "promptFile": "correct-fact.prompt.md",
+      "promptHash": "d485f99361279c721af1093a1f79a82d810b6efbe18240f875a4391004dceff9"
+    },
+    {
+      "scenario": {
+        "id": "three-card",
+        "mode": "initial",
+        "spreadId": "three-card",
+        "question": "我最近两周投了六份简历，收到一次面试邀请，还没有结果。接下来应该调整求职方向，还是继续投当前岗位？",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-02",
+              "name": "The High Priestess",
+              "nameCn": "女祭司",
+              "type": "major",
+              "number": 2,
+              "image": "/cards/major/02-high-priestess.jpg",
+              "keywords": {
+                "upright": [
+                  "直觉",
+                  "神秘",
+                  "内在智慧",
+                  "潜意识",
+                  "灵性"
+                ],
+                "reversed": [
+                  "秘密",
+                  "隐藏",
+                  "忽视直觉",
+                  "表面"
+                ]
+              },
+              "meaning": {
+                "upright": "提醒你倾听内心的声音，相信直觉。答案可能隐藏在潜意识深处。",
+                "reversed": "可能忽视了重要的直觉信号，或有秘密尚未揭露。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-1",
+              "name": "Past",
+              "nameCn": "过去",
+              "description": "影响当前情况的过去因素"
+            }
+          },
+          {
+            "card": {
+              "id": "major-03",
+              "name": "The Empress",
+              "nameCn": "女皇",
+              "type": "major",
+              "number": 3,
+              "image": "/cards/major/03-empress.jpg",
+              "keywords": {
+                "upright": [
+                  "丰饶",
+                  "母性",
+                  "自然",
+                  "创造",
+                  "美丽"
+                ],
+                "reversed": [
+                  "依赖",
+                  "空虚",
+                  "创造力受阻",
+                  "忽视自我"
+                ]
+              },
+              "meaning": {
+                "upright": "代表丰盛、创造力和滋养。可能暗示怀孕、新项目诞生或物质丰裕。",
+                "reversed": "可能感到创造力枯竭或过度依赖他人。需要重新连接自然和内在力量。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "three-2",
+              "name": "Present",
+              "nameCn": "现在",
+              "description": "当前的状态和挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-04",
+              "name": "The Emperor",
+              "nameCn": "皇帝",
+              "type": "major",
+              "number": 4,
+              "image": "/cards/major/04-emperor.jpg",
+              "keywords": {
+                "upright": [
+                  "权威",
+                  "结构",
+                  "控制",
+                  "父性",
+                  "稳定"
+                ],
+                "reversed": [
+                  "专制",
+                  "僵化",
+                  "缺乏纪律",
+                  "滥用权力"
+                ]
+              },
+              "meaning": {
+                "upright": "象征权威、秩序和稳定。暗示需要建立结构或寻求有经验者的指导。",
+                "reversed": "可能暗示过度控制或缺乏纪律。需要在权威和灵活性之间找到平衡。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-3",
+              "name": "Future",
+              "nameCn": "未来",
+              "description": "如果继续当前道路可能的结果"
+            }
+          }
+        ],
+        "source": "synthetic",
+        "knownFacts": [
+          "我最近两周投了六份简历，收到一次面试邀请，还没有结果。接下来应该调整求职方向，还是继续投当前岗位？"
+        ],
+        "goal": "我最近两周投了六份简历，收到一次面试邀请，还没有结果。接下来应该调整求职方向，还是继续投当前岗位？",
+        "rejectedGoals": [],
+        "review": [
+          "保留两周、六份申请、一次邀请且未面试的事实",
+          "不把没有结果推断为能力差或方法无效"
+        ]
+      },
+      "promptFile": "three-card.prompt.md",
+      "promptHash": "ca39aafa76a4cd345417a37e43e6d118bd03c4b5f60e94845266f0eb1ee60f99"
+    },
+    {
+      "scenario": {
+        "id": "two-options",
+        "mode": "initial",
+        "spreadId": "two-options",
+        "question": "我有两个工作选择：A 是熟悉的运营岗位，通勤半小时，收入稳定；B 是转做产品助理，通勤一小时，起薪稍低。我希望学新东西，但目前只有三个月生活费。该如何选择？",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-04",
+              "name": "The Emperor",
+              "nameCn": "皇帝",
+              "type": "major",
+              "number": 4,
+              "image": "/cards/major/04-emperor.jpg",
+              "keywords": {
+                "upright": [
+                  "权威",
+                  "结构",
+                  "控制",
+                  "父性",
+                  "稳定"
+                ],
+                "reversed": [
+                  "专制",
+                  "僵化",
+                  "缺乏纪律",
+                  "滥用权力"
+                ]
+              },
+              "meaning": {
+                "upright": "象征权威、秩序和稳定。暗示需要建立结构或寻求有经验者的指导。",
+                "reversed": "可能暗示过度控制或缺乏纪律。需要在权威和灵活性之间找到平衡。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "two-options-1",
+              "name": "Current Situation",
+              "nameCn": "当前处境",
+              "description": "你目前面对这个抉择的核心状态"
+            }
+          },
+          {
+            "card": {
+              "id": "major-05",
+              "name": "The Hierophant",
+              "nameCn": "教皇",
+              "type": "major",
+              "number": 5,
+              "image": "/cards/major/05-hierophant.jpg",
+              "keywords": {
+                "upright": [
+                  "传统",
+                  "信仰",
+                  "教育",
+                  "指导",
+                  "仪式"
+                ],
+                "reversed": [
+                  "叛逆",
+                  "非传统",
+                  "挑战权威",
+                  "个人信念"
+                ]
+              },
+              "meaning": {
+                "upright": "代表传统智慧、精神指导和正规教育。可能暗示寻求导师或遵循传统。",
+                "reversed": "可能在挑战传统或寻找自己的精神道路。鼓励独立思考。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "two-options-2",
+              "name": "Option A Process",
+              "nameCn": "选择A的发展",
+              "description": "选择A将经历的过程与挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-06",
+              "name": "The Lovers",
+              "nameCn": "恋人",
+              "type": "major",
+              "number": 6,
+              "image": "/cards/major/06-lovers.jpg",
+              "keywords": {
+                "upright": [
+                  "爱情",
+                  "和谐",
+                  "选择",
+                  "价值观",
+                  "结合"
+                ],
+                "reversed": [
+                  "失衡",
+                  "价值冲突",
+                  "不和谐",
+                  "错误选择"
+                ]
+              },
+              "meaning": {
+                "upright": "象征爱情、和谐关系和重要选择。可能面临需要遵从内心的决定。",
+                "reversed": "可能暗示关系不和谐或价值观冲突。需要重新审视自己的选择。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "two-options-3",
+              "name": "Option A Outcome",
+              "nameCn": "选择A的结果",
+              "description": "选择A最终可能带来的结果"
+            }
+          },
+          {
+            "card": {
+              "id": "major-07",
+              "name": "The Chariot",
+              "nameCn": "战车",
+              "type": "major",
+              "number": 7,
+              "image": "/cards/major/07-chariot.jpg",
+              "keywords": {
+                "upright": [
+                  "胜利",
+                  "意志力",
+                  "决心",
+                  "控制",
+                  "前进"
+                ],
+                "reversed": [
+                  "失控",
+                  "缺乏方向",
+                  "侵略性",
+                  "障碍"
+                ]
+              },
+              "meaning": {
+                "upright": "代表通过意志力和决心获得胜利。暗示你有能力克服障碍，向目标前进。",
+                "reversed": "可能感到失去控制或方向不明。需要重新聚焦并掌控局面。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "two-options-4",
+              "name": "Option B Process",
+              "nameCn": "选择B的发展",
+              "description": "选择B将经历的过程与挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-08",
+              "name": "Strength",
+              "nameCn": "力量",
+              "type": "major",
+              "number": 8,
+              "image": "/cards/major/08-strength.jpg",
+              "keywords": {
+                "upright": [
+                  "勇气",
+                  "耐心",
+                  "内在力量",
+                  "温柔",
+                  "自信"
+                ],
+                "reversed": [
+                  "自我怀疑",
+                  "软弱",
+                  "缺乏自信",
+                  "粗暴"
+                ]
+              },
+              "meaning": {
+                "upright": "象征内在力量、勇气和温柔的坚持。提醒你真正的力量来自内心。",
+                "reversed": "可能正在经历自我怀疑或感到软弱。需要重新连接内在力量。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "two-options-5",
+              "name": "Option B Outcome",
+              "nameCn": "选择B的结果",
+              "description": "选择B最终可能带来的结果"
+            }
+          }
+        ],
+        "source": "synthetic",
+        "knownFacts": [
+          "我有两个工作选择：A 是熟悉的运营岗位，通勤半小时，收入稳定；B 是转做产品助理，通勤一小时，起薪稍低。我希望学新东西，但目前只有三个月生活费。该如何选择？"
+        ],
+        "goal": "我有两个工作选择：A 是熟悉的运营岗位，通勤半小时，收入稳定；B 是转做产品助理，通勤一小时，起薪稍低。我希望学新东西，但目前只有三个月生活费。该如何选择？",
+        "rejectedGoals": [],
+        "review": [
+          "准确保留 A/B 的岗位、通勤、收入差别",
+          "结合三个月生活费比较学习机会与成本，不替用户决定"
+        ]
+      },
+      "promptFile": "two-options.prompt.md",
+      "promptHash": "5e09fc1a48efa0975d8cf8a9118831947ad15ee333b8f7c1c4f1d824df72578b"
+    },
+    {
+      "scenario": {
+        "id": "context-vague",
+        "mode": "initial",
+        "spreadId": "three-card",
+        "question": "想看最近这件事的走向。",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-02",
+              "name": "The High Priestess",
+              "nameCn": "女祭司",
+              "type": "major",
+              "number": 2,
+              "image": "/cards/major/02-high-priestess.jpg",
+              "keywords": {
+                "upright": [
+                  "直觉",
+                  "神秘",
+                  "内在智慧",
+                  "潜意识",
+                  "灵性"
+                ],
+                "reversed": [
+                  "秘密",
+                  "隐藏",
+                  "忽视直觉",
+                  "表面"
+                ]
+              },
+              "meaning": {
+                "upright": "提醒你倾听内心的声音，相信直觉。答案可能隐藏在潜意识深处。",
+                "reversed": "可能忽视了重要的直觉信号，或有秘密尚未揭露。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-1",
+              "name": "Past",
+              "nameCn": "过去",
+              "description": "影响当前情况的过去因素"
+            }
+          },
+          {
+            "card": {
+              "id": "major-03",
+              "name": "The Empress",
+              "nameCn": "女皇",
+              "type": "major",
+              "number": 3,
+              "image": "/cards/major/03-empress.jpg",
+              "keywords": {
+                "upright": [
+                  "丰饶",
+                  "母性",
+                  "自然",
+                  "创造",
+                  "美丽"
+                ],
+                "reversed": [
+                  "依赖",
+                  "空虚",
+                  "创造力受阻",
+                  "忽视自我"
+                ]
+              },
+              "meaning": {
+                "upright": "代表丰盛、创造力和滋养。可能暗示怀孕、新项目诞生或物质丰裕。",
+                "reversed": "可能感到创造力枯竭或过度依赖他人。需要重新连接自然和内在力量。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "three-2",
+              "name": "Present",
+              "nameCn": "现在",
+              "description": "当前的状态和挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-04",
+              "name": "The Emperor",
+              "nameCn": "皇帝",
+              "type": "major",
+              "number": 4,
+              "image": "/cards/major/04-emperor.jpg",
+              "keywords": {
+                "upright": [
+                  "权威",
+                  "结构",
+                  "控制",
+                  "父性",
+                  "稳定"
+                ],
+                "reversed": [
+                  "专制",
+                  "僵化",
+                  "缺乏纪律",
+                  "滥用权力"
+                ]
+              },
+              "meaning": {
+                "upright": "象征权威、秩序和稳定。暗示需要建立结构或寻求有经验者的指导。",
+                "reversed": "可能暗示过度控制或缺乏纪律。需要在权威和灵活性之间找到平衡。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-3",
+              "name": "Future",
+              "nameCn": "未来",
+              "description": "如果继续当前道路可能的结果"
+            }
+          }
+        ],
+        "source": "synthetic",
+        "knownFacts": [],
+        "goal": "明确关键问题后再做针对性解读",
+        "rejectedGoals": [],
+        "review": [
+          "简短回应后尽早问一个关键问题",
+          "不先列工作感情财务等多种可能",
+          "不逐牌重复免责声明"
+        ]
+      },
+      "promptFile": "context-vague.prompt.md",
+      "promptHash": "a41d7c2111d46645f081161cd759cb5295a439e95b951d0b3097eb90ad4257b3"
+    },
+    {
+      "scenario": {
+        "id": "context-specific",
+        "mode": "initial",
+        "spreadId": "three-card",
+        "question": "我已经接到电商运营二面邀请，周五面试，还没进行。面试官让我讲一个以前做过的项目，我只有周四晚上两小时准备。怎样准备最有效？",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-02",
+              "name": "The High Priestess",
+              "nameCn": "女祭司",
+              "type": "major",
+              "number": 2,
+              "image": "/cards/major/02-high-priestess.jpg",
+              "keywords": {
+                "upright": [
+                  "直觉",
+                  "神秘",
+                  "内在智慧",
+                  "潜意识",
+                  "灵性"
+                ],
+                "reversed": [
+                  "秘密",
+                  "隐藏",
+                  "忽视直觉",
+                  "表面"
+                ]
+              },
+              "meaning": {
+                "upright": "提醒你倾听内心的声音，相信直觉。答案可能隐藏在潜意识深处。",
+                "reversed": "可能忽视了重要的直觉信号，或有秘密尚未揭露。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-1",
+              "name": "Past",
+              "nameCn": "过去",
+              "description": "影响当前情况的过去因素"
+            }
+          },
+          {
+            "card": {
+              "id": "major-03",
+              "name": "The Empress",
+              "nameCn": "女皇",
+              "type": "major",
+              "number": 3,
+              "image": "/cards/major/03-empress.jpg",
+              "keywords": {
+                "upright": [
+                  "丰饶",
+                  "母性",
+                  "自然",
+                  "创造",
+                  "美丽"
+                ],
+                "reversed": [
+                  "依赖",
+                  "空虚",
+                  "创造力受阻",
+                  "忽视自我"
+                ]
+              },
+              "meaning": {
+                "upright": "代表丰盛、创造力和滋养。可能暗示怀孕、新项目诞生或物质丰裕。",
+                "reversed": "可能感到创造力枯竭或过度依赖他人。需要重新连接自然和内在力量。"
+              }
+            },
+            "isReversed": true,
+            "position": {
+              "id": "three-2",
+              "name": "Present",
+              "nameCn": "现在",
+              "description": "当前的状态和挑战"
+            }
+          },
+          {
+            "card": {
+              "id": "major-04",
+              "name": "The Emperor",
+              "nameCn": "皇帝",
+              "type": "major",
+              "number": 4,
+              "image": "/cards/major/04-emperor.jpg",
+              "keywords": {
+                "upright": [
+                  "权威",
+                  "结构",
+                  "控制",
+                  "父性",
+                  "稳定"
+                ],
+                "reversed": [
+                  "专制",
+                  "僵化",
+                  "缺乏纪律",
+                  "滥用权力"
+                ]
+              },
+              "meaning": {
+                "upright": "象征权威、秩序和稳定。暗示需要建立结构或寻求有经验者的指导。",
+                "reversed": "可能暗示过度控制或缺乏纪律。需要在权威和灵活性之间找到平衡。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "three-3",
+              "name": "Future",
+              "nameCn": "未来",
+              "description": "如果继续当前道路可能的结果"
+            }
+          }
+        ],
+        "source": "synthetic",
+        "knownFacts": [
+          "已接到二面邀请，面试尚未发生",
+          "要求讲以前做过的项目",
+          "周四晚上只有两小时准备"
+        ],
+        "goal": "聚焦有限时间内的面试准备",
+        "rejectedGoals": [],
+        "review": [
+          "直接建议如何利用两小时准备项目",
+          "不能再问是工作还是感情",
+          "不假定已面试或过去准备不足",
+          "与context-vague同牌而回应实质不同"
+        ]
+      },
+      "promptFile": "context-specific.prompt.md",
+      "promptHash": "638d62a15bf358b0cb4066a4debf711c1ea6679e6890d703bcdcdf207b2fde5b"
+    },
+    {
+      "scenario": {
+        "id": "daily-no-context",
+        "mode": "daily",
+        "spreadId": "single",
+        "question": "",
+        "drawnCards": [
+          {
+            "card": {
+              "id": "major-00",
+              "name": "The Fool",
+              "nameCn": "愚者",
+              "type": "major",
+              "number": 0,
+              "image": "/cards/major/00-fool.jpg",
+              "keywords": {
+                "upright": [
+                  "新开始",
+                  "冒险",
+                  "纯真",
+                  "自由",
+                  "潜能"
+                ],
+                "reversed": [
+                  "鲁莽",
+                  "冒失",
+                  "愚蠢",
+                  "停滞",
+                  "恐惧"
+                ]
+              },
+              "meaning": {
+                "upright": "代表新的开始、冒险精神和无限可能。暗示你正处于人生旅程的起点，充满希望和潜力。",
+                "reversed": "警示鲁莽行事或过于天真。可能暗示恐惧阻碍了你前进的脚步。"
+              }
+            },
+            "isReversed": false,
+            "position": {
+              "id": "single-1",
+              "name": "The Card",
+              "nameCn": "指引",
+              "description": "代表当前情况的核心信息或建议"
+            }
+          }
+        ],
+        "source": "synthetic",
+        "knownFacts": [
+          "只有日期和实际当日牌，无个人背景"
+        ],
+        "goal": "提供简短且有牌面依据的观察角度",
+        "rejectedGoals": [],
+        "review": [
+          "不虚构当日事件、情绪、人际关系或必然预测",
+          "不强凑多条建议",
+          "正逆位与固定牌面一致"
+        ],
+        "date": "2026-09-15"
+      },
+      "promptFile": "daily-no-context.prompt.md",
+      "promptHash": "084bbe59ef4241fcc0c87946a89fa0cb9181bea0ec31f1b1a7082d833765472c"
+    }
+  ]
+}

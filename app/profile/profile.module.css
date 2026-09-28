@@ -1,0 +1,529 @@
+@font-face {
+  font-family: 'Miying Profile Serif';
+  src: url('/brand/profile-theme/profile-serif-v2.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Miying Profile Italic';
+  src: url('/brand/home-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Applies only while this page is mounted, keeping nickname width stable when an error adds scrolling. */
+:global(html):has(.surface) {
+  scrollbar-gutter: stable;
+}
+.surface {
+  min-height: 100svh;
+  /* 透出全站动态星尘，加载占位与资料页共用同一背景。 */
+  background: transparent;
+  color: #e5ded0;
+}
+.main {
+  padding: 26px max(22px, env(safe-area-inset-right, 0px))
+    calc(var(--mobile-bottom-space, 72px) + 8px) max(22px, env(safe-area-inset-left, 0px));
+}
+.content {
+  position: relative;
+  max-width: 740px;
+  margin: 0 auto;
+  min-width: 0;
+}
+.moon {
+  position: absolute;
+  top: -26px;
+  right: -22px;
+  width: 170px;
+  height: auto;
+  pointer-events: none;
+}
+.header {
+  position: relative;
+}
+.titleGroup {
+  width: max-content;
+  max-width: 100%;
+}
+.title {
+  margin: 0;
+  color: #eee5d3;
+  font:
+    300 2rem/1.15 var(--font-chinese), "Miying Profile Serif", "Songti SC", "SimSun", serif;
+  letter-spacing: 0.08em;
+}
+.subtitle {
+  margin: 0.125rem 0 0;
+  color: var(--gold-warm);
+  font:
+    italic 400 .875rem/1.5 var(--font-chinese), "Miying Profile Italic", Georgia, serif;
+  letter-spacing: 0.035em;
+  text-transform: none;
+  text-align: center;
+}
+.intro {
+  position: relative;
+  margin: 4px 0 0;
+  max-width: 30em;
+  color: #b8b4bf;
+  font: 0.78125rem/1.6 var(--font-body);
+}
+.identity {
+  position: relative;
+  margin-top: 2px;
+}
+.identityRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+  padding: 3px;
+  border: 1px solid #bb9552;
+  border-radius: 50%;
+}
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.identityDetails {
+  flex: 1;
+  min-width: 0;
+}
+.guestName {
+  margin: 0;
+  min-height: 44px;
+  color: #eee5d3;
+  font:
+    400 1.5rem/1.8 var(--font-chinese), "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", "Times New Roman", serif;
+  overflow-wrap: anywhere;
+}
+.avatarChange {
+  flex: 0 0 64px;
+  min-width: 64px;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gold-warm);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.avatarLabel {
+  font: 400 0.75rem/1rem var(--font-body);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.avatarChange:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.avatarChange:active:not(:disabled) {
+  color: var(--gold-pale);
+  background: var(--gold-faint);
+}
+.session {
+  margin: 10px 0 12px;
+}
+.message {
+  margin: 8px 0 0;
+  color: #c4bfca;
+  font: 0.875rem/1.65 var(--font-body);
+  overflow-wrap: anywhere;
+}
+.sessionState {
+  margin: 0;
+  color: #e5ded0;
+}
+.retry {
+  margin-top: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #897147;
+  color: #e0c489;
+  background: #11131f;
+  font: 0.875rem/1.5 var(--font-body);
+  cursor: pointer;
+}
+.retry:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 9px 0;
+  border-top: 1px solid #75613e;
+  border-bottom: 1px solid #75613e;
+}
+.stat {
+  min-width: 0;
+  padding: 0 5px;
+  text-align: center;
+}
+.stat + .stat {
+  border-left: 1px solid #45404a;
+}
+.statLabel {
+  color: #bdb7c1;
+  font: 0.75rem/1.5 var(--font-body);
+}
+.statValue {
+  margin: 3px 0 0;
+  color: #dfbd77;
+  font:
+    1.625rem/1.2 var(--font-chinese), var(--font-marcellus), serif;
+  overflow-wrap: anywhere;
+  font-variant-numeric: lining-nums;
+}
+.journey {
+  margin-top: 14px;
+}
+.journeyHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  min-width: 0;
+}
+.sectionTitle {
+  margin: 0;
+  color: #e8dfcd;
+  font:
+    300 1.25rem/1.3 var(--font-chinese), "Miying Profile Serif", "Songti SC", "SimSun", serif;
+  white-space: nowrap;
+}
+.headingRule {
+  height: 1px;
+  flex: 1;
+  background: #6c593b;
+  opacity: 0.85;
+}
+.english {
+  color: #cdb17c;
+  font:
+    italic .875rem/1.5 var(--font-chinese), var(--font-spectral), serif;
+  text-transform: uppercase;
+}
+.journeyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.journeyItem {
+  margin: 0;
+  min-width: 0;
+}
+.journeyLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 4.25rem;
+  padding: 5px 0;
+  border-bottom: 1px solid #68573d;
+  text-decoration: none;
+  color: inherit;
+  touch-action: manipulation;
+  transition: background-color 160ms ease;
+}
+.journeyArt {
+  display: block;
+  flex: 0 0 78px;
+  width: 78px;
+  height: 58px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.journeyText {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.journeyTitle {
+  margin: 0;
+  color: #ebe1cf;
+  font:
+    300 1.125rem/1.4 var(--font-chinese), "Miying Profile Serif", "Songti SC", "SimSun", serif;
+  letter-spacing: 0.015em;
+}
+.journeySubtitle {
+  margin: 4px 0 0;
+  color: #bcb7c2;
+  font: 0.75rem/1.5 var(--font-body);
+  overflow-wrap: anywhere;
+}
+.arrow {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 10px;
+  object-fit: contain;
+}
+.avatarChange:focus-visible,
+.retry:focus-visible,
+.journeyLink:focus-visible {
+  outline: 2px solid #f0d79d;
+  outline-offset: 3px;
+}
+.journeyLink:active {
+  background-color: #171723;
+}
+.footer {
+  padding: 4px 0 0;
+  text-align: center;
+}
+.footerDivider {
+  display: block;
+  width: 132px;
+  height: 7px;
+  object-fit: contain;
+  margin: 0 auto 4px;
+}
+.brand {
+  margin: 0;
+  color: #d1c3a7;
+  font:
+    0.8125rem/1.35 var(--font-marcellus),
+    'SimSun',
+    serif;
+}
+.footerCopy {
+  margin: 3px 0 0;
+  color: #b4adb9;
+  font: 0.75rem/1.45 var(--font-body);
+}
+@media (hover: hover) and (pointer: fine) {
+  .journeyLink:hover {
+    background-color: #111421;
+  }
+  .avatarChange:hover:not(:disabled) {
+    color: var(--gold-pale);
+  }
+  .avatarChange:hover:not(:disabled) .avatar {
+    border-color: var(--gold-pale);
+  }
+}
+@media (max-width: 359px) {
+  .main {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .moon {
+    right: -16px;
+    width: 145px;
+  }
+  .identityRow {
+    gap: 10px;
+  }
+  .avatarChange {
+    flex-basis: 56px;
+    min-width: 56px;
+  }
+  .journeyLink {
+    gap: 8px;
+  }
+  .journeyArt {
+    flex-basis: 62px;
+    width: 62px;
+    height: 55px;
+  }
+  .journeyTitle {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 768px) {
+  .main {
+    padding: 40px 42px 44px 106px;
+  }
+  .moon {
+    width: 210px;
+    right: 0;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .intro {
+    font-size: 0.9375rem;
+  }
+  .identity {
+    margin-top: 20px;
+  }
+  .identityDetails {
+    max-width: 430px;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+  .avatarChange {
+    flex-basis: 72px;
+  }
+  .identityRow {
+    gap: 22px;
+  }
+  .stats {
+    margin-top: 14px;
+    padding: 14px 0;
+  }
+  .statLabel {
+    font-size: 0.875rem;
+  }
+  .statValue {
+    font-size: 2rem;
+  }
+  .journey {
+    margin-top: 22px;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  .journeyLink {
+    min-height: 94px;
+    gap: 24px;
+  }
+  .journeyArt {
+    flex-basis: 98px;
+    width: 98px;
+    height: 78px;
+  }
+  .journeyTitle {
+    font-size: 1.3125rem;
+  }
+  .journeySubtitle {
+    font-size: 0.875rem;
+  }
+  .footer {
+    padding-top: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journeyLink {
+    transition: none;
+  }
+}
+
+/* The WebView already excludes native chrome. Reserve the existing nav inset once. */
+@media (max-width: 767px) {
+  /* Native scroll travel outside main's sizing preserves the approved composition. */
+  .surface {
+    padding-bottom: 24px;
+  }
+  .main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding-top: 14px;
+    padding-bottom: calc(var(--mobile-bottom-space, 72px) + 10px);
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    width: 100%;
+  }
+  .header,
+  .identity,
+  .journeyHeading,
+  .footer {
+    flex: 0 0 auto;
+  }
+  .moon {
+    top: -14px;
+  }
+  .identity {
+    margin-top: 8px;
+  }
+  .avatarChange {
+    gap: 6px;
+  }
+  .stats {
+    margin-top: 8px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .journey {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    margin-top: 12px;
+  }
+  .journeyList {
+    display: grid;
+    flex: 1 0 auto;
+    grid-template-rows: repeat(4, minmax(min-content, 1fr));
+  }
+  .journeyItem {
+    display: flex;
+  }
+  .journeyLink {
+    flex: 1;
+    width: 100%;
+    min-height: 3.5rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .journeyArt {
+    height: 48px;
+  }
+  .footer {
+    padding-top: 8px;
+  }
+}
+/* Only content below the editor adapts to height, keeping the input anchor stable. */
+@media (max-width: 767px) and (max-height: 720px) {
+  .stats {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .journey {
+    margin-top: 8px;
+  }
+  .journeyHeading {
+    margin-bottom: 4px;
+  }
+  .journeyLink {
+    min-height: 3.25rem;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .journeyArt {
+    height: 40px;
+  }
+  .footer {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    column-gap: 8px;
+    row-gap: 4px;
+    padding-top: 4px;
+  }
+  .footerDivider {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+  }
+  .footerCopy {
+    margin-top: 0;
+  }
+}
+@media (max-width: 767px) and (min-height: 800px) {
+  .journeyArt {
+    height: 64px;
+  }
+}

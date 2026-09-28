@@ -1,0 +1,32 @@
+{
+  "id": "goal-not-reconcile-1",
+  "source": "synthetic",
+  "promptHash": "ae45c2b0eb07bc15d7991b00126d5f58ef8043bb44da80096ce3222e4724779a",
+  "messagesHash": "7ddb4d6661b4dc71d45391e9f5d19564a40969e5b22d67a9229e19ae4bc16411",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 10537,
+  "firstAnswerMs": 10537,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2686,
+    "completion_tokens": 1831,
+    "total_tokens": 4517,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1447
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 1022
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 11852
+}

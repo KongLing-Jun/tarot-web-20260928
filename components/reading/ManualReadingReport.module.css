@@ -1,0 +1,64 @@
+.mode {
+  margin: -4px 0 2px;
+  text-align: right;
+  font: 12px/1.5 var(--font-body);
+  color: var(--bone-dim);
+}
+.thumbs {
+  display: flex;
+  padding: 5px 3px 5px 10px;
+}
+.thumbs img {
+  width: 28px;
+  height: 42px;
+  object-fit: cover;
+  margin-left: -8px;
+  transform: rotate(12deg);
+}
+.thumbs img:nth-child(2) {
+  transform: rotate(-8deg);
+}
+.position {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--gold-pale);
+}
+.followUp {
+  padding-top: 20px;
+  border-top: 1px solid var(--ink-line-strong);
+  min-width: 0;
+}
+.followUp > p {
+  margin-bottom: 14px;
+}
+.supplement {
+  padding: 16px 12px;
+  margin: 12px 0;
+  border: 1px solid rgba(201, 169, 97, 0.26);
+  background: linear-gradient(110deg, rgba(232, 213, 163, 0.07), rgba(201, 169, 97, 0.015));
+}
+.supplement > p {
+  font: 14px/1.8 var(--font-body);
+  margin: 8px 0 16px;
+}
+.supplement h3 {
+  color: var(--gold-pale);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.supplement button {
+  min-height: 44px;
+}
+.main {
+  --reading-excerpt-height: clamp(130px, calc(100svh - 704px), 240px);
+  --reading-card-top: 24px;
+  --reading-wait-margin: 20px;
+}
+.messages {
+  gap: 4px;
+}
+.spread {
+  margin-bottom: 4px;
+}

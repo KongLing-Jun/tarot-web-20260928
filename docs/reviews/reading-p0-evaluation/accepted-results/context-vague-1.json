@@ -1,0 +1,32 @@
+{
+  "id": "context-vague-1",
+  "source": "synthetic",
+  "promptHash": "5d45161e008834acaef782547abdee089e47146e26c71a1c40ee58e2bf2d0968",
+  "messagesHash": "d047b47a4673427a4c4312c23e56de5fae087f8ff44ba0f66335b9ab4ef65283",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 2016,
+  "firstAnswerMs": 2016,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2132,
+    "completion_tokens": 286,
+    "total_tokens": 2418,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 128
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 980
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 2943
+}

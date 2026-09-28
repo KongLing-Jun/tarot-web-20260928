@@ -1,0 +1,230 @@
+.brandTitle {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+}
+
+.brandEnglish {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  letter-spacing: 0.3em;
+}
+
+/* Font subsets use the corresponding home-title, home-wenkai and home-italic OFL licenses. */
+@font-face {
+  font-family: 'Miying Feature Title';
+  src: url('/brand/feature-title.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miying Feature Title';
+  src: url('/brand/feature-title-journey.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+542F, U+5F00, U+65C5, U+7A0B;
+}
+
+@font-face {
+  font-family: 'Miying Feature Body';
+  src: url('/brand/feature-body.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miying Feature English';
+  src: url('/brand/feature-english.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.section {
+  box-sizing: border-box;
+  max-width: 80rem;
+  padding: 1.25rem 1.25rem 1.875rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.125rem;
+}
+
+.card {
+  box-sizing: border-box;
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+  color: var(--bone);
+  background: transparent;
+  border: 0;
+  text-decoration: none;
+}
+
+/* Nine-slice framing keeps the engraved corners intact as text changes the card height. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-image-source: url('/brand/antique-book-frame.webp');
+  border-image-slice: 29% 26% 29% 28% fill;
+  border-image-width: 4.25rem 3.625rem 3.875rem 4.75rem;
+  border-image-repeat: stretch;
+  opacity: 0.85;
+  filter: saturate(0.72);
+  pointer-events: none;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.125rem;
+  height: auto;
+  min-height: 18.625rem;
+  padding: 2.8125rem 2.125rem 3.9375rem 3rem;
+}
+
+a.card:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 3px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 6rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: var(--gold);
+}
+.number {
+  display: inline-flex;
+  align-items: center;
+  height: 1.5rem;
+  font:
+    400 0.8125rem/1 var(--font-chinese), var(--font-heading), Georgia, serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.title {
+  margin: 0 0 0.25rem;
+  color: #e2c68c;
+  font-family: var(--font-chinese), 'Miying Feature Title', "Songti SC", "STSong", serif;
+  font-size: 1.5625rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-shadow: 0 2px 2px #000;
+}
+
+.subtitle {
+  margin: 0;
+  color: #b7a078;
+  font:
+    italic 400 0.9375rem/1.5 var(--font-chinese), 'Miying Feature English', Georgia, serif;
+  letter-spacing: 0.035em;
+  text-transform: none;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.description {
+  margin: 0;
+  color: #cfc2ae;
+  font:
+    300 1rem/1.7 var(--font-chinese), 'Miying Feature Body', "Kaiti SC", "KaiTi", serif;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  text-shadow: 0 1px 2px #09070c;
+}
+
+.cardDescription {
+  display: flex;
+  align-self: start;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid rgba(181, 139, 76, 0.3);
+  padding-top: 0.8125rem;
+}
+
+.cardDescription .description {
+  min-width: 0;
+  flex: 1;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2.375rem;
+  color: #d9b974;
+  font-family: var(--font-chinese), serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.card:hover::before {
+    opacity: 1;
+  }
+  a.card:hover .arrow {
+    color: var(--gold-pale);
+  }
+}
+
+a.card:active::before {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+}

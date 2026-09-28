@@ -1,0 +1,29 @@
+.fallback {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 80rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse at top, #0d1226, #08060f 65%);
+}
+.sigil {
+  color: #c9a961;
+  font-size: 64rpx;
+  margin-bottom: 36rpx;
+}
+.title {
+  font-size: 40rpx;
+  letter-spacing: 12rpx;
+}
+.message {
+  margin-top: 28rpx;
+  color: rgba(234, 228, 212, 0.64);
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+.retry {
+  margin-top: 48rpx;
+}

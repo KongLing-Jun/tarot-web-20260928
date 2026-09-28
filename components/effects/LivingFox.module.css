@@ -1,0 +1,11 @@
+.fox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 650 / 445;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}

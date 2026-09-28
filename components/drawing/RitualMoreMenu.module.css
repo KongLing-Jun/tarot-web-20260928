@@ -1,0 +1,67 @@
+.more {
+  position: absolute;
+  top: 0.625rem;
+  right: max(0.75rem, calc((100% - var(--ritual-width)) / 2 + 0.75rem));
+  z-index: 50;
+}
+.menuTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gold-faint);
+  border-radius: 2rem;
+  background: var(--ink-veil);
+  color: var(--gold-pale);
+  font: 400 0.8125rem / 1.5 var(--font-body);
+  cursor: pointer;
+}
+.menuTrigger svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  width: 11.5rem;
+  max-width: calc(100vw - 1.5rem);
+  padding: 0.375rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 0.75rem;
+  background: var(--ink-surface);
+  box-shadow: 0 0.5rem 2rem var(--ink-void);
+}
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--bone);
+  text-align: left;
+  font: 400 0.875rem / 1.5 var(--font-body);
+  cursor: pointer;
+}
+.menu button:disabled {
+  color: var(--bone-dim);
+  opacity: 0.5;
+  cursor: default;
+}
+.menu button:focus-visible,
+.menu button:active:not(:disabled),
+.menuTrigger:active {
+  background: var(--gold-faint);
+}
+@media (hover: hover) {
+  .menu button:hover:not(:disabled),
+  .menuTrigger:hover {
+    background: var(--gold-faint);
+  }
+}

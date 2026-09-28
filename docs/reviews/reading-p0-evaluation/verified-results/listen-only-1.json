@@ -1,0 +1,38 @@
+{
+  "id": "listen-only-1",
+  "source": "synthetic",
+  "promptHash": "1cd5c0396638d51c69778f148faf307f46fd0cc6e4f6419bc2bc6326786bc6c6",
+  "messagesHash": "1de0a8ca72e01eccd9f9a2f046cf29f0d1573738fcde0f1ac72c08d3d17dfedb",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 9117,
+  "firstAnswerMs": 9117,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2174,
+    "completion_tokens": 1485,
+    "total_tokens": 3659,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1214
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 1022
+  },
+  "quality": {
+    "issues": [
+      {
+        "code": "structure",
+        "severity": "warning",
+        "message": "解读章节不完整，已保留原文供查看。"
+      }
+    ],
+    "needsRetry": false
+  },
+  "durationMs": 10454
+}

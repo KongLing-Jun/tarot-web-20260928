@@ -1,0 +1,468 @@
+[
+  {
+    "id": "single-1",
+    "source": "synthetic",
+    "promptHash": "bf8b6241d55a471c6f2b2f3b78c67acc4ae749dbbc9ddf597dd697fa1e7ef68f",
+    "messagesHash": "14fb7dc291a0304950d173a78bbe5920ba47dcff2001d23f2f0649ba998fc24c",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4474,
+    "firstAnswerMs": 4475,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 1924,
+      "completion_tokens": 515,
+      "total_tokens": 2439,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 369
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 1924
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 5257
+  },
+  {
+    "id": "correct-fact-1",
+    "source": "synthetic",
+    "promptHash": "096c4dddc4f88cf42a24642285c527863927362343ef581f12bddf4db7cd5c87",
+    "messagesHash": "c73a35d28b5580776a790990d4f56930b9857ea1759b1819739e55ba56fafa93",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4595,
+    "firstAnswerMs": 4740,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2522,
+      "completion_tokens": 731,
+      "total_tokens": 3253,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 444
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 2522
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 6360
+  },
+  {
+    "id": "three-card-1",
+    "source": "synthetic",
+    "promptHash": "75c2ead33b1b22f29eb698490bded31a1ceca04e916b3601698cdd6fed48489d",
+    "messagesHash": "eb2ba1be74a21182dd6421a6b37704468ffb1cfa01a1bcc1d5d6df72ff1159b3",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 7021,
+    "firstAnswerMs": 7021,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2178,
+      "completion_tokens": 1213,
+      "total_tokens": 3391,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 847
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1026
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 8969
+  },
+  {
+    "id": "relationship-1",
+    "source": "synthetic",
+    "promptHash": "1543cf69ae915ad2a4697a4c1519cdf4ce2e5ad8be8bc543591c369d6e4faa16",
+    "messagesHash": "1490c080bf37295a43f1a5d94f6d79c59e98bd837799315c20c5b13456fd5eb3",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4602,
+    "firstAnswerMs": 4636,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2264,
+      "completion_tokens": 985,
+      "total_tokens": 3249,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 469
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1112
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 7892
+  },
+  {
+    "id": "two-options-1",
+    "source": "synthetic",
+    "promptHash": "1a9755610e8d1f1403476cb17e367e397c1159de2c1ad36f6c209bb81cb106c4",
+    "messagesHash": "da1f8d426ef4430ea3deeab3c4d19ea3abaceef691857545dd438482615042b9",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 22572,
+    "firstAnswerMs": 22572,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2285,
+      "completion_tokens": 4050,
+      "total_tokens": 6335,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3501
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1133
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 24459
+  },
+  {
+    "id": "timeline-1",
+    "source": "synthetic",
+    "promptHash": "1ae6de933e637298eaab8302657bbb04f75ca89ff9ee2f2ebaf9f5239f2ee381",
+    "messagesHash": "78be278c3a3fb72cc2fc01a444575ab4abbfbb0060f088cc9815daef5b1ff5c8",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 28088,
+    "firstAnswerMs": 28088,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2308,
+      "completion_tokens": 4813,
+      "total_tokens": 7121,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4334
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1156
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 29511
+  },
+  {
+    "id": "celtic-cross-1",
+    "source": "synthetic",
+    "promptHash": "e3b977514f979d33938e4c4197ffcfb7335294e77b1c40092cb53747c22a0489",
+    "messagesHash": "9bbd2ae5ab0c47ebd083796b0b86ce2ffb4979da4c82790d7e1d60c70c3e6a42",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 28201,
+    "firstAnswerMs": 28201,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2634,
+      "completion_tokens": 4741,
+      "total_tokens": 7375,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 4108
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1482
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 30921
+  },
+  {
+    "id": "extras-1",
+    "source": "synthetic",
+    "promptHash": "1ad4b69fe51c8781e2a12264beae8f86875806bda1024e6282fef59c41757c50",
+    "messagesHash": "62e57e18c7a353cdef4d27c545480b189453e9953592afb9ef0e1040ead1b0ae",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 4326,
+    "firstAnswerMs": 4329,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2569,
+      "completion_tokens": 795,
+      "total_tokens": 3364,
+      "prompt_tokens_details": {
+        "cached_tokens": 1408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 438
+      },
+      "prompt_cache_hit_tokens": 1408,
+      "prompt_cache_miss_tokens": 1161
+    },
+    "quality": {
+      "issues": [
+        {
+          "code": "structure",
+          "severity": "warning",
+          "message": "部分牌位标题未写清牌位或正逆位，已保留原文供核对。"
+        }
+      ],
+      "needsRetry": false
+    },
+    "durationMs": 6704
+  },
+  {
+    "id": "context-vague-1",
+    "source": "synthetic",
+    "promptHash": "1f15bb6d091ee4add06ed0391fcfa4177bc04cad37fc22e7b5f6597023d50b8c",
+    "messagesHash": "f945f030d32322707ee54a87fc5c5c4a06488e1bb71903d4aae886215f3564b7",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 2202,
+    "firstAnswerMs": 2319,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2155,
+      "completion_tokens": 349,
+      "total_tokens": 2504,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 129
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1003
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 3347
+  },
+  {
+    "id": "direct-1",
+    "source": "synthetic",
+    "promptHash": "b10072b331223a14e27c7b60c2329df4cb99128c0060edc2d66e5f2bcdf67698",
+    "messagesHash": "fa1a1909c129e29b7f1da1925dedacb0e87fc4db6f3dcdefb77ec6952025ef11",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 24776,
+    "firstAnswerMs": 24776,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2734,
+      "completion_tokens": 4136,
+      "total_tokens": 6870,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3739
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1582
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 26193
+  },
+  {
+    "id": "context-specific-1",
+    "source": "synthetic",
+    "promptHash": "d842be72a5decbdbbc1645966d85b3c92b0d2363ef9db40a8f64b26ed5fc43d1",
+    "messagesHash": "7b710dfbc5f5974da427e785fe33a7cb3b096f14e7217c670a221331133e9b9b",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 7453,
+    "firstAnswerMs": 7453,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2186,
+      "completion_tokens": 1365,
+      "total_tokens": 3551,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1022
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1034
+    },
+    "quality": {
+      "issues": [
+        {
+          "code": "structure",
+          "severity": "warning",
+          "message": "解读章节不完整，已保留原文供查看。"
+        }
+      ],
+      "needsRetry": false
+    },
+    "durationMs": 9130
+  },
+  {
+    "id": "goal-not-reconcile-1",
+    "source": "synthetic",
+    "promptHash": "ae45c2b0eb07bc15d7991b00126d5f58ef8043bb44da80096ce3222e4724779a",
+    "messagesHash": "7ddb4d6661b4dc71d45391e9f5d19564a40969e5b22d67a9229e19ae4bc16411",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 10537,
+    "firstAnswerMs": 10537,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2686,
+      "completion_tokens": 1831,
+      "total_tokens": 4517,
+      "prompt_tokens_details": {
+        "cached_tokens": 1664
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1447
+      },
+      "prompt_cache_hit_tokens": 1664,
+      "prompt_cache_miss_tokens": 1022
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 11852
+  },
+  {
+    "id": "listen-only-1",
+    "source": "synthetic",
+    "promptHash": "1cd5c0396638d51c69778f148faf307f46fd0cc6e4f6419bc2bc6326786bc6c6",
+    "messagesHash": "1de0a8ca72e01eccd9f9a2f046cf29f0d1573738fcde0f1ac72c08d3d17dfedb",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 9117,
+    "firstAnswerMs": 9117,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 2174,
+      "completion_tokens": 1485,
+      "total_tokens": 3659,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1214
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 1022
+    },
+    "quality": {
+      "issues": [
+        {
+          "code": "structure",
+          "severity": "warning",
+          "message": "解读章节不完整，已保留原文供查看。"
+        }
+      ],
+      "needsRetry": false
+    },
+    "durationMs": 10454
+  },
+  {
+    "id": "daily-no-context-1",
+    "source": "synthetic",
+    "promptHash": "186d4184d0345fa5b19587890f31f002dc2f71899db0941ba0d97f77493d7b4c",
+    "messagesHash": "d59456f65144cec197e43ccaafdcf4f5fa96b1b592724be389f520cf5c7cce88",
+    "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+    "model": "deepseek-v4-flash",
+    "firstTokenMs": 1926,
+    "firstAnswerMs": 1926,
+    "status": "success",
+    "generationStatus": "completed",
+    "finishReason": "stop",
+    "validAnswer": true,
+    "usage": {
+      "prompt_tokens": 1565,
+      "completion_tokens": 244,
+      "total_tokens": 1809,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 127
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 413
+    },
+    "quality": {
+      "issues": [],
+      "needsRetry": false
+    },
+    "durationMs": 2586
+  }
+]

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770" role="img" aria-labelledby="title desc"><title id="title">手动占卜 · 六阶段状态机</title><desc id="desc">所有阶段共享 /reading；首张揭牌是保存结果与禁止回退调整的分界。</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#BBB5C7"/></marker></defs><rect width="1200" height="770" rx="18" fill="#08060F"/><style>text{font-family:'Microsoft YaHei','PingFang SC',sans-serif;fill:#EAE4D4}.mono{font-family:Consolas,'Microsoft YaHei',monospace}.title{font-family:'Microsoft YaHei',serif;font-weight:600}</style>
+<text x="40" y="40" font-size="14" style="fill:#C9A961" class="mono">月映卡语  /  CODE ATLAS</text>
+<text x="40" y="87" font-size="30" style="fill:#EAE4D4" class="title">手动占卜 · 六阶段状态机</text>
+<text x="40" y="121" font-size="17" style="fill:#BBB5C7" class="">所有阶段共享 /reading；首张揭牌是保存结果与禁止回退调整的分界。</text>
+<path d="M40 145H1160" stroke="#464052"/>
+<text x="40" y="185" font-size="16" style="fill:#C9A961" class="">填写问题与确定牌阵</text>
+<g data-box="01  提问 · question" data-x="40" data-y="205" data-w="320" data-h="96"><rect x="40" y="205" width="320" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 225h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="251" font-size="20" style="fill:#C9A961" class="">01  提问 · question</text>
+<text x="58" y="278" font-size="16" style="fill:#EAE4D4" class="">普通 / 场景均为空白草稿</text>
+</g>
+<g data-box="02  择阵 · spread" data-x="440" data-y="205" data-w="320" data-h="96"><rect x="440" y="205" width="320" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M458 225h16" stroke="#C9A961" stroke-width="3"/>
+<text x="458" y="251" font-size="20" style="fill:#C9A961" class="">02  择阵 · spread</text>
+<text x="458" y="278" font-size="16" style="fill:#EAE4D4" class="">选择观察问题的角度</text>
+</g>
+<g data-box="03  洗牌 · shuffle" data-x="840" data-y="205" data-w="320" data-h="96"><rect x="840" y="205" width="320" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M858 225h16" stroke="#C9A961" stroke-width="3"/>
+<text x="858" y="251" font-size="20" style="fill:#C9A961" class="">03  洗牌 · shuffle</text>
+<text x="858" y="278" font-size="16" style="fill:#EAE4D4" class="">idle → shuffling → ready</text>
+</g>
+<path d="M360 253H440" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M760 253H840" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M200 205V173H1000V205" fill="none" stroke="#BBB5C7" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<text x="410" y="168" font-size="16" style="fill:#BBB5C7" class="">预选牌阵 / 场景入口跳过择阵</text>
+<path d="M1000 301V354H200V405" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="490" y="346" font-size="16" style="fill:#BBB5C7" class="">洗牌完成后进入抽牌</text>
+<g data-box="04  抽牌 · draw" data-x="40" data-y="415" data-w="320" data-h="96"><rect x="40" y="415" width="320" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 435h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="461" font-size="20" style="fill:#C9A961" class="">04  抽牌 · draw</text>
+<text x="58" y="488" font-size="16" style="fill:#EAE4D4" class="">预选、确认、可撤回</text>
+</g>
+<g data-box="05  揭牌 · reveal" data-x="440" data-y="415" data-w="320" data-h="96"><rect x="440" y="415" width="320" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M458 435h16" stroke="#C9A961" stroke-width="3"/>
+<text x="458" y="461" font-size="20" style="fill:#C9A961" class="">05  揭牌 · reveal</text>
+<text x="458" y="488" font-size="16" style="fill:#EAE4D4" class="">首揭即保存空解读记录</text>
+</g>
+<g data-box="06  解读 · interpret" data-x="840" data-y="415" data-w="320" data-h="96"><rect x="840" y="415" width="320" height="96" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M858 435h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="858" y="461" font-size="20" style="fill:#8B9FD4" class="">06  解读 · interpret</text>
+<text x="858" y="488" font-size="16" style="fill:#EAE4D4" class="">流式生成 → 保存 → 追问</text>
+</g>
+<path d="M360 463H440" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="365" y="405" font-size="16" style="fill:#BBB5C7" class="">抽满</text>
+<path d="M760 463H840" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="765" y="405" font-size="16" style="fill:#BBB5C7" class="">全揭</text>
+<path d="M600 511V565H200V511" fill="none" stroke="#BBB5C7" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<text x="283" y="555" font-size="16" style="fill:#BBB5C7" class="">仅尚未揭牌时可返回调整</text>
+<text x="40" y="632" font-size="19" style="fill:#EAE4D4" class="">重新抽牌：保留问题和牌阵，回到洗牌；已保存历史不删除。</text>
+<text x="40" y="676" font-size="17" style="fill:#BBB5C7" class="">状态归属页面：离开 /reading 会取消请求；Agent 的跨路由生成能力不适用于此处。</text>
+<path d="M40 720H1160" stroke="#464052"/>
+<text x="40" y="748" font-size="14" style="fill:#BBB5C7" class="">源码基准 4c281c7  ·  2026-09-23  ·  箭头表示调用、跳转或状态方向</text>
+<text x="990" y="748" font-size="14" style="fill:#C9A961" class="mono">月映卡语 / DOCS</text>
+</svg>

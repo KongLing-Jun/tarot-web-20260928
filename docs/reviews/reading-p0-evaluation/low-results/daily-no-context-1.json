@@ -1,0 +1,31 @@
+{
+  "id": "daily-no-context-1",
+  "source": "synthetic",
+  "promptHash": "7acfdb092301f2f82c2550b30b79595e2b6aadc4bd02c59e758edd1cc2ffdc50",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 2141,
+  "firstAnswerMs": 2141,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 1018,
+    "completion_tokens": 260,
+    "total_tokens": 1278,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 158
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 378
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 2782
+}

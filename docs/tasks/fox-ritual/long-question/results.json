@@ -1,0 +1,239 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 167.44955444335938,
+            "y": 282.6783752441406,
+            "width": 60.48893737792969,
+            "height": 96.33474731445312,
+            "top": 282.6783752441406,
+            "right": 227.93849182128906,
+            "bottom": 379.01312255859375,
+            "left": 167.44955444335938
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 390,
+        "width": 390,
+        "height": 844,
+        "ringTop": 275.921875,
+        "ringBottom": 510.15625,
+        "dockTop": 695.609375,
+        "dockBottom": 844,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 137.7121124267578,
+            "y": 246.9546661376953,
+            "width": 48.920013427734375,
+            "height": 77.91004943847656,
+            "top": 246.9546661376953,
+            "right": 186.6321258544922,
+            "bottom": 324.8647155761719,
+            "left": 137.7121124267578
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 320,
+        "width": 320,
+        "height": 740,
+        "ringTop": 241.5,
+        "ringBottom": 430.9375,
+        "dockTop": 601.609375,
+        "dockBottom": 740,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 154.6925506591797,
+            "y": 279.71087646484375,
+            "width": 55.53082275390625,
+            "height": 88.43844604492188,
+            "top": 279.71087646484375,
+            "right": 210.22337341308594,
+            "bottom": 368.1493225097656,
+            "left": 154.6925506591797
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 360,
+        "width": 360,
+        "height": 800,
+        "ringTop": 273.5,
+        "ringBottom": 488.53125,
+        "dockTop": 651.609375,
+        "dockBottom": 800,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 659
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 167.44955444335938,
+            "y": 224.2565155029297,
+            "width": 60.48893737792969,
+            "height": 96.33473205566406,
+            "top": 224.2565155029297,
+            "right": 227.93849182128906,
+            "bottom": 320.59124755859375,
+            "left": 167.44955444335938
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 390,
+        "width": 390,
+        "height": 659,
+        "ringTop": 217.5,
+        "ringBottom": 451.734375,
+        "dockTop": 520.609375,
+        "dockBottom": 659,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 184.42218017578125,
+            "y": 290.1688232421875,
+            "width": 67.09974670410156,
+            "height": 106.86312866210938,
+            "top": 290.1688232421875,
+            "right": 251.5219268798828,
+            "bottom": 397.0319519042969,
+            "left": 184.42218017578125
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 430,
+        "width": 430,
+        "height": 932,
+        "ringTop": 282.671875,
+        "ringBottom": 542.5,
+        "dockTop": 783.609375,
+        "dockBottom": 932,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "300",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://127.0.0.1:3105/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 673.618896484375,
+            "y": 333.4490661621094,
+            "width": 101.8065185546875,
+            "height": 162.13714599609375,
+            "top": 333.4490661621094,
+            "right": 775.4254150390625,
+            "bottom": 495.5862121582031,
+            "left": 673.618896484375
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 1440,
+        "width": 1440,
+        "height": 1000,
+        "ringTop": 322.078125,
+        "ringBottom": 716.3125,
+        "dockTop": 851.609375,
+        "dockBottom": 1000,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "limitations": "Chrome 隔离会话，模拟登录/配置/保存；没有验证微信真机和真实模型。"
+}

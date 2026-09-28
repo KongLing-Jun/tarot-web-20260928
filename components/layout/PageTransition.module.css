@@ -1,0 +1,56 @@
+/* 与牌典共用揭幕时长、缓动；只移动内容，固定导航和输入栏不参与位移。 */
+.fade {
+  animation: page-fade var(--dur-veil) var(--ease-veil) both;
+}
+
+.rise,
+.actions {
+  animation: page-rise var(--dur-veil) var(--ease-veil) both;
+}
+
+.actions {
+  animation-delay: 100ms;
+}
+
+/* 长列表最多错开 240ms，不随记录数量增加等待时间。 */
+.entries > * {
+  animation: page-rise var(--dur-veil) var(--ease-veil) both;
+}
+.entries > :nth-child(2) {
+  animation-delay: 80ms;
+}
+.entries > :nth-child(3) {
+  animation-delay: 160ms;
+}
+.entries > :nth-child(n + 4) {
+  animation-delay: 240ms;
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade,
+  .rise,
+  .actions,
+  .entries > * {
+    animation: none;
+  }
+}

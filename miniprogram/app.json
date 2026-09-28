@@ -1,0 +1,12 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "navigationBarTitleText": "月映卡语",
+    "navigationBarBackgroundColor": "#08060f",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#08060f",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

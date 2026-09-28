@@ -1,0 +1,32 @@
+{
+  "id": "relationship-1",
+  "source": "synthetic",
+  "promptHash": "d20afcad92f0b2c71fbc871cfe51bdecac9e200e5eb9934ecf0199b2e15563f6",
+  "messagesHash": "b70237bb9e6d6d4cb80361fe7da37652562d6dfde589aa9d8db3366b75558648",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 12556,
+  "firstAnswerMs": 12556,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2241,
+    "completion_tokens": 2289,
+    "total_tokens": 4530,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1794
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 1089
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 15071
+}

@@ -1,0 +1,468 @@
+@font-face {
+  font-family: 'Miying Daily Serif';
+  src: url('/brand/library-theme/library-serif.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Miying Daily Italic';
+  src: url('/brand/home-italic.woff2') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+
+.mobileNav,
+.mobileDay,
+.keywords,
+.titleRule,
+.solarCorona,
+.headerMoon,
+.english,
+.encounter,
+.journalCaption,
+.journalPrompt {
+  display: none;
+}
+.generateButton {
+  width: 100%;
+  cursor: pointer;
+}
+.caption {
+  min-height: 0;
+}
+.actionArrow {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: currentColor;
+  mask: url('/brand/ritual-theme/icons/arrow-right.svg') center / contain no-repeat;
+}
+
+@media (max-width: 767px) {
+  .page {
+    --daily-serif: 'Miying Daily Serif', 'Songti SC', 'SimSun', serif;
+    --daily-gutter: 1.625rem;
+    --brand-name-font: var(--font-marcellus), var(--daily-serif);
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-bottom: var(--mobile-bottom-space);
+    color: var(--bone);
+    background: transparent;
+    font:
+      400 1rem / 1.6 var(--font-chinese),
+      var(--daily-serif);
+  }
+  .mobileNav {
+    display: block;
+  }
+  .mobileNav :global(.side-nav) {
+    background: var(--ink-deep);
+  }
+  .hero {
+    display: block;
+    min-height: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--daily-gutter) 0.625rem;
+    overflow: hidden;
+  }
+  .header {
+    position: relative;
+    isolation: isolate;
+    padding: 1.5rem 0 0.75rem;
+    width: 100%;
+  }
+  .header > div {
+    display: block;
+  }
+  .headerTitle {
+    position: relative;
+  }
+  .headerMoon {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: -1rem;
+    right: calc(-1 * var(--daily-gutter));
+    width: 10rem;
+    height: auto;
+    pointer-events: none;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin: 0;
+    font:
+      400 2rem / 1.3 var(--font-chinese),
+      var(--daily-serif);
+    letter-spacing: 0.06em;
+    color: var(--bone);
+  }
+  .titleRule {
+    display: block;
+    width: 2.25rem;
+    border-top: 1px solid var(--gold-dim);
+  }
+  .english {
+    display: block;
+    margin-top: 0.125rem;
+    color: var(--gold-warm);
+    font:
+      italic 1rem / 1.4 'Miying Daily Italic',
+      Georgia,
+      serif;
+    letter-spacing: 0.04em;
+  }
+  .date {
+    margin-top: 0.625rem;
+    color: var(--bone);
+    font:
+      0.875rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+    letter-spacing: 0;
+  }
+  .header button {
+    position: relative;
+    margin-top: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.25rem 0;
+  }
+  .back,
+  .scatteredKeywords,
+  .hero > :global(.scatter-symbol),
+  .guide,
+  .oracleDivider,
+  .legend,
+  .desktopAura,
+  .solarCorona {
+    display: none;
+  }
+  .reveal {
+    display: grid;
+    grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem 1.125rem;
+    width: 100%;
+  }
+  .cardStage,
+  .card {
+    width: 100%;
+  }
+  .reveal :global(.float-card) {
+    animation: none;
+  }
+  .caption {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    text-align: left;
+  }
+  .cardDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .encounter {
+    display: block;
+    order: -3;
+    margin-bottom: 0.625rem;
+    color: var(--gold-warm);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+  .cardName {
+    order: -2;
+    font:
+      400 1.875rem / 1.3 var(--font-chinese),
+      var(--daily-serif);
+    color: var(--bone);
+    overflow-wrap: anywhere;
+  }
+  .englishName {
+    order: -1;
+    margin: 0.125rem 0 0.875rem;
+    color: var(--gold-pale);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    text-transform: none;
+    font:
+      italic 0.875rem / 1.4 'Miying Daily Italic',
+      Georgia,
+      serif;
+    letter-spacing: 0.02em;
+  }
+  .direction {
+    justify-content: flex-start;
+    gap: 0.375rem;
+    margin: 0;
+  }
+  .direction :global(.cn-nav) {
+    font:
+      0.9375rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+  }
+  .direction :global(.text-tiny) {
+    color: var(--bone-dim);
+    font-size: 0.625rem;
+    letter-spacing: 0.02em;
+  }
+  .directionMark,
+  .sectionMark {
+    color: transparent;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    background: url('/brand/spread-theme/star.webp') center / contain no-repeat;
+  }
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+    color: var(--gold-warm);
+    font-size: 0.9375rem;
+  }
+  .meaning {
+    grid-column: 1 / -1;
+    margin: 0;
+    max-width: none;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--gold-dim);
+    font:
+      400 1.0625rem / 1.65 var(--font-chinese),
+      var(--daily-serif);
+    font-style: normal;
+    color: var(--bone);
+    text-align: left;
+  }
+  .section {
+    padding: 0 var(--daily-gutter) 1.25rem;
+    scroll-margin-top: 1rem;
+    scroll-margin-bottom: calc(var(--mobile-bottom-space) + 1rem);
+    overflow-wrap: anywhere;
+  }
+  .sectionHeading {
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+  .section h3 {
+    color: var(--bone);
+    font:
+      400 1.25rem / 1.4 var(--font-chinese),
+      var(--daily-serif);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .section :global(.text-tiny),
+  .section :global(.cn-hint) {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .section :global(.text-bone-whisper),
+  .section :global(.text-bone-faint) {
+    color: var(--bone-dim);
+  }
+  .section :global(.chat-bubble-oracle),
+  .section :global(.ink-panel-quiet) {
+    padding: 1rem;
+  }
+  .section button:not(:where(.generateButton)) {
+    min-height: 2.75rem;
+  }
+  .oracleHeading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .oraclePrompt > p {
+    display: none;
+  }
+  .oraclePrompt {
+    gap: 0;
+  }
+  .generateButton {
+    padding: 0.625rem 1rem;
+    min-height: 2.75rem;
+    font:
+      400 1rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+    letter-spacing: 0.1em;
+  }
+  .journalCaption {
+    display: block;
+    margin: -0.25rem 0 0.5rem 1.625rem;
+    color: var(--gold-warm);
+    font-size: 0.9375rem;
+    font-style: italic;
+  }
+  .journalPrompt {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.9375rem;
+  }
+  .journalPanel {
+    border: 0;
+    border-bottom: 1px solid var(--ink-line-strong);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .journalPanel:focus-within {
+    border-color: var(--gold-warm);
+  }
+  .section textarea {
+    display: block;
+    height: 3rem;
+    padding: 0.5rem 0;
+    color: var(--bone);
+    font:
+      1rem / 1.8 var(--font-chinese),
+      var(--daily-serif);
+    scroll-margin-bottom: calc(var(--mobile-bottom-space) + 1rem);
+  }
+  .section textarea::placeholder {
+    color: var(--bone-dim);
+  }
+  .journal .sectionMark {
+    background-image: none;
+    background-color: var(--gold-warm);
+    mask: url('/brand/ritual-theme/icons/feather.svg') center / contain no-repeat;
+  }
+  .trailIntro {
+    margin-bottom: 0.625rem;
+    font:
+      0.75rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+    color: var(--bone-dim);
+    font-style: normal;
+  }
+  .timeline {
+    display: block;
+  }
+  .timeline li {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid var(--gold-faint);
+  }
+  .day {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0.5rem 0;
+    border: 0;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+  }
+  .day:hover,
+  .day[aria-current='date'] {
+    background: var(--ink-veil);
+  }
+  .desktopDay {
+    display: none;
+  }
+  .mobileDay {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) 1rem;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .dayThumbnail {
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 5rem;
+    overflow: hidden;
+    border: 1px solid var(--gold-dim);
+    border-radius: 0.125rem;
+    background: var(--ink-veil);
+  }
+  .dayThumbnail img {
+    object-fit: contain;
+  }
+  .reversedThumbnail {
+    transform: rotate(180deg);
+  }
+  .dayText {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.125rem;
+  }
+  .mobileDay time {
+    color: var(--bone-dim);
+    font:
+      0.75rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+    font-variant-numeric: tabular-nums;
+  }
+  .dayName {
+    color: var(--bone);
+    font:
+      400 1.0625rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+  }
+  .mobileDay small {
+    color: var(--bone-dim);
+    font:
+      0.8125rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+  }
+  .day[aria-current='date'] .dayName,
+  .day[aria-current='date'] time {
+    color: var(--gold-warm);
+  }
+  .dayArrow {
+    width: 1rem;
+    height: 1rem;
+    background: var(--gold-pale);
+    mask: url('/brand/ritual-theme/icons/chevron-right.svg') center / contain no-repeat;
+  }
+  .footer {
+    gap: 0.75rem;
+    padding: 1rem var(--daily-gutter) 2rem;
+  }
+  .footer > span {
+    display: none;
+  }
+  .footer p {
+    color: var(--bone-dim);
+    font:
+      0.75rem / 1.5 var(--font-chinese),
+      var(--daily-serif);
+  }
+  .page :is(a, button, textarea):focus-visible {
+    outline: 2px solid var(--gold-pale);
+    outline-offset: 3px;
+  }
+}
+@media (max-width: 359px) {
+  .page {
+    --daily-gutter: 1.125rem;
+  }
+  .title {
+    font-size: 1.875rem;
+  }
+  .reveal {
+    grid-template-columns: 6.25rem minmax(0, 1fr);
+    gap: 0.875rem;
+  }
+  .cardName {
+    font-size: 1.625rem;
+  }
+  .direction :global(.text-tiny) {
+    display: none;
+  }
+  .keywords {
+    font-size: 0.8125rem;
+  }
+}

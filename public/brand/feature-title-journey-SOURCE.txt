@@ -1,0 +1,7 @@
+Font: ZCOOL XiaoWei Regular, version 1.000
+License: SIL Open Font License 1.1; see home-title-OFL.txt in this directory.
+Source: https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&text=%E5%BC%80%E5%90%AF%E6%97%85%E7%A8%8B
+Retrieved: 2026-09-11
+Coverage: U+542F, U+5F00, U+65C5, U+7A0B (plus space in the binary).
+The original title subset lacks these four glyphs. This supplement uses the
+same face version and metrics and is served locally with a restricted Unicode range.

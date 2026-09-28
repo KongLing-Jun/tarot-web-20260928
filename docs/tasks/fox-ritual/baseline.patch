@@ -1,0 +1,1367 @@
+diff --git a/app/reading/page.tsx b/app/reading/page.tsx
+index f381a74..4d659ca 100644
+--- a/app/reading/page.tsx
++++ b/app/reading/page.tsx
+@@ -196,6 +196,7 @@ export default function ReadingPage() {
+   const { config, isLoaded, canUseApi } = useApiConfig();
+   const { dialog, confirm, handleConfirm, handleCancel } = useConfirm();
+   const [followUpDraft, setFollowUpDraft] = useState('');
++  const [spreadInteracting, setSpreadInteracting] = useState(false);
+   const [directDraft, setDirectDraft] = useState(false);
+   const followUpRef = useRef<HTMLTextAreaElement>(null);
+ 
+@@ -325,7 +326,7 @@ export default function ReadingPage() {
+       {/* ═══════════════════════════════════════
+           离场 · 仅左上一隅
+          ═══════════════════════════════════════ */}
+-      <header className={`fixed top-0 left-0 z-50 px-6 py-7 md:px-10 ${phase === 'draw' ? flow.drawHeader : ''}`}>
++      <header className={`fixed top-0 left-0 z-50 px-6 py-7 md:px-10 ${phase === 'draw' ? flow.drawHeader : phase === 'spread' ? flow.spreadHeader : ''}`}>
+         <Link
+           href="/"
+           className="group inline-flex items-center gap-4 text-bone-dim hover:text-bone transition-colors duration-500"
+@@ -343,7 +344,7 @@ export default function ReadingPage() {
+ 
+       {/* 幕次字幕 · 左下隅 */}
+       <div
+-        className={`fixed bottom-7 left-6 md:left-10 z-40 pointer-events-none select-none hidden ${phase === 'draw' ? '' : 'sm:flex'} items-center gap-4`}
++        className={`fixed bottom-7 left-6 md:left-10 z-40 pointer-events-none select-none hidden ${phase === 'draw' || phase === 'spread' ? '' : 'sm:flex'} items-center gap-4`}
+         aria-hidden
+       >
+         <span className="font-display text-xs tracking-[0.4em] text-gold-dim">
+@@ -427,77 +428,14 @@ export default function ReadingPage() {
+ 
+         {/* ─── 幕 Ⅱ · 择阵 · 悬浮于不同景深的面板 ─── */}
+         {phase === 'spread' && (
+-          <section className="act-fullscreen overflow-hidden">
+-            {/* 远景层 · 沉在后方 */}
+-            <div
+-              aria-hidden
+-              className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+-            >
+-              <span
+-                className="font-heading text-bone whitespace-nowrap"
+-                style={{ fontSize: 'clamp(4rem, 14vw, 12rem)', letterSpacing: '0.2em', opacity: 0.04 }}
+-              >
+-                观察的角度
+-              </span>
+-            </div>
+-
+-            {/* 3D 舞台 */}
+-            <div className="relative w-full perspective-1000">
+-              <div className="relative w-full max-w-5xl mx-auto transform-style-3d">
+-                {/* 深处漂浮的仪式残片 · translateZ 负值 */}
+-                <div
+-                  aria-hidden
+-                  className="hidden lg:block absolute -left-24 top-10 w-44 h-64 ink-panel-quiet"
+-                  style={{ transform: 'translateZ(-140px) rotateY(16deg) rotateX(4deg)', opacity: 0.55 }}
+-                >
+-                  <div className="absolute inset-3 hairline flex items-center justify-center">
+-                    <span className="text-gold-faint text-3xl anim-drift">☾</span>
+-                  </div>
+-                </div>
+-                <div
+-                  aria-hidden
+-                  className="hidden lg:block absolute -right-20 bottom-6 w-36 h-52 ink-panel-quiet"
+-                  style={{ transform: 'translateZ(-90px) rotateY(-14deg) rotateX(3deg)', opacity: 0.45 }}
+-                >
+-                  <div className="absolute inset-3 hairline flex items-center justify-center">
+-                    <span className="text-gold-faint text-2xl anim-drift" style={{ animationDelay: '3s' }}>✧</span>
+-                  </div>
+-                </div>
+-                <span
+-                  aria-hidden
+-                  className="scatter-symbol text-3xl -top-10 right-[12%] anim-drift hidden md:block"
+-                  style={{ transform: 'translateZ(-60px)' }}
+-                >
+-                  ◇
+-                </span>
+-                <span
+-                  aria-hidden
+-                  className="scatter-symbol text-xl bottom-0 left-[8%] anim-whisper hidden md:block"
+-                  style={{ transform: 'translateZ(-40px)' }}
+-                >
+-                  ⊹
+-                </span>
+-
+-                {/* 主面板 · 浮在最前 */}
+-                <div
+-                  className="relative ink-panel-ritual float-card px-4 py-12 md:p-14 anim-curtain"
+-                  style={{ transform: 'translateZ(0px)' }}
+-                >
+-                  <SpreadSelector selectedSpread={spread} onSelect={setSpread} />
+-
+-                  <div className="mt-12 flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-center">
+-                    <button onClick={() => goToPhase('question')} className="btn-ink-ghost">
+-                      ← 返 回 问 题
+-                    </button>
+-                    <button
+-                      onClick={() => goToPhase('shuffle')}
+-                      className="btn-ink-primary px-12 py-3.5 inline-flex items-center gap-3"
+-                    >
+-                      <span>就 此 落 阵</span>
+-                      <span className="text-xs">✦</span>
+-                    </button>
+-                  </div>
+-                </div>
++          <section className={`act-fullscreen ${flow.spread}`}>
++            <div className={flow.spreadPanel}>
++              <SpreadSelector selectedSpread={spread} onSelect={setSpread} onInteractionChange={setSpreadInteracting} />
++              <div className={flow.spreadActions}>
++                <button onClick={() => goToPhase('question')} className="btn-ink-ghost">← 返 回 问 题</button>
++                <button onClick={() => goToPhase('shuffle')} disabled={spreadInteracting} className="btn-ink-primary">
++                  <span>就 此 落 阵</span><span className={flow.spreadStar} aria-hidden />
++                </button>
+               </div>
+             </div>
+           </section>
+@@ -559,7 +497,6 @@ export default function ReadingPage() {
+         {phase === 'draw' && (
+           <section className={flow.workspace} aria-label="抽牌">
+             <div className={flow.summary}>
+-              <h2 className="font-heading">从牌堆中，选出你的指引</h2>
+               <p className={flow.question}>「{question}」</p>
+               <p className="text-bone-dim">{spread.nameCn} · 共 {spread.positions.length} 张</p>
+             </div>
+diff --git a/app/reading/reading-flow.module.css b/app/reading/reading-flow.module.css
+index f495122..a6a3a4a 100644
+--- a/app/reading/reading-flow.module.css
++++ b/app/reading/reading-flow.module.css
+@@ -1,7 +1,18 @@
+ .workspace { max-width: 60rem; margin: 0 auto; padding: 5rem 1rem calc(8rem + env(safe-area-inset-bottom, 0px)); min-width: 0; }
++.spread { padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom, 0px)); overflow: hidden; justify-content: flex-start; background: var(--ink-deep) url('/brand/spread-theme/sky.webp') center top / cover no-repeat; }
++.spreadPanel { width: 100%; max-width: 64rem; margin: 0 auto; }
++.spreadHeader { position: absolute; padding-top: 1.5rem; padding-bottom: 1rem; }
++.spreadHeader a, .spreadHeader span { font-family: 'Miying Spread Serif', 'Songti SC', serif; color: var(--bone); font-size: 1rem; }
++.spreadActions { max-width: 28rem; margin: 1.25rem auto 0; padding: 0 1.875rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
++.spreadActions button { display: flex; justify-content: center; align-items: center; gap: 0.75rem; min-height: 48px; padding: 0.75rem 0.5rem; font-family: 'Miying Spread Serif', 'Songti SC', serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.08em; }
++.spreadActions button:last-child { flex: 1.4 1 10rem; border: 1px solid var(--gold-pale); border-radius: 0.1875rem; color: var(--gold-pale); box-shadow: inset 0 0 0 1px var(--gold-faint); }
++.spreadActions button:first-child { flex: 1 1 7rem; color: var(--bone); }
++.spreadActions button:disabled { opacity: 0.5; cursor: wait; }
++.spreadStar { flex: 0 0 1rem; width: 1rem; height: 1.25rem; background: url('/brand/spread-theme/star.webp') center / contain no-repeat; }
++@media (max-width: 359px) { .spreadActions { padding: 0 1rem; gap: 0.5rem; } .spreadActions button { font-size: 0.875rem; } }
++@media (min-width: 768px) { .spread { padding-top: 2.5rem; } }
+ .drawHeader { width: 100%; padding-top: 1rem; padding-bottom: 1rem; background: var(--ink-deep); }
+ .summary { text-align: center; display: grid; gap: 0.5rem; }
+-.summary h2 { color: var(--bone); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.4; }
+ .question { max-width: 36rem; margin: auto; color: var(--bone-dim); overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+ .editActions button { min-height: 44px; padding: 0.5rem 0.75rem; }
+ .editActions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+diff --git a/components/CardFlight.tsx b/components/CardFlight.tsx
+deleted file mode 100644
+index 3ca12c4..0000000
+--- a/components/CardFlight.tsx
++++ /dev/null
+@@ -1,85 +0,0 @@
+-'use client';
+-
+-import { useEffect, useRef } from 'react';
+-import { createPortal } from 'react-dom';
+-import { CompactCardBack } from './CompactCardBack';
+-import type { CardSource } from './FanDeck';
+-import styles from './ManualDrawTable.module.css';
+-
+-export interface DrawFlight { source: CardSource; target: CardSource; targetElement: HTMLElement; slot: number }
+-
+-export function CardFlight({ flight, onFinish }: { flight: DrawFlight; onFinish: () => void }) {
+-  const card = useRef<HTMLDivElement>(null);
+-  useEffect(() => {
+-    const el = card.current;
+-    if (!el) return;
+-    let live = true;
+-    let animation: Animation | undefined;
+-    let timer: ReturnType<typeof setTimeout> | undefined;
+-    const finish = () => {
+-      if (!live) return;
+-      live = false;
+-      clearTimeout(timer);
+-      animation?.cancel();
+-      onFinish();
+-    };
+-    const style = getComputedStyle(el);
+-    const durationToken = style.getPropertyValue('--dur-ritual').trim();
+-    const duration = parseFloat(durationToken) * (durationToken.endsWith('ms') ? 1 : 1000);
+-    const motion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+-    const { source, target } = flight;
+-    const dx = target.x - source.x;
+-    const dy = target.y - source.y;
+-    const radians = source.angle * Math.PI / 180;
+-    const lift = source.height * 0.4;
+-    const transform = (x: number, y: number, angle: number, sx = 1, sy = sx) =>
+-      `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${sx}, ${sy})`;
+-    if (!el.animate || motion?.matches || !Number.isFinite(duration) || duration <= 0) {
+-      finish();
+-      return;
+-    }
+-    try {
+-      animation = el.animate([
+-        { transform: transform(0, 0, source.angle), opacity: 1, offset: 0 },
+-        { transform: transform(Math.sin(radians) * lift, -Math.cos(radians) * lift, source.angle), opacity: 1, offset: 0.22 },
+-        { transform: transform(dx * 0.55, dy * 0.55 - lift, source.angle * 0.35), opacity: 1, offset: 0.6 },
+-        { transform: transform(dx, dy, 0, target.width / source.width, target.height / source.height), opacity: 1, offset: 1 },
+-      ], { duration, easing: style.getPropertyValue('--ease-ritual').trim() || 'ease-out', fill: 'forwards' });
+-      animation.finished.then(finish, finish);
+-      // Derived from the same design token; completion must not depend on an animation event.
+-      timer = setTimeout(finish, duration);
+-    } catch {
+-      finish();
+-    }
+-    const hidden = () => { if (document.hidden) finish(); };
+-    const scrolled = () => {
+-      const rect = flight.targetElement.getBoundingClientRect();
+-      // A queued scroll from showTarget happened before measurement. End only if
+-      // the measured destination actually moved, allowing subpixel rounding.
+-      if (Math.abs(rect.left + rect.width / 2 - target.x) > 0.5 || Math.abs(rect.top + rect.height / 2 - target.y) > 0.5) finish();
+-    };
+-    window.addEventListener('resize', finish);
+-    window.addEventListener('scroll', scrolled, true);
+-    window.visualViewport?.addEventListener('resize', finish);
+-    document.addEventListener('visibilitychange', hidden);
+-    motion?.addEventListener?.('change', finish);
+-    return () => {
+-      live = false;
+-      clearTimeout(timer);
+-      animation?.cancel();
+-      window.removeEventListener('resize', finish);
+-      window.removeEventListener('scroll', scrolled, true);
+-      window.visualViewport?.removeEventListener('resize', finish);
+-      document.removeEventListener('visibilitychange', hidden);
+-      motion?.removeEventListener?.('change', finish);
+-    };
+-  }, [flight, onFinish]);
+-
+-  return createPortal(<div aria-hidden="true" className={styles.flightLayer}>
+-    <div className={styles.sourceGlow} style={{ left: flight.source.x, top: flight.source.y }} />
+-    <div ref={card} className={styles.flyingCard} data-draw-flight="true" style={{
+-      left: flight.source.x - flight.source.width / 2, top: flight.source.y - flight.source.height / 2,
+-      width: flight.source.width, height: flight.source.height, transform: `rotate(${flight.source.angle}deg)`,
+-    }}><CompactCardBack width={flight.source.width} height={flight.source.height} /></div>
+-  </div>, document.body);
+-}
+diff --git a/components/FanDeck.tsx b/components/FanDeck.tsx
+index 8a5c44b..c0e18a0 100644
+--- a/components/FanDeck.tsx
++++ b/components/FanDeck.tsx
+@@ -1,13 +1,12 @@
+ 'use client';
+ 
+-import { forwardRef, useCallback, useEffect, useLayoutEffect, useImperativeHandle, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
++import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
+ import { createPortal, flushSync } from 'react-dom';
+ import { CompactCardBack } from './CompactCardBack';
+ import { FAN, fanPoses, hitFan, type FanPose } from './fan-geometry';
+ import styles from './FanDeck.module.css';
+ 
+-export interface CardSource { x: number; y: number; width: number; height: number; angle: number }
+-export interface FanDeckHandle { source: (index: number) => CardSource | null }
++interface CardSource { x: number; y: number; width: number; height: number; angle: number }
+ interface FanDeckProps {
+   deckSize: number;
+   selectedIndices: number[];
+@@ -29,8 +28,8 @@ interface BrowseGesture {
+ interface PinchGesture { distance: number; zoom: number; anchor: Point }
+ interface PullPreview { index: number; distance: number; x: number; y: number; source: CardSource | null }
+ 
+-export const FanDeck = forwardRef<FanDeckHandle, FanDeckProps>(function FanDeck(
+-  { deckSize, selectedIndices, previewIndex, disabled = false, onPreview, onExtract }, ref,
++export function FanDeck(
++  { deckSize, selectedIndices, previewIndex, disabled = false, onPreview, onExtract }: FanDeckProps,
+ ) {
+   const stage = useRef<HTMLDivElement>(null);
+   const viewport = useRef<HTMLDivElement>(null);
+@@ -105,12 +104,6 @@ export const FanDeck = forwardRef<FanDeckHandle, FanDeckProps>(function FanDeck(
+       return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2,
+         width: el.offsetWidth, height: el.offsetHeight, angle };
+   };
+-  useImperativeHandle(ref, () => ({
+-    source(index) {
+-      if (pull?.index === index && pull.source) return { ...pull.source, x: pull.source.x + pull.x, y: pull.source.y + pull.y };
+-      return cardSource(index);
+-    },
+-  }));
+ 
+   const choose = (index: number | undefined, show = false) => {
+     if (disabled || index === undefined || index === previewIndex || selectedIndices.includes(index)) return;
+@@ -254,7 +247,7 @@ export const FanDeck = forwardRef<FanDeckHandle, FanDeckProps>(function FanDeck(
+         pointers.current.delete(e.pointerId);
+         suppressClick.current = true;
+         if (!disabled && !suspended.current && candidate && candidate.distance >= PULL.confirm) {
+-          // Measure the flight source at the final release position, before removing the drag offset.
++          // Commit the final preview before invoking the parent's latest extraction callback.
+           flushSync(() => setPull(candidate));
+           extract.current?.(candidate.index);
+         }
+@@ -309,4 +302,4 @@ export const FanDeck = forwardRef<FanDeckHandle, FanDeckProps>(function FanDeck(
+       <CompactCardBack width={pull.source.width} height={pull.source.height} />
+     </div>, document.body)}
+   </div>;
+-});
++}
+diff --git a/components/ManualDrawTable.module.css b/components/ManualDrawTable.module.css
+index 9cea6b6..28b2d03 100644
+--- a/components/ManualDrawTable.module.css
++++ b/components/ManualDrawTable.module.css
+@@ -1,27 +1,9 @@
+ .table { max-width: 46rem; margin: 0 auto; min-width: 0; }
+ .progress { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-top: 0.75rem; padding: 0.5rem 0; color: var(--gold); font-size: 0.875rem; }
+ .progress span + span { color: var(--bone-dim); }
+-.slots { position: relative; display: flex; gap: 0.75rem; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; padding: 0.75rem 0 0.25rem; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; border-top: 1px solid var(--ink-line-strong); }
+-.slot { flex: 0 0 5.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.375rem; font-size: 0.75rem; text-align: center; }
+-.slot:first-child { margin-left: auto; }
+-.slot:last-child { margin-right: auto; }
+-.slotLabel { color: var(--bone-dim); line-height: 1.5; min-height: 1.5rem; width: 100%; display: grid; place-items: center; }
+-.nextSlot .slotLabel { color: var(--gold-pale); }
+-.slotCard { position: relative; width: 2.75rem; height: 4.25rem; }
+-.slotCard > span { display: grid; height: 100%; place-items: center; border: 1px dashed var(--ink-line-strong); color: var(--bone-dim); }
+-.nextSlot .slotCard > span { border-color: var(--gold-dim); }
+-.landed { position: absolute; inset: 0; overflow: hidden; animation: card-land var(--dur-soft) var(--ease-veil); }
+-.slot button { min-height: 44px; min-width: 44px; padding: 0.375rem; }
+-.undoSpace { height: 44px; }
+-.editActions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.75rem; margin-top: 0.75rem; }
++.editActions { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 0.25rem 0.75rem; margin-top: 0.75rem; }
+ .editActions button { min-height: 44px; padding: 0.5rem; }
+ .dock { position: fixed; bottom: 0; left: 0; right: 0; z-index: 45; display: grid; justify-items: center; gap: 0.625rem; padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px)); background: var(--ink-deep); border-top: 1px solid var(--ink-line-strong); }
+ .dock p { color: var(--bone-dim); font-size: 0.875rem; text-align: center; }
+ .dock button { width: min(100%, 28rem); min-height: 48px; padding: 0.75rem 1.5rem; }
+-.flightLayer { position: fixed; inset: 0; pointer-events: none; z-index: 60; }
+-.flyingCard { position: absolute; transform-origin: center; will-change: transform; box-shadow: 0 0 14px var(--gold-glow), 0 12px 26px var(--gold-faint); }
+-.flyingCard > span { border: 1px solid var(--gold-pale); }
+-.sourceGlow { position: absolute; width: 3rem; height: 3rem; border: 1px solid var(--gold); border-radius: 50%; transform: translate(-50%, -50%); animation: source-glow var(--dur-soft) var(--ease-veil) both; }
+-@keyframes source-glow { from { opacity: 0.8; transform: translate(-50%, -50%) scale(0.5); } to { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } }
+-@keyframes card-land { from { box-shadow: 0 0 18px var(--gold-glow); } to { box-shadow: 0 0 0 transparent; } }
+-@media (prefers-reduced-motion: reduce) { .landed, .sourceGlow { animation: none; } }
++@media (min-width: 768px) { .editActions { grid-template-columns: repeat(4, max-content); } }
+diff --git a/components/ManualDrawTable.tsx b/components/ManualDrawTable.tsx
+index 311dc5a..af26e2c 100644
+--- a/components/ManualDrawTable.tsx
++++ b/components/ManualDrawTable.tsx
+@@ -1,10 +1,8 @@
+ 'use client';
+ 
+-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
++import { useLayoutEffect, useRef } from 'react';
+ import type { Spread } from '@/lib/tarot/types';
+-import { FanDeck, type FanDeckHandle } from './FanDeck';
+-import { CompactCardBack } from './CompactCardBack';
+-import { CardFlight, type DrawFlight } from './CardFlight';
++import { FanDeck } from './FanDeck';
+ import styles from './ManualDrawTable.module.css';
+ 
+ interface ManualDrawTableProps {
+@@ -21,46 +19,17 @@ interface ManualDrawTableProps {
+ }
+ 
+ export function ManualDrawTable({ spread, deckSize, slots, previewIndex, onPreview, onConfirm, onUndo, onReveal, onEdit, onReshuffle }: ManualDrawTableProps) {
+-  const fan = useRef<FanDeckHandle>(null);
+-  const rail = useRef<HTMLOListElement>(null);
+-  const targets = useRef<(HTMLDivElement | null)[]>([]);
+   const locked = useRef(false);
+-  const [flight, setFlight] = useState<DrawFlight | null>(null);
+   const nextSlot = slots.indexOf(null);
+   const count = slots.filter(index => index !== null).length;
+-  const finish = useCallback(() => setFlight(null), []);
++  const lastSlot = slots.reduce<number>((last, index, slot) => index === null ? last : slot, -1);
+ 
+-  const showTarget = useCallback((slot: number) => {
+-    const container = rail.current;
+-    const target = targets.current[slot];
+-    if (container && target) {
+-      const item = target.parentElement!;
+-      const left = item.offsetLeft;
+-      if (left < container.scrollLeft) container.scrollLeft = left;
+-      else if (left + item.offsetWidth > container.scrollLeft + container.clientWidth) {
+-        container.scrollLeft = left + item.offsetWidth - container.clientWidth;
+-      }
+-    }
+-  }, []);
+-
+-  // Reveal the next target before unlocking. Only the rail moves, never the page or deck.
+-  useLayoutEffect(() => {
+-    if (flight) return;
+-    showTarget(nextSlot);
+-    locked.current = false;
+-  }, [flight, nextSlot, showTarget]);
++  // Unlock only after the parent has committed the new selection.
++  useLayoutEffect(() => { locked.current = false; }, [slots]);
+ 
+   const extract = () => {
+     if (locked.current || previewIndex === null || nextSlot < 0 || slots.includes(previewIndex)) return;
+     locked.current = true;
+-    showTarget(nextSlot);
+-    const source = fan.current?.source(previewIndex);
+-    const targetElement = targets.current[nextSlot];
+-    const rect = targetElement?.getBoundingClientRect();
+-    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+-    if (source && source.width > 0 && source.height > 0 && targetElement && rect?.width && rect.height && !reduced && typeof Element.prototype.animate === 'function') {
+-      setFlight({ source, target: { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, width: rect.width, height: rect.height, angle: 0 }, targetElement, slot: nextSlot });
+-    }
+     onConfirm();
+   };
+   const idle = (action: () => void) => { if (!locked.current) action(); };
+@@ -68,36 +37,22 @@ export function ManualDrawTable({ spread, deckSize, slots, previewIndex, onPrevi
+   return <div className={styles.table}>
+     <div className={styles.progress} role="status" aria-live="polite">
+       <span>已抽 {count} / {slots.length}</span>
+-      <span>{flight ? `正在放入 · ${spread.positions[flight.slot].nameCn}` : nextSlot >= 0 ? `下一张 · ${spread.positions[nextSlot].nameCn}` : '已选齐，揭牌前仍可撤回'}</span>
++      <span>{nextSlot >= 0 ? `下一张 · ${spread.positions[nextSlot].nameCn}` : '已选齐，揭牌前仍可撤回'}</span>
+     </div>
+-    <ol ref={rail} className={styles.slots} aria-label="已选阵位" aria-busy={!!flight}>
+-      {spread.positions.map((position, slot) => (
+-        <li key={position.id} className={`${styles.slot} ${nextSlot === slot ? styles.nextSlot : ''}`} aria-current={nextSlot === slot ? 'step' : undefined}>
+-          <span className={styles.slotLabel}>{slot + 1}. {position.nameCn}</span>
+-          <div ref={el => { targets.current[slot] = el; }} className={styles.slotCard} data-slot={slot} aria-hidden="true">
+-            {slots[slot] !== null && flight?.slot !== slot
+-              ? <div key={slots[slot]} className={styles.landed}><CompactCardBack /></div>
+-              : <span>待抽取</span>}
+-          </div>
+-          {slots[slot] !== null ? <button className="btn-ink-ghost" disabled={!!flight}
+-            aria-label={`撤回${position.nameCn}`} onClick={() => idle(() => onUndo(slot))}>撤回</button> : <span className={styles.undoSpace} aria-hidden="true" />}
+-        </li>
+-      ))}
+-    </ol>
+-    <FanDeck ref={fan} deckSize={deckSize} selectedIndices={slots.filter((index): index is number => index !== null)}
+-      previewIndex={previewIndex} disabled={!!flight || nextSlot < 0} onPreview={index => idle(() => onPreview(index))}
++    <FanDeck deckSize={deckSize} selectedIndices={slots.filter((index): index is number => index !== null)}
++      previewIndex={previewIndex} disabled={nextSlot < 0} onPreview={index => idle(() => onPreview(index))}
+       onExtract={index => { if (index === previewIndex) extract(); }} />
+     <div className={styles.editActions}>
+-      <button className="btn-ink-ghost" disabled={!!flight} onClick={() => idle(() => onEdit('question'))}>修改问题</button>
+-      <button className="btn-ink-ghost" disabled={!!flight} onClick={() => idle(() => onEdit('spread'))}>修改牌阵</button>
+-      <button className="btn-ink-ghost" disabled={!!flight} onClick={() => idle(onReshuffle)}>重新洗牌</button>
++      <button className="btn-ink-ghost" disabled={lastSlot < 0} onClick={() => idle(() => onUndo(lastSlot))}>撤回上一张</button>
++      <button className="btn-ink-ghost" onClick={() => idle(() => onEdit('question'))}>修改问题</button>
++      <button className="btn-ink-ghost" onClick={() => idle(() => onEdit('spread'))}>修改牌阵</button>
++      <button className="btn-ink-ghost" onClick={() => idle(onReshuffle)}>重新洗牌</button>
+     </div>
+     <div className={styles.dock}>
+-      <p aria-live="polite">{flight ? '正在将这张牌放入牌位…' : nextSlot < 0 ? '选牌完成，准备揭开这些牌' : previewIndex === null
++      <p aria-live="polite">{nextSlot < 0 ? '选牌完成，准备揭开这些牌' : previewIndex === null
+         ? '沿牌弧轻拨，找到属于你的那张牌' : `已预选牌堆第 ${previewIndex + 1} 张 · ${spread.positions[nextSlot].nameCn}`}</p>
+-      {nextSlot < 0 ? <button className="btn-ink-primary" disabled={!!flight} onClick={() => idle(onReveal)}>前往揭牌</button>
+-        : <button className="btn-ink-primary" disabled={!!flight || previewIndex === null} onClick={extract}>抽取这张</button>}
++      {nextSlot < 0 ? <button className="btn-ink-primary" onClick={() => idle(onReveal)}>返回揭牌</button>
++        : <button className="btn-ink-primary" disabled={previewIndex === null} onClick={extract}>抽取这张</button>}
+     </div>
+-    {flight && <CardFlight flight={flight} onFinish={finish} />}
+   </div>;
+ }
+diff --git a/components/SpreadSelector.tsx b/components/SpreadSelector.tsx
+index 228b7f4..97b2866 100644
+--- a/components/SpreadSelector.tsx
++++ b/components/SpreadSelector.tsx
+@@ -1,7 +1,9 @@
+ 'use client';
+ 
++import { useId, useLayoutEffect, useEffect, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
+ import { Spread } from '@/lib/tarot/types';
+ import { spreads } from '@/lib/tarot/spreads';
++import styles from './SpreadSelector.module.css';
+ 
+ const SPREAD_USES: Record<string, string> = {
+   single: '当下指引',
+@@ -12,96 +14,248 @@ const SPREAD_USES: Record<string, string> = {
+   'celtic-cross': '全面探索复杂问题',
+ };
+ 
++// Visual slots surround the selected card; recycling happens outside the visible stage.
++const SLOTS = [-2, -1, 0, 1, 2];
++const SWIPE_THRESHOLD = 0.18; // Fraction of the distance between adjacent cards.
++const TAP_SLOP = 6; // CSS pixels: distinguish a click from a deliberate drag.
++const wrap = (index: number) => (index + spreads.length) % spreads.length;
++
++// Matches CelticCrossLayout: central pair, left/right, above/below, then the staff bottom to top.
++const CELTIC_POSITIONS = [[82, 58], [82, 58], [30, 58], [134, 58], [82, 16], [82, 100], [194, 124], [194, 88], [194, 52], [194, 16]];
++
++function SpreadDiagram({ spread }: { spread: Spread }) {
++  const celtic = spread.id === 'celtic-cross';
++  const named = spread.positions.length <= 3;
++  const width = named ? 56 : celtic ? 22 : 34;
++  const height = width * 7 / 4;
++  const diagramHeight = celtic ? 162 : 128;
++  const positions = spread.positions.map((position, index) => {
++    const [x, y] = celtic ? CELTIC_POSITIONS[index] : [120 + (index - (spread.positions.length - 1) / 2) * (named ? 65 : 43), 55];
++    return { position, x, y, labelY: y + (named ? 63 : celtic ? (index === 0 ? -13 : 0) : 45) };
++  });
++  return (
++    <span className={styles.diagramCanvas} style={{ aspectRatio: `240 / ${diagramHeight}`, maxWidth: `calc(8rem * 240 / ${diagramHeight})` }}>
++      <svg className={styles.diagram} viewBox={celtic ? '0 -8 240 162' : '0 0 240 128'} role="img" aria-label={`${spread.nameCn}，${spread.positions.length} 个牌位示意：${spread.positions.map(p => p.nameCn).join('、')}`}>
++        {positions.map(({ position, x, y }, index) => (
++          <g key={position.id} data-position={index + 1} transform={`translate(${x} ${y})`}>
++            <title>{`${index + 1}. ${position.nameCn}`}</title>
++            <image href="/brand/spread-theme/card-back.webp" x={-width / 2} y={-height / 2} width={width} height={height} transform={celtic && index === 1 ? 'rotate(90)' : undefined} />
++          </g>
++        ))}
++      </svg>
++      {positions.map(({ position, x, labelY }, index) => (
++        <span key={position.id} data-position-label={index + 1} aria-hidden className={named ? styles.positionName : styles.positionNumber}
++          style={{ left: `${x / 240 * 100}%`, top: `${(labelY + (celtic ? 8 : 0)) / diagramHeight * 100}%` }}>
++          {named ? position.nameCn : index + 1}
++        </span>
++      ))}
++    </span>
++  );
++}
++
+ interface SpreadSelectorProps {
+   selectedSpread: Spread;
+   onSelect: (spread: Spread) => void;
++  onInteractionChange?: (interacting: boolean) => void;
+ }
+ 
+-export function SpreadSelector({ selectedSpread, onSelect }: SpreadSelectorProps) {
+-  return (
+-    <div className="w-full max-w-5xl px-4">
+-      {/* ─── 标题 ─── */}
+-      <div className="text-center mb-8 md:mb-14">
+-        <span className="text-gold text-lg" aria-hidden>✦</span>
+-        <h3 className="font-heading text-2xl text-bone mt-5 mb-3 tracking-[0.22em] uppercase">
+-          选 择 牌 阵
+-        </h3>
+-        <div className="rule-h-gold w-20 mx-auto mt-4" />
+-        <p className="font-body italic-soft text-bone-faint text-sm mt-5">
+-          先看你想探索什么，再选择牌阵；六种牌阵都可以使用。
+-        </p>
+-      </div>
++type Motion = { sourceId: string; offset: number; phase: 'dragging' | 'settling' | 'idle' };
++type Gesture = { id: number; x: number; y: number; offset: number; dragging: boolean };
++
++function tokenDuration(element: HTMLElement, token: string) {
++  const value = getComputedStyle(element).getPropertyValue(token).trim();
++  return (parseFloat(value) || 0) * (value.endsWith('ms') ? 1 : 1000);
++}
+ 
+-      {/* ─── 牌阵卡片 · 极细分隔 ─── */}
+-      <div className="grid grid-cols-1 md:grid-cols-3">
+-        {spreads.map((spread, index) => {
+-          const isSelected = selectedSpread.id === spread.id;
+-          // 每行中间列需要左右边线（3 列布局中 col % 3 === 1）
+-          const col = index % 3;
+-          const needBorderX = col === 1;
+-          // 第二行起需要顶部边线
+-          const needBorderT = index >= 3;
++export function SpreadSelector({ selectedSpread, onSelect, onInteractionChange }: SpreadSelectorProps) {
++  const hintId = useId();
++  const stage = useRef<HTMLDivElement>(null);
++  const gesture = useRef<Gesture | null>(null);
++  const pending = useRef<number | null>(null);
++  const busy = useRef(false);
++  const suppressClick = useRef(false);
++  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
++  const callbacks = useRef({ onSelect, onInteractionChange });
++  const [motion, setMotion] = useState<Motion>({ sourceId: selectedSpread.id, offset: 0, phase: 'idle' });
++  if (motion.sourceId !== selectedSpread.id) {
++    setMotion({ sourceId: selectedSpread.id, offset: 0, phase: 'idle' });
++  }
++  const index = spreads.findIndex(spread => spread.id === selectedSpread.id);
++  const offset = motion.sourceId === selectedSpread.id ? motion.offset : 0;
++  const phase = motion.sourceId === selectedSpread.id ? motion.phase : 'idle';
+ 
+-          return (
+-            <button
+-              key={spread.id}
+-              onClick={() => onSelect(spread)}
+-              aria-pressed={isSelected}
+-              className={`
+-                relative group flex flex-col items-start text-left p-5 md:p-8
+-                transition-all duration-700
+-                ${isSelected
+-                  ? 'bg-[var(--ink-veil)]'
+-                  : 'bg-transparent hover:bg-[var(--ink-veil)]'
+-                }
+-                ${needBorderX ? 'md:border-l md:border-r md:border-[var(--ink-line)]' : ''}
+-                ${needBorderT ? 'md:border-t md:border-[var(--ink-line)]' : ''}
+-              `}
+-              style={{ transitionTimingFunction: 'var(--ease-ritual)' }}
+-            >
+-              {/* 选中态 · 顶部金线 */}
+-              <span
+-                className={`absolute top-0 left-0 right-0 h-px transition-all duration-700 ${
+-                  isSelected ? 'bg-[var(--gold)]' : 'bg-transparent'
+-                }`}
+-                style={{ transitionTimingFunction: 'var(--ease-veil)' }}
+-              />
+-
+-              <h4
+-                className={`font-heading text-xl mb-4 tracking-[0.18em] transition-colors duration-700 ${
+-                  isSelected ? 'text-bone' : 'text-bone-dim group-hover:text-bone'
+-                }`}
+-              >
+-                {SPREAD_USES[spread.id] ?? spread.nameCn}
+-              </h4>
+-
+-              {/* 牌阵名与牌数 */}
+-              <div className="flex items-center gap-4 mb-4">
+-                <span
+-                  className={`text-lg transition-colors duration-700 ${
+-                    isSelected ? 'text-gold' : 'text-gold-dim'
+-                  }`}
+-                >
+-                  {isSelected ? '✦' : '◇'}
+-                </span>
+-                <span
+-                  className={`font-heading text-[11px] tracking-veil uppercase transition-colors duration-700 ${
+-                    isSelected ? 'text-gold' : 'text-bone-dim'
+-                  }`}
+-                >
+-                  {spread.nameCn} · {spread.positions.length} 张
+-                </span>
+-              </div>
+-
+-              {/* 描述 · Cormorant 衬线 */}
+-              <p className="font-body text-bone-faint text-base leading-relaxed mb-5 italic-soft">
+-                {spread.description}
+-              </p>
++  useLayoutEffect(() => { callbacks.current = { onSelect, onInteractionChange }; });
++  useLayoutEffect(() => {
++    // A parent-driven selection cancels any gesture/animation from the previous spread.
++    return () => {
++      clearTimeout(timer.current);
++      gesture.current = null;
++      pending.current = null;
++      if (busy.current) callbacks.current.onInteractionChange?.(false);
++      busy.current = false;
++    };
++  }, [selectedSpread.id]);
++
++  function setBusy(value: boolean) {
++    if (busy.current === value) return;
++    busy.current = value;
++    callbacks.current.onInteractionChange?.(value);
++  }
+ 
++  function finish() {
++    const direction = pending.current;
++    if (direction === null) return;
++    pending.current = null;
++    clearTimeout(timer.current);
++    setMotion({ sourceId: selectedSpread.id, offset: 0, phase: 'idle' });
++    if (direction !== 0) callbacks.current.onSelect(spreads[wrap(index + direction)]);
++    setBusy(false);
++  }
++
++  function settle(direction: number) {
++    if (!stage.current) return;
++    setBusy(true);
++    pending.current = direction;
++    if (stage.current.contains(document.activeElement)) stage.current.focus({ preventScroll: true });
++    setMotion({ sourceId: selectedSpread.id, offset: -direction, phase: 'settling' });
++    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
++    const duration = reducedMotion ? 0 : tokenDuration(stage.current, '--dur-soft');
++    // transitionend is primary; the token-derived fallback also unlocks hidden/cancelled transitions.
++    timer.current = setTimeout(finish, duration * 1.5);
++  }
++
++  function navigate(direction: number) {
++    if (!busy.current && !gesture.current) settle(direction);
++  }
++
++  function stepWidth() {
++    const card = stage.current?.querySelector<HTMLElement>('[data-slot="0"]');
++    const step = stage.current && parseFloat(getComputedStyle(stage.current).getPropertyValue('--card-step'));
++    return card && step ? card.offsetWidth * step : 0;
++  }
++
++  const wheelActions = useRef({ navigate, stepWidth });
++  useLayoutEffect(() => { wheelActions.current = { navigate, stepWidth }; });
++  useEffect(() => {
++    const element = stage.current;
++    if (!element) return;
++    let distance = 0;
++    let switched = false;
++    let wheelTimer: ReturnType<typeof setTimeout>;
++    const wheel = (event: WheelEvent) => {
++      if (event.ctrlKey || Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
++      event.preventDefault();
++      clearTimeout(wheelTimer);
++      wheelTimer = setTimeout(() => { distance = 0; switched = false; }, tokenDuration(element, '--dur-quick'));
++      if (switched || busy.current || gesture.current) return;
++      const unit = event.deltaMode === 1 ? parseFloat(getComputedStyle(element).fontSize) : event.deltaMode === 2 ? element.clientWidth : 1;
++      distance += event.deltaX * unit;
++      const width = wheelActions.current.stepWidth();
++      if (width && Math.abs(distance) >= width * SWIPE_THRESHOLD) {
++        switched = true;
++        wheelActions.current.navigate(Math.sign(distance));
++      }
++    };
++    element.addEventListener('wheel', wheel, { passive: false });
++    return () => { element.removeEventListener('wheel', wheel); clearTimeout(wheelTimer); };
++  }, []);
++
++  function pointerDown(event: PointerEvent<HTMLDivElement>) {
++    if (event.isPrimary === false || event.button !== 0 || busy.current) return;
++    suppressClick.current = false;
++    gesture.current = { id: event.pointerId, x: event.clientX, y: event.clientY, offset: 0, dragging: false };
++  }
++
++  function pointerMove(event: PointerEvent<HTMLDivElement>) {
++    const current = gesture.current;
++    if (!current || current.id !== event.pointerId) return;
++    const dx = event.clientX - current.x;
++    const dy = event.clientY - current.y;
++    if (!current.dragging) {
++      if (Math.max(Math.abs(dx), Math.abs(dy)) < TAP_SLOP) return;
++      if (Math.abs(dy) > Math.abs(dx)) { gesture.current = null; return; }
++      current.dragging = true;
++      suppressClick.current = true;
++      event.currentTarget.setPointerCapture(event.pointerId);
++      setBusy(true);
++    }
++    const width = stepWidth();
++    current.offset = width ? Math.max(-1, Math.min(1, dx / width)) : 0;
++    setMotion({ sourceId: selectedSpread.id, offset: current.offset, phase: 'dragging' });
++  }
++
++  function pointerEnd(event: PointerEvent<HTMLDivElement>, cancelled = false) {
++    const current = gesture.current;
++    if (!current || current.id !== event.pointerId) return;
++    gesture.current = null;
++    if (current.dragging) {
++      const width = stepWidth();
++      const releasedOffset = width ? (event.clientX - current.x) / width : current.offset;
++      const direction = !cancelled && Math.abs(releasedOffset) >= SWIPE_THRESHOLD ? -Math.sign(releasedOffset) : 0;
++      settle(direction);
++    }
++  }
++
++  return (
++    <div className={styles.selector}>
++      <div className={styles.heading}>
++        <span className={styles.moonCrown} aria-hidden />
++        <h3>选择牌阵</h3>
++        <p>先看你想探索什么，再选择牌阵</p>
++      </div>
++      <div ref={stage} className={styles.stage} data-phase={phase} role="region" aria-roledescription="轮播"
++        aria-label="选择牌阵" aria-describedby={hintId} aria-busy={phase !== 'idle'} tabIndex={0}
++        onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={event => pointerEnd(event)}
++        onPointerLeave={() => { if (!gesture.current?.dragging) gesture.current = null; }}
++        onPointerCancel={event => pointerEnd(event, true)}
++        onLostPointerCapture={event => {
++          // Touch transfers implicit capture from the card to this stage; that child's loss bubbles here.
++          if (event.target === event.currentTarget) pointerEnd(event, true);
++        }}
++        onKeyDown={event => {
++          if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
++          event.preventDefault();
++          navigate(event.key === 'ArrowLeft' ? -1 : 1);
++        }}>
++        {SLOTS.map(slot => {
++          const spread = spreads[wrap(index + slot)];
++          const position = slot + offset;
++          const distance = Math.abs(position);
++          const visible = Math.abs(slot) <= 1;
++          return (
++            <button key={spread.id} type="button" data-slot={slot} data-spread-id={spread.id}
++              className={styles.card} aria-pressed={slot === 0} aria-hidden={!visible} tabIndex={slot === 0 ? 0 : -1}
++              aria-label={`${SPREAD_USES[spread.id] ?? spread.nameCn}，${spread.nameCn}，${spread.positions.length} 张`}
++              style={{ '--position': position, '--scale': Math.max(0.72, 1 - distance * 0.14),
++                '--turn': `${Math.max(-1, Math.min(1, position)) * -9}deg`,
++                opacity: Math.max(0, 1 - distance * 0.55), zIndex: 10 - Math.abs(slot),
++                pointerEvents: visible ? 'auto' : 'none' } as CSSProperties}
++              onClick={event => {
++                if (suppressClick.current && event.detail !== 0) return;
++                if (slot !== 0) navigate(Math.sign(slot));
++              }}
++              onTransitionEnd={event => {
++                if (event.target === event.currentTarget && event.propertyName === 'transform' && slot === 0) finish();
++              }}>
++              <span className={styles.cardMark} aria-hidden />
++              <h4>{spread.nameCn}</h4>
++              <span className={styles.purpose}>{SPREAD_USES[spread.id] ?? spread.nameCn}</span>
++              <span className={styles.meta}>{spread.positions.length} 张</span>
++              <span className={styles.diagramWrap}><SpreadDiagram spread={spread} /></span>
++              <span className={styles.descriptionMark} aria-hidden />
++              <p>{spread.description}</p>
+             </button>
+           );
+         })}
+       </div>
++      <div className={styles.navigation}>
++        <button type="button" aria-label="上一个牌阵" aria-disabled={phase !== 'idle'} onClick={() => navigate(-1)}>←</button>
++        <span role="status" aria-live="polite" aria-atomic="true">
++          <span className="sr-only">已选{selectedSpread.nameCn}，</span>{index + 1} <span className={styles.divider}>/</span> {spreads.length}
++        </span>
++        <button type="button" aria-label="下一个牌阵" aria-disabled={phase !== 'idle'} onClick={() => navigate(1)}>→</button>
++      </div>
++      <p id={hintId} className={styles.hint}>左右滑动选择牌阵<span className="sr-only">，也可使用左右方向键切换。居中后点击「就此落阵」。</span></p>
+     </div>
+   );
+ }
+diff --git a/hooks/useReading.ts b/hooks/useReading.ts
+index e6e1794..98f181b 100644
+--- a/hooks/useReading.ts
++++ b/hooks/useReading.ts
+@@ -534,7 +534,11 @@ export function useReading() {
+     finishShuffle: manual.finishShuffle,
+     startDraw: () => { dispatch({ type: 'start-draw' }); },
+     previewCard: (index: number | null) => { dispatch({ type: 'preview', index }); },
+-    confirmCard: () => { dispatch({ type: 'confirm' }); },
++    confirmCard: () => {
++      dispatch({ type: 'confirm' });
++      // Reducer checks the updated slots; returning to adjust never triggers this transition.
++      dispatch({ type: 'enter-reveal', spread });
++    },
+     undoCard: (slot: number) => { dispatch({ type: 'undo', slot }); },
+     enterReveal: () => { dispatch({ type: 'enter-reveal', spread }); },
+     returnToDraw: () => { dispatch({ type: 'return-draw' }); },
+diff --git a/tests/ManualDrawTable.test.tsx b/tests/ManualDrawTable.test.tsx
+index a9fddbf..371536d 100644
+--- a/tests/ManualDrawTable.test.tsx
++++ b/tests/ManualDrawTable.test.tsx
+@@ -7,49 +7,50 @@ import { TestPointerEvent } from './helpers/pointer-event';
+ 
+ const confirm = vi.fn();
+ const reveal = vi.fn();
+-const cancellations: ReturnType<typeof vi.fn>[] = [];
+-let complete: () => void;
+ 
+-function Harness({ spreadId = 'single' }: { spreadId?: string }) {
++function Harness({ spreadId = 'single', initial = [] }: { spreadId?: string; initial?: number[] }) {
+   const spread = getSpreadById(spreadId)!;
+-  const [slots, setSlots] = useState<(number | null)[]>(Array(spread.positions.length).fill(null));
++  const [slots, setSlots] = useState<(number | null)[]>(() => spread.positions.map((_, i) => initial[i] ?? null));
+   const [preview, setPreview] = useState<number | null>(null);
+   return <ManualDrawTable spread={spread} deckSize={78} slots={slots} previewIndex={preview}
+     onPreview={setPreview} onConfirm={() => {
+       confirm(preview);
+       setSlots(current => current.map((value, i) => i === current.indexOf(null) ? preview : value));
+       setPreview(null);
+-    }} onUndo={slot => setSlots(current => current.map((value, i) => i === slot ? null : value))}
+-    onReveal={reveal} onEdit={vi.fn()} onReshuffle={vi.fn()} />;
++    }} onUndo={slot => {
++      setSlots(current => current.map((value, i) => i === slot ? null : value));
++      setPreview(null);
++    }} onReveal={reveal} onEdit={vi.fn()} onReshuffle={vi.fn()} />;
+ }
+ 
+ beforeEach(() => {
+   vi.stubGlobal('PointerEvent', TestPointerEvent);
+-  vi.useFakeTimers();
+   vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() })));
+   vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(390);
+   vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(39);
+   vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(61);
+   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({ left: 20, top: 40, width: 39, height: 61 } as DOMRect);
+-  vi.stubGlobal('getComputedStyle', vi.fn(() => ({ transform: 'none', getPropertyValue: (name: string) => name === '--dur-ritual' ? '700ms' : 'ease-out' })));
+-  Object.defineProperty(Element.prototype, 'animate', { configurable: true, value: vi.fn(() => {
+-    const cancel = vi.fn();
+-    cancellations.push(cancel);
+-    return { cancel, finished: new Promise<void>(resolve => { complete = resolve; }) };
+-  }) });
+-});
+-afterEach(() => {
+-  cleanup(); vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); confirm.mockReset(); reveal.mockReset(); cancellations.length = 0;
+-  Reflect.deleteProperty(Element.prototype, 'animate');
++  vi.stubGlobal('getComputedStyle', vi.fn(() => ({ transform: 'none', getPropertyValue: () => '' })));
+ });
+ 
+-function selectFirst() {
+-  fireEvent.click(screen.getByRole('button', { name: '牌堆第 1 张，未翻开' }));
++afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); confirm.mockReset(); reveal.mockReset(); });
++
++function select(index: number) {
++  fireEvent.click(screen.getByRole('button', { name: `牌堆第 ${index + 1} 张，未翻开` }));
+   fireEvent.click(screen.getByRole('button', { name: '抽取这张' }));
+ }
+ 
+-describe('抽取动效与逻辑解耦', () => {
+-  it('沿弧换牌后向外拖出，释放时提交正确牌并从拖出位置飞入牌位', () => {
++describe('以牌堆为中心的抽取界面', () => {
++  it('没有顶部牌位或待抽取占位，尚未抽取时不能撤回', () => {
++    render(<Harness spreadId="three-card" />);
++    expect(screen.queryByRole('list', { name: '已选阵位' })).not.toBeInTheDocument();
++    expect(screen.queryByText('待抽取')).not.toBeInTheDocument();
++    expect(screen.getByRole('region', { name: '半圆环牌堆' }).style.width).toBe('100%');
++    expect(screen.getByRole('button', { name: '撤回上一张' })).toBeDisabled();
++    expect(screen.getByText('已抽 0 / 3')).toBeInTheDocument();
++  });
++
++  it('沿弧换牌后向外拖出，松手提交正确牌且不再飞入牌位', () => {
+     render(<Harness spreadId="three-card" />);
+     const region = screen.getByRole('region', { name: '半圆环牌堆' });
+     Object.defineProperty(region, 'getBoundingClientRect', { value: () => ({ left: 0, top: 0, width: 390, height: 230 } as DOMRect) });
+@@ -66,12 +67,9 @@ describe('抽取动效与逻辑解耦', () => {
+     expect(confirm).not.toHaveBeenCalled();
+     fireEvent.pointerUp(view, move(70));
+     expect(confirm).toHaveBeenCalledExactlyOnceWith(index);
+-    expect(document.querySelector('[data-draw-pull]')).toBeNull();
+-    const flight = document.querySelector('[data-draw-flight]') as HTMLElement;
+-    expect(flight).not.toBeNull();
+-    expect(Number.parseFloat(flight.style.left)).toBeCloseTo(20 + Math.sin(angle) * 70);
+-    expect(Number.parseFloat(flight.style.top)).toBeCloseTo(40 - Math.cos(angle) * 70);
++    expect(document.querySelector('[data-draw-pull], [data-draw-flight]')).toBeNull();
+     expect(screen.getByRole('button', { name: `牌堆第 ${index + 1} 张，已抽取` })).toBeDisabled();
++    expect(screen.getByText('已抽 1 / 3')).toBeInTheDocument();
+   });
+ 
+   it('同一批连续拨牌、拖出和松手不会因旧回调丢失抽牌', () => {
+@@ -89,77 +87,37 @@ describe('抽取动效与逻辑解耦', () => {
+     expect(confirm.mock.calls[0][0]).toBeGreaterThan(38);
+   });
+ 
+-  it('先提交一次选择，动画中不能重入、撤回或揭牌，结束后恢复', async () => {
+-    render(<Harness />);
+-    selectFirst();
+-    expect(confirm).toHaveBeenCalledExactlyOnceWith(0);
+-    expect(document.querySelector('[data-draw-flight]')).not.toBeNull();
+-    expect(screen.getByRole('button', { name: '撤回指引' })).toBeDisabled();
+-    expect(screen.getByRole('button', { name: '修改问题' })).toBeDisabled();
+-    fireEvent.click(screen.getByRole('button', { name: '前往揭牌' }));
+-    expect(reveal).not.toHaveBeenCalled();
+-    await act(async () => { complete(); });
+-    expect(document.querySelector('[data-draw-flight]')).toBeNull();
+-    expect(screen.getByRole('button', { name: '前往揭牌' })).toBeEnabled();
+-    fireEvent.click(screen.getByRole('button', { name: '撤回指引' }));
+-    expect(screen.getByRole('button', { name: '牌堆第 1 张，未翻开' })).toBeEnabled();
+-  });
+-
+-  it.each(['超时', '窗口变化', '后台'])('%s 结束展示但保留已抽牌，不会卡住下一次选择', async reason => {
++  it('同步连续点击只确认一次，下一次预选后可正常继续', () => {
+     render(<Harness spreadId="three-card" />);
+-    selectFirst();
+-    const oldCompletion = complete;
+-    if (reason === '超时') await act(async () => { vi.advanceTimersByTime(700); });
+-    if (reason === '窗口变化') fireEvent(window, new Event('resize'));
+-    if (reason === '后台') {
+-      vi.spyOn(document, 'hidden', 'get').mockReturnValue(true);
+-      fireEvent(document, new Event('visibilitychange'));
+-    }
+-    expect(document.querySelector('[data-draw-flight]')).toBeNull();
+-    expect(screen.getByRole('button', { name: '牌堆第 1 张，已抽取' })).toBeDisabled();
+-    fireEvent.click(screen.getByRole('button', { name: '牌堆第 2 张，未翻开' }));
+-    fireEvent.click(screen.getByRole('button', { name: '抽取这张' }));
+-    expect(confirm).toHaveBeenCalledTimes(2);
+-    // Late completion of the previous animation cannot unlock the new flight.
+-    await act(async () => { oldCompletion(); });
+-    expect(screen.getByRole('button', { name: '撤回现在' })).toBeDisabled();
+-  });
+-
+-  it.each(['减少动态', '不支持动画', '动画异常'])('%s 直接落位，始终可以继续', mode => {
+-    if (mode === '减少动态') vi.mocked(window.matchMedia).mockReturnValue({ matches: true } as MediaQueryList);
+-    if (mode === '不支持动画') Reflect.deleteProperty(Element.prototype, 'animate');
+-    if (mode === '动画异常') vi.mocked(Element.prototype.animate).mockImplementation(() => { throw new Error('不可用'); });
+-    render(<Harness />);
+-    selectFirst();
++    fireEvent.click(screen.getByRole('button', { name: '牌堆第 1 张，未翻开' }));
++    const button = screen.getByRole('button', { name: '抽取这张' });
++    act(() => { button.click(); button.click(); });
+     expect(confirm).toHaveBeenCalledExactlyOnceWith(0);
+-    expect(document.querySelector('[data-draw-flight]')).toBeNull();
+-    expect(screen.getByRole('button', { name: '前往揭牌' })).toBeEnabled();
++    select(1);
++    expect(confirm.mock.calls.map(call => call[0])).toEqual([0, 1]);
++    expect(screen.getByText('已抽 2 / 3')).toBeInTheDocument();
+   });
+ 
+-  it('已测量的程序化滚动不会取消动画，飞行中真实移动目标才结束', () => {
+-    render(<Harness />);
+-    selectFirst();
+-    const rail = screen.getByRole('list', { name: '已选阵位' });
+-    fireEvent.scroll(rail);
+-    expect(document.querySelector('[data-draw-flight]')).not.toBeNull();
+-    expect(screen.getByRole('button', { name: '前往揭牌' })).toBeDisabled();
+-    vi.mocked(HTMLElement.prototype.getBoundingClientRect).mockReturnValue({ left: 50, top: 40, width: 39, height: 61 } as DOMRect);
+-    fireEvent.scroll(rail);
+-    expect(document.querySelector('[data-draw-flight]')).toBeNull();
+-    expect(screen.getByRole('button', { name: '前往揭牌' })).toBeEnabled();
+-    expect(confirm).toHaveBeenCalledExactlyOnceWith(0);
++  it('撤回最后抽取的牌并归还原索引，不影响更早的选择', () => {
++    render(<Harness spreadId="three-card" />);
++    select(6); select(30);
++    fireEvent.click(screen.getByRole('button', { name: '撤回上一张' }));
++    expect(screen.getByText('已抽 1 / 3')).toBeInTheDocument();
++    expect(screen.getByText('下一张 · 现在')).toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '牌堆第 7 张，已抽取' })).toBeDisabled();
++    expect(screen.getByRole('button', { name: '牌堆第 31 张，未翻开' })).toBeEnabled();
++    select(30);
++    expect(confirm.mock.calls.map(call => call[0])).toEqual([6, 30, 30]);
+   });
+ 
+-  it('卸载清除飞行层和旧动画，旧回调不会影响新回合', async () => {
+-    const { unmount } = render(<Harness />);
+-    selectFirst();
+-    const oldCompletion = complete;
+-    unmount();
+-    expect(cancellations[0]).toHaveBeenCalled();
+-    render(<Harness />);
+-    await act(async () => { oldCompletion(); });
+-    expect(document.querySelector('[data-draw-flight]')).toBeNull();
+-    expect(screen.queryByRole('button', { name: '前往揭牌' })).not.toBeInTheDocument();
+-    expect(confirm).toHaveBeenCalledTimes(1);
++  it('已选齐的页面重新挂载不会跳转，可返回揭牌或撤回', () => {
++    render(<Harness spreadId="three-card" initial={[6, 12, 30]} />);
++    expect(reveal).not.toHaveBeenCalled();
++    fireEvent.click(screen.getByRole('button', { name: '返回揭牌' }));
++    expect(reveal).toHaveBeenCalledTimes(1);
++    fireEvent.click(screen.getByRole('button', { name: '撤回上一张' }));
++    expect(screen.getByText('已抽 2 / 3')).toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '抽取这张' })).toBeDisabled();
++    expect(screen.queryByRole('button', { name: '返回揭牌' })).not.toBeInTheDocument();
+   });
+ });
+diff --git a/tests/ReadingPage.test.tsx b/tests/ReadingPage.test.tsx
+index 8b01222..b50b870 100644
+--- a/tests/ReadingPage.test.tsx
++++ b/tests/ReadingPage.test.tsx
+@@ -46,6 +46,8 @@ async function openDraw(spreadName = '单张牌') {
+   fireEvent.change(screen.getByRole('textbox', { name: '你的问题' }), { target: { value: '我可以如何行动？' } });
+   clickButton(/带 着 问 题 前 行/);
+   clickButton(new RegExp(spreadName));
++  await waitFor(() => expect(screen.getByRole('button', { name: new RegExp(spreadName), pressed: true })).toBeInTheDocument());
++  await waitFor(() => expect(screen.getByRole('button', { name: /就 此 落 阵/ })).toBeEnabled());
+   clickButton(/就 此 落 阵/);
+   clickButton('开始洗牌');
+   expect(screen.queryByRole('button', { name: '开始抽牌' })).not.toBeInTheDocument();
+@@ -71,10 +73,10 @@ describe('手动占卜页面与状态整合', () => {
+     expect(screen.getByRole('button', { name: '抽取这张' })).toBeDisabled();
+     clickButton('牌堆第 1 张，未翻开');
+     expect(screen.queryByRole('button', { name: '前往揭牌' })).not.toBeInTheDocument();
+-    expect(screen.queryByRole('button', { name: '撤回指引' })).not.toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '撤回上一张' })).toBeDisabled();
+     clickButton('抽取这张');
+-    expect(screen.getByRole('button', { name: '撤回指引' })).toBeInTheDocument();
+-    clickButton('前往揭牌');
++    expect(screen.getByRole('heading', { name: '逐 张 揭 牌' })).toBeInTheDocument();
++    expect(screen.queryByRole('region', { name: '半圆环牌堆' })).not.toBeInTheDocument();
+     expect(screen.getByRole('button', { name: '返回调整' })).toBeInTheDocument();
+     const interpretationButton = screen.queryByRole('button', { name: /解读这些牌/ });
+     if (interpretationButton) expect(interpretationButton).toBeDisabled();
+@@ -95,19 +97,19 @@ describe('手动占卜页面与状态整合', () => {
+     expect(history[0].id).toBe(firstHistory.id);
+   });
+ 
+-  it('三张牌返回调整后撤回中间阵位，替换牌保持其他阵位并在首次揭牌后锁定', async () => {
++  it('三张牌自动进入揭牌，返回调整只撤回最后一张，替换后保持前两张并在首次揭牌后锁定', async () => {
+     await openDraw('三张牌阵');
+     await selectCard(1);
+     await selectCard(2);
+     await selectCard(3);
+-    clickButton('前往揭牌');
+     clickButton('返回调整');
+-    clickButton('撤回现在');
+-    expect(screen.getByRole('button', { name: '撤回过去' })).toBeInTheDocument();
+-    expect(screen.getByRole('button', { name: '撤回未来' })).toBeInTheDocument();
+-    expect(screen.queryByRole('button', { name: '撤回现在' })).not.toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '返回揭牌' })).toBeInTheDocument();
++    clickButton('撤回上一张');
++    expect(screen.getByText('已抽 2 / 3')).toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '牌堆第 1 张，已抽取' })).toBeDisabled();
++    expect(screen.getByRole('button', { name: '牌堆第 2 张，已抽取' })).toBeDisabled();
++    expect(screen.getByRole('button', { name: '牌堆第 3 张，未翻开' })).toBeEnabled();
+     await selectCard(4);
+-    clickButton('前往揭牌');
+     clickButton('揭开下一张');
+     expect(screen.queryByRole('button', { name: '返回调整' })).not.toBeInTheDocument();
+     expect(screen.queryByRole('button', { name: /撤回/ })).not.toBeInTheDocument();
+@@ -115,17 +117,19 @@ describe('手动占卜页面与状态整合', () => {
+     clickButton(/解读这些牌/);
+     await waitFor(() => expect(streamInterpret).toHaveBeenCalledTimes(1));
+     expect(interpretationRequest().drawnCards.map(({ card, position }) => [position.nameCn, card.id])).toEqual([
+-      ['过去', allCards[0].id], ['现在', allCards[3].id], ['未来', allCards[2].id],
++      ['过去', allCards[0].id], ['现在', allCards[1].id], ['未来', allCards[3].id],
+     ]);
+   });
+ 
+   it.each(['修改问题', '修改牌阵'])('%s 取消保留当前选择，确认后重新洗牌', async (editLabel) => {
+     await openDraw();
+     await selectCard(1);
++    clickButton('返回调整');
+     clickButton(editLabel);
+     fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: /取 消/ }));
+     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+-    expect(screen.getByRole('button', { name: '撤回指引' })).toBeInTheDocument();
++    expect(screen.getByRole('button', { name: '撤回上一张' })).toBeEnabled();
++    expect(screen.getByRole('button', { name: '牌堆第 1 张，已抽取' })).toBeDisabled();
+     clickButton(editLabel);
+     fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: /确认/ }));
+     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+diff --git a/tests/browser/fan-draw.mjs b/tests/browser/fan-draw.mjs
+index bc3b557..6e77623 100644
+--- a/tests/browser/fan-draw.mjs
++++ b/tests/browser/fan-draw.mjs
+@@ -7,23 +7,36 @@ const require = createRequire(import.meta.url);
+ const { chromium } = require('playwright');
+ const baseUrl = process.argv[2];
+ if (!baseUrl || !['http:', 'https:'].includes(new URL(baseUrl).protocol)) throw new Error('需要测试站点 URL');
+-const output = path.resolve(process.argv[3] ?? 'docs/tasks/fan-draw-browser');
++const output = path.resolve(process.argv[3] ?? 'docs/tasks/fan-stage-20260911');
+ await mkdir(output, { recursive: true });
+ const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
+ const results = [];
+ const errors = [];
+ const screenshots = !process.argv.includes('--no-screenshots');
++let activePage;
++let activeCapture;
+ 
+ async function openDraw(page, name) {
+   await page.goto(new URL('/reading', baseUrl).href);
+   await page.getByRole('textbox', { name: '你的问题', exact: true }).fill('我可以如何更清楚地表达自己的想法？');
+   await page.getByRole('button', { name: /带 着 问 题 前 行/ }).click();
+-  await page.getByRole('button', { name: new RegExp(name) }).click();
++  const visited = new Set();
++  while (!await page.getByRole('button', { name: new RegExp(name), pressed: true }).count()) {
++    const current = await page.getByRole('button', { pressed: true }).getAttribute('aria-label');
++    assert(!visited.has(current), `未找到牌阵：${name}`);
++    visited.add(current);
++    await page.getByRole('button', { name: '下一个牌阵', exact: true }).click();
++    await page.waitForFunction(previous => document.querySelector('[aria-label="选择牌阵"] [aria-pressed="true"]')?.getAttribute('aria-label') !== previous, current);
++  }
+   await page.getByRole('button', { name: /就 此 落 阵/ }).click();
+   await page.getByRole('button', { name: '开始洗牌', exact: true }).click();
+   const skip = page.getByRole('button', { name: '跳过洗牌动画', exact: true });
+-  if (await skip.isVisible()) await skip.click();
+-  await page.getByRole('button', { name: '开始抽牌', exact: true }).click();
++  const start = page.getByRole('button', { name: '开始抽牌', exact: true });
++  if (await skip.isVisible()) {
++    try { await skip.click({ timeout: 1500 }); }
++    catch (error) { if (!await start.isVisible()) throw error; }
++  }
++  await start.click();
+   await page.getByRole('region', { name: '半圆环牌堆' }).waitFor();
+   await page.waitForFunction(() => [...document.querySelectorAll('[data-deck-index]')].every(el => el.getAnimations().length === 0));
+ }
+@@ -37,13 +50,8 @@ async function choose(page, index) {
+   await page.waitForFunction(i => document.querySelector(`[data-deck-index="${i}"]`).getAnimations().length === 0, index);
+ }
+ 
+-async function extract(page, expectFlight = false) {
++async function extract(page) {
+   await page.getByRole('button', { name: '抽取这张', exact: true }).click();
+-  if (expectFlight) {
+-    const stillFlying = await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve(!!document.querySelector('[data-draw-flight]'))))));
+-    assert(stillFlying, '恢复当前牌位的延迟滚动事件不应提前结束飞行动画');
+-  }
+-  await page.waitForFunction(() => !document.querySelector('[data-draw-flight]'));
+ }
+ 
+ async function touchGesture(input, frames, beforeRelease) {
+@@ -91,7 +99,8 @@ async function activeGeometry(deck) {
+ }
+ 
+ try {
+-  for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 430, height: 932 }, { width: 1440, height: 1000 }]) {
++  for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 430, height: 932 }, { width: 390, height: 659 }, { width: 1440, height: 1000 }]) {
++    const captureName = `${viewport.width}x${viewport.height}`;
+     const context = await browser.newContext({ viewport, hasTouch: viewport.width < 500, reducedMotion: 'no-preference' });
+     const savedReadings = [];
+     await context.route('**/api/**', async route => {
+@@ -106,13 +115,25 @@ try {
+       throw new Error(`抽牌测试不应请求 ${pathname}`);
+     });
+     const page = await context.newPage();
++    activePage = page;
++    activeCapture = captureName;
+     page.on('pageerror', error => errors.push(error.message));
+     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+-    await openDraw(page, viewport.width === 430 ? '凯尔特十字' : viewport.width === 390 ? '三张牌阵' : '单张牌');
++    const count = viewport.width === 430 ? 10 : viewport.width === 390 ? 3 : 1;
++    await openDraw(page, count === 10 ? '凯尔特十字' : count === 3 ? '三张牌阵' : '单张牌');
+     assert.equal(await page.locator('[data-deck-index]').count(), 78);
++    assert.equal(await page.getByRole('list', { name: '已选阵位' }).count(), 0, '不再展示顶部牌位区');
++    assert.equal(await page.locator('[data-slot]').count(), 0);
++    assert(await page.getByRole('button', { name: '撤回上一张', exact: true }).isDisabled(), '尚未抽取时不能撤回');
+     const dimensions = await page.evaluate(() => {
+-      const ring = document.querySelector('[aria-label="半圆环牌堆"]').getBoundingClientRect();
++      const deck = document.querySelector('[aria-label="半圆环牌堆"]');
++      const ring = deck.getBoundingClientRect();
++      const progress = document.querySelector('[aria-label="抽牌"] [role="status"]').getBoundingClientRect();
++      const extract = [...document.querySelectorAll('button')].find(el => el.textContent === '抽取这张');
++      const dock = extract.parentElement.getBoundingClientRect();
+       return { width: window.innerWidth, scroll: document.documentElement.scrollWidth,
++        zoom: parseFloat(deck.style.width), ringTop: ring.top, ringBottom: ring.bottom,
++        progressGap: ring.top - progress.bottom, dockTop: dock.top, dockBottom: dock.bottom,
+         clipped: [...document.querySelectorAll('[data-deck-index]')].some(el => {
+           const rect = el.getBoundingClientRect();
+           return rect.left < ring.left - 1 || rect.right > ring.right + 1 || rect.top < ring.top - 1 || rect.bottom > ring.bottom + 1;
+@@ -120,7 +141,11 @@ try {
+     });
+     assert.equal(dimensions.clipped, false);
+     assert(dimensions.scroll <= dimensions.width, '页面横向溢出');
+-    if (screenshots) await page.screenshot({ path: path.join(output, `${viewport.width}-fan.png`), fullPage: true });
++    assert.equal(dimensions.zoom, 100, '默认完整牌堆保持 100%');
++    assert(dimensions.progressGap >= -1 && dimensions.progressGap <= 24, `牌堆应紧接进度区，无牌位区高度占位: ${JSON.stringify(dimensions)}`);
++    assert(dimensions.ringTop >= 0 && dimensions.ringBottom <= dimensions.dockTop, `默认牌环应在首屏完整显示且不被底部操作遮挡: ${JSON.stringify(dimensions)}`);
++    assert(dimensions.dockBottom <= viewport.height + 1, '固定底部操作应在可视范围内');
++    if (screenshots) await page.screenshot({ path: path.join(output, `${captureName}-fan.png`), fullPage: true });
+ 
+     // Real pointer hit: tap the visible top layer, not the obscured center of a named card.
+     const hit = await page.evaluate(() => {
+@@ -224,7 +249,7 @@ try {
+         top: rect.top - view.top, bottom: view.bottom - rect.bottom, scrollTop: el.parentElement.scrollTop };
+     });
+     assert(Object.entries(startVisible).every(([key, value]) => key === 'scrollTop' || value >= -1), `首张应完整可见: ${JSON.stringify(startVisible)}`);
+-    if (screenshots) await page.screenshot({ path: path.join(output, `${viewport.width}-zoom.png`) });
++    if (screenshots) await page.screenshot({ path: path.join(output, `${captureName}-zoom.png`) });
+     const afterCapture = await deck.evaluate(el => {
+       const rect = el.querySelector('[data-deck-index="0"]').getBoundingClientRect();
+       const view = el.parentElement.getBoundingClientRect();
+@@ -235,50 +260,37 @@ try {
+     const first = await page.locator('[data-deck-index="0"]').boundingBox();
+     const ring = await page.getByRole('region', { name: '半圆环牌堆' }).boundingBox();
+     assert(first.x + first.width / 2 < ring.x + ring.width / 4, '首张预选不应居中');
+-    if (screenshots) await page.screenshot({ path: path.join(output, `${viewport.width}-preview.png`) });
+-    await page.getByRole('button', { name: '抽取这张', exact: true }).click();
+-    await page.locator('[data-draw-flight]').waitFor({ state: 'attached' });
+-    const origin = await page.locator('[data-draw-flight]').evaluate(el => ({
+-      x: parseFloat(el.style.left) + parseFloat(el.style.width) / 2,
+-      y: parseFloat(el.style.top) + parseFloat(el.style.height) / 2,
+-    }));
+-    assert(Math.abs(origin.x - first.x - first.width / 2) < 1 && Math.abs(origin.y - first.y - first.height / 2) < 1, '放大后仍从源牌实际位置飞出');
+-    assert.equal(await deck.locator('button:not(:disabled)').count(), 0, '飞行时锁定所有可选牌');
+-    assert.equal(await page.getByRole('button', { name: '重新洗牌', exact: true }).isDisabled(), true);
+-    // Pause at a mid-flight frame for a deterministic visual artifact, then resume.
+-    if (screenshots) {
+-      await page.locator('[data-draw-flight]').evaluate(el => {
+-        const animation = el.getAnimations()[0];
+-        animation.pause();
+-        animation.currentTime = Number(animation.effect.getTiming().duration) * 0.45;
+-      });
+-      const capture = await context.newCDPSession(page);
+-      const frame = await capture.send('Page.captureScreenshot', { format: 'png' });
+-      await writeFile(path.join(output, `${viewport.width}-flight.png`), Buffer.from(frame.data, 'base64'));
+-      await capture.detach();
+-      await page.evaluate(() => document.querySelector('[data-draw-flight]')?.getAnimations()[0]?.play());
++    if (screenshots) await page.screenshot({ path: path.join(output, `${captureName}-preview.png`) });
++    await extract(page);
++    if (count > 1) {
++      assert.equal(await page.locator('[data-deck-index="0"]').isDisabled(), true);
++      assert.equal(await page.getByRole('button', { name: '返回调整', exact: true }).count(), 0, '未选齐保持抽牌阶段');
+     }
+-    await page.waitForFunction(() => !document.querySelector('[data-draw-flight]'));
+-    if (screenshots) await page.screenshot({ path: path.join(output, `${viewport.width}-landed.png`), fullPage: true });
+-    assert.equal(await page.locator('[data-deck-index="0"]').isDisabled(), true);
+-
+-    const count = await page.locator('[data-slot]').count();
+     for (let i = 1; i < count; i++) {
+       await choose(page, i === count - 1 ? 77 : 35 + i);
+-      if (count === 10) {
+-        // User can browse another part of the rail; extraction must restore the current target.
+-        await page.getByRole('list', { name: '已选阵位' }).evaluate(el => { el.scrollLeft = 0; });
+-      }
+-      await extract(page, count === 10);
++      await extract(page);
++      if (i < count - 1) assert.equal(await page.getByRole('button', { name: '返回调整', exact: true }).count(), 0);
+     }
+-    await page.getByRole('button', { name: '前往揭牌', exact: true }).click();
++    await page.getByRole('button', { name: '返回调整', exact: true }).waitFor();
++    assert.equal(await page.getByRole('region', { name: '半圆环牌堆' }).count(), 0, '抽齐后自动进入揭牌');
++    assert.equal(savedReadings.length, 0, '选齐但尚未揭牌时不保存');
++    assert(await page.getByRole('button', { name: '揭开下一张', exact: true }).isVisible(), '自动进入后仍待逐张揭牌');
++    if (screenshots) await page.screenshot({ path: path.join(output, `${captureName}-reveal.png`), fullPage: true });
+     await page.getByRole('button', { name: '返回调整', exact: true }).click();
+-    await page.getByRole('button', { name: /^撤回/ }).first().click();
+-    assert.equal(await page.locator('[data-deck-index="0"]').isDisabled(), false);
++    await page.getByRole('button', { name: '返回揭牌', exact: true }).waitFor();
++    assert.equal(await page.getByRole('button', { name: '返回调整', exact: true }).count(), 0, '返回满额牌堆不会立即自动跳回');
++    assert.equal(await deck.locator('button:disabled').count(), 78, '满额时牌堆不再接受抽取');
++    await page.getByRole('button', { name: '返回揭牌', exact: true }).click();
++    await page.getByRole('button', { name: '返回调整', exact: true }).click();
++    const lastIndex = count === 1 ? 0 : 77;
++    await page.getByRole('button', { name: '撤回上一张', exact: true }).click();
++    assert.equal(await page.locator(`[data-deck-index="${lastIndex}"]`).isDisabled(), false, '撤回归还最后抽取的原牌');
++    assert.equal(await deck.locator('button:disabled').count(), count - 1, '撤回仅影响最后一张');
+     await page.emulateMedia({ reducedMotion: 'reduce' });
+-    await choose(page, 0);
++    await choose(page, lastIndex);
+     await extract(page);
+-    await page.getByRole('button', { name: '前往揭牌', exact: true }).click();
++    await page.getByRole('button', { name: '返回调整', exact: true }).waitFor();
++    assert.equal(savedReadings.length, 0, '撤回补选不提前保存');
+     const saved = page.waitForResponse(response => new URL(response.url()).pathname === '/api/readings' && response.request().method() === 'POST');
+     await page.getByRole('button', { name: '全部揭牌', exact: true }).click();
+     await saved;
+@@ -287,14 +299,15 @@ try {
+     assert.equal(await page.getByRole('button', { name: /解读这些牌/ }).isEnabled(), true);
+     if (input) {
+       // Keep gesture extraction separate from the existing first-card/undo/save regression.
+-      await openDraw(page, '单张牌');
++      await page.emulateMedia({ reducedMotion: 'no-preference' });
++      await openDraw(page, '三张牌阵');
+       await choose(page, 38);
+       const selected = await activeGeometry(deck);
+       const pullFrames = distance => Array.from({ length: 9 }, (_, step) => [{
+         x: selected.x + selected.nx * distance * step / 8,
+         y: selected.y + selected.ny * distance * step / 8,
+       }]);
+-      await touchGesture(input, pullFrames(selected.cardHeight * 0.4), async () => {
++      await touchGesture(input, pullFrames(22), async () => {
+         await page.locator('[data-draw-pull]').waitFor({ state: 'attached' });
+         assert.match(await page.locator('#fan-instructions').textContent(), /继续向外拖出/);
+       });
+@@ -302,11 +315,11 @@ try {
+       assert.equal(await page.locator('[data-draw-pull]').count(), 0);
+       assert.equal(await deck.locator('[aria-pressed="true"]').getAttribute('data-deck-index'), selected.index);
+       await page.waitForFunction(() => [...document.querySelectorAll('[data-deck-index]')].every(el => el.getAnimations().length === 0));
+-      await touchGesture(input, pullFrames(selected.cardHeight * 1.5), async () => {
++      await touchGesture(input, pullFrames(65), async () => {
+         assert.match(await page.locator('#fan-instructions').textContent(), /松手抽取这张/);
+         assert.equal(await deck.locator('button:disabled').count(), 0, '达到抽取距离但尚未松手时不提交');
+       });
+-      await page.waitForFunction(index => document.querySelector(`[data-deck-index="${index}"]`)?.disabled && !document.querySelector('[data-draw-flight]'), selected.index);
++      await page.waitForFunction(index => document.querySelector(`[data-deck-index="${index}"]`)?.disabled, selected.index);
+       assert.equal(await deck.getByRole('button', { name: /已抽取/ }).count(), 1, '径向拖出释放应只抽取当前牌');
+       assert.match(await deck.locator(`[data-deck-index="${selected.index}"]`).getAttribute('aria-label'), /已抽取/);
+       assert.equal(savedReadings.length, 1, '仅抽牌未揭牌时不增加保存请求');
+@@ -314,8 +327,15 @@ try {
+     }
+     results.push({ viewport, cards: count, dimensions, pointerHit: hit?.index, status: 'passed' });
+     await context.close();
++    activePage = null;
+   }
+   assert.deepEqual(errors, []);
+   await writeFile(path.join(output, 'results.json'), JSON.stringify({ results, errors, limitation: '隔离浏览器与模拟会话；未验证 iOS/Android 微信真机或实际模型。' }, null, 2));
+   console.log(JSON.stringify({ cases: results.length, errors }));
++} catch (error) {
++  if (activePage && !activePage.isClosed()) {
++    await activePage.screenshot({ path: path.join(output, `${activeCapture}-failure.png`), fullPage: true });
++    console.error(await activePage.locator('body').innerText());
++  }
++  throw error;
+ } finally { await browser.close(); }
+diff --git a/tests/browser/reading-output.mjs b/tests/browser/reading-output.mjs
+index 127beee..22ec5f9 100644
+--- a/tests/browser/reading-output.mjs
++++ b/tests/browser/reading-output.mjs
+@@ -156,7 +156,6 @@ try {
+       await page.getByRole('button', { name: '牌堆第 1 张，未翻开', exact: true }).focus();
+       await page.keyboard.press('Enter');
+       await page.getByRole('button', { name: '抽取这张', exact: true }).click();
+-      await page.getByRole('button', { name: '前往揭牌', exact: true }).click();
+       await page.getByRole('button', { name: '全部揭牌', exact: true }).click();
+       await page.getByRole('button', { name: /解读这些牌/ }).click();
+       await page.getByText('牌义依据', { exact: true }).waitFor();
+diff --git a/tests/helpers/manual-reading.ts b/tests/helpers/manual-reading.ts
+index 04940e6..642fa04 100644
+--- a/tests/helpers/manual-reading.ts
++++ b/tests/helpers/manual-reading.ts
+@@ -11,6 +11,5 @@ export function selectReading(result: { current: ReturnType<typeof useReading> }
+     act(() => result.current.previewCard(i));
+     act(() => result.current.confirmCard());
+   }
+-  act(() => result.current.enterReveal());
+   act(() => result.current.revealAllCards());
+ }
+diff --git a/tests/mobileNavigation.test.tsx b/tests/mobileNavigation.test.tsx
+index 60fb381..2173b1c 100644
+--- a/tests/mobileNavigation.test.tsx
++++ b/tests/mobileNavigation.test.tsx
+@@ -8,15 +8,12 @@ import { allCards } from '@/lib/tarot/cards';
+ 
+ afterEach(cleanup);
+ 
+-it('六种牌阵均可按用途选择，回传原始牌阵', () => {
+-  const onSelect = vi.fn();
+-  render(<SpreadSelector selectedSpread={spreads[0]} onSelect={onSelect} />);
+-  expect(screen.getAllByRole('button')).toHaveLength(6);
+-  for (const spread of spreads) {
+-    fireEvent.click(screen.getByRole('button', { name: new RegExp(spread.nameCn) }));
+-    expect(onSelect).toHaveBeenLastCalledWith(spread);
+-  }
+-  expect(screen.getByRole('heading', { name: '当下指引' })).toBeVisible();
++it('择阵页展示中央与相邻牌阵，提供两个切换按钮', () => {
++  render(<SpreadSelector selectedSpread={spreads[0]} onSelect={vi.fn()} />);
++  expect(within(screen.getByRole('region', { name: '选择牌阵' })).getAllByRole('button')).toHaveLength(3);
++  expect(screen.getByRole('button', { name: '上一个牌阵' })).toBeVisible();
++  expect(screen.getByRole('button', { name: '下一个牌阵' })).toBeVisible();
++  expect(screen.getByRole('heading', { name: '单张牌' })).toBeVisible();
+ });
+ 
+ it('凯尔特位置视图遵守揭牌顺序，详情含完整牌名正逆位，切换不触发重新揭牌', () => {

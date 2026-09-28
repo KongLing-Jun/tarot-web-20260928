@@ -1,0 +1,410 @@
+{
+  "daily": {
+    "buttons": [
+      {
+        "border": "rgb(234, 228, 212)",
+        "font": "\"Daily Serif\", \"Songti SC\", SimSun, serif",
+        "height": 0,
+        "radius": "0px",
+        "text": "返回首页",
+        "width": 44
+      },
+      {
+        "border": "rgba(0, 0, 0, 0)",
+        "font": "\"Daily Serif\", \"Songti SC\", SimSun, serif",
+        "height": 48,
+        "radius": "0px",
+        "text": "生 成 解 读",
+        "width": 339
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Daily Serif\", \"Songti SC\", SimSun, serif",
+        "size": "24px",
+        "text": "今 日 一 牌",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Daily Serif\", \"Songti SC\", SimSun, serif",
+        "size": "44px",
+        "text": "星币10",
+        "weight": "400"
+      }
+    ]
+  },
+  "library": {
+    "buttons": [
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "我的收藏 16",
+        "width": 138.140625
+      },
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "全部78",
+        "width": 114.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "大阿卡纳22",
+        "width": 114.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "权杖14",
+        "width": 114.34375
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "圣杯14",
+        "width": 114.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "宝剑14",
+        "width": 114.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "星币14",
+        "width": 114.34375
+      },
+      {
+        "border": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 150.5,
+        "radius": "0px",
+        "text": "查看愚者",
+        "width": 343
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "40px",
+        "text": "牌典",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "大阿卡纳 · 22张",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "权杖 · 14张",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "圣杯 · 14张",
+        "weight": "400"
+      }
+    ]
+  },
+  "detail": {
+    "buttons": [
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "我的收藏 16",
+        "width": 138.140625
+      },
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "全部78",
+        "width": 115.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "大阿卡纳22",
+        "width": 115.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "权杖14",
+        "width": 115.34375
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "圣杯14",
+        "width": 115.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "宝剑14",
+        "width": 115.328125
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(0, 0, 0, 0)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "星币14",
+        "width": 115.34375
+      },
+      {
+        "border": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "height": 150.5,
+        "radius": "0px",
+        "text": "查看愚者",
+        "width": 346
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "40px",
+        "text": "牌典",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "大阿卡纳 · 22张",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "权杖 · 14张",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Library Serif\", \"Songti SC\", SimSun, serif",
+        "size": "22px",
+        "text": "圣杯 · 14张",
+        "weight": "400"
+      }
+    ]
+  },
+  "history": {
+    "buttons": [
+      {
+        "border": "rgba(232, 213, 163, 0.65) rgba(201, 169, 97, 0.5) rgba(201, 169, 97, 0.5)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "height": 32,
+        "radius": "8px",
+        "text": "聊天记录",
+        "width": 83.90625
+      },
+      {
+        "border": "rgba(232, 213, 163, 0.65) rgba(201, 169, 97, 0.5) rgba(201, 169, 97, 0.5)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "height": 32,
+        "radius": "8px",
+        "text": "管理",
+        "width": 59.453125
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(255, 232, 171)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "size": "36px",
+        "text": "轨迹",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(238, 228, 209)",
+        "font": "Marcellus, \"Marcellus Fallback\", \"Songti SC\", STSong, \"Source Han Serif SC\", \"Noto Serif CJK SC\", serif",
+        "size": "22px",
+        "text": "这里还没有解读记录",
+        "weight": "400"
+      }
+    ]
+  },
+  "messages": {
+    "buttons": [
+      {
+        "border": "rgba(232, 213, 163, 0.65) rgba(201, 169, 97, 0.5) rgba(201, 169, 97, 0.5)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "height": 32,
+        "radius": "8px",
+        "text": "＋ 新聊天",
+        "width": 70.203125
+      },
+      {
+        "border": "rgba(232, 213, 163, 0.65) rgba(201, 169, 97, 0.5) rgba(201, 169, 97, 0.5)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "height": 32,
+        "radius": "8px",
+        "text": "管理",
+        "width": 59.453125
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(255, 232, 171)",
+        "font": "\"Miying History Serif\", \"Songti SC\", serif",
+        "size": "36px",
+        "text": "对话",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(238, 228, 209)",
+        "font": "Marcellus, \"Marcellus Fallback\", \"Songti SC\", STSong, \"Source Han Serif SC\", \"Noto Serif CJK SC\", serif",
+        "size": "22px",
+        "text": "还没有聊天记录",
+        "weight": "400"
+      }
+    ]
+  },
+  "profile": {
+    "buttons": [
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "Spectral, \"Spectral Fallback\", \"Songti SC\", STSong, \"Source Han Serif SC\", \"Noto Serif CJK SC\", \"Times New Roman\", serif",
+        "height": 78,
+        "radius": "4px",
+        "text": "更换头像",
+        "width": 64
+      },
+      {
+        "border": "rgb(234, 228, 212)",
+        "font": "\"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", STSong, SimSun, \"Times New Roman\", serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "123，修改昵称",
+        "width": 265
+      },
+      {
+        "border": "rgb(219, 191, 122)",
+        "font": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", system-ui, sans-serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "购买抽卡次数",
+        "width": 85.359375
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(238, 229, 211)",
+        "font": "\"Miying Profile Serif\", \"Songti SC\", SimSun, serif",
+        "size": "32px",
+        "text": "我的",
+        "weight": "300"
+      },
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", STSong, SimSun, \"Times New Roman\", serif",
+        "size": "24px",
+        "text": "123修改昵称",
+        "weight": "400"
+      },
+      {
+        "color": "rgb(232, 223, 205)",
+        "font": "\"Miying Profile Serif\", \"Songti SC\", SimSun, serif",
+        "size": "20px",
+        "text": "我的旅程",
+        "weight": "300"
+      }
+    ]
+  },
+  "reading": {
+    "buttons": [
+      {
+        "border": "rgba(201, 169, 97, 0.22)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "50%",
+        "text": "返回首页",
+        "width": 44
+      },
+      {
+        "border": "rgb(234, 228, 212)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "height": 44,
+        "radius": "0px",
+        "text": "轨迹",
+        "width": 44
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(226, 220, 240, 0.15)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "height": 56,
+        "radius": "0px",
+        "text": "不知道怎么开头？›",
+        "width": 343.21875
+      },
+      {
+        "border": "rgb(234, 228, 212) rgb(234, 228, 212) rgba(226, 220, 240, 0.15)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "height": 56,
+        "radius": "0px",
+        "text": "添加此刻的感受 （可选）›",
+        "width": 343.21875
+      },
+      {
+        "border": "rgba(201, 169, 97, 0.55)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "height": 52,
+        "radius": "0px",
+        "text": "下一步，选择牌阵",
+        "width": 343.21875
+      }
+    ],
+    "headings": [
+      {
+        "color": "rgb(234, 228, 212)",
+        "font": "\"Miying Question Serif\", \"Songti SC\", SimSun, serif",
+        "size": "31.98px",
+        "text": "此刻，想聊聊什么？",
+        "weight": "400"
+      }
+    ]
+  }
+}

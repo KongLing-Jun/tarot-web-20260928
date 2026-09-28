@@ -1,0 +1,298 @@
+.workspace {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 5rem 1rem calc(8rem + env(safe-area-inset-bottom, 0px));
+  min-width: 0;
+}
+.spread {
+  position: relative;
+  isolation: isolate;
+  padding: 3rem 0 calc(2rem + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  justify-content: flex-start;
+  background:
+    linear-gradient(rgba(26, 22, 31, 0.48), rgba(17, 14, 23, 0.6)),
+    var(--ink-deep) url('/brand/spread-theme/sky.webp') center top / cover no-repeat;
+}
+/* 星尘叠在不透明底图上、牌面与文字下方；按整块纹理高度向上循环，无回摆或停顿。 */
+.spread::before,
+.spread::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+.spread::before {
+  background-image:
+    radial-gradient(
+      circle at 18px 28px,
+      rgba(234, 228, 212, 0.65) 0,
+      rgba(212, 184, 115, 0.24) 1px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 95px 107px,
+      rgba(232, 213, 163, 0.5) 0,
+      rgba(212, 184, 115, 0.16) 1px,
+      transparent 2.5px
+    ),
+    radial-gradient(
+      circle at 61px 174px,
+      rgba(200, 210, 240, 0.35) 0,
+      rgba(139, 159, 212, 0.12) 1px,
+      transparent 2.5px
+    );
+  background-size:
+    137px 211px,
+    193px 277px,
+    251px 337px;
+  animation: spread-dust-rise 16s linear infinite;
+}
+.spread::after {
+  background-image:
+    radial-gradient(
+      circle at 47px 83px,
+      rgba(248, 231, 185, 0.8) 0,
+      rgba(212, 184, 115, 0.25) 1.25px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 173px 227px,
+      rgba(232, 213, 163, 0.6) 0,
+      rgba(212, 184, 115, 0.18) 1px,
+      transparent 3px
+    );
+  background-size:
+    283px 359px,
+    349px 431px;
+  animation:
+    spread-dust-rise-near 18s linear -8s infinite,
+    spread-dust-twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes spread-dust-rise {
+  to {
+    background-position:
+      0 -422px,
+      0 -554px,
+      0 -674px;
+  }
+}
+@keyframes spread-dust-rise-near {
+  to {
+    background-position:
+      0 -718px,
+      0 -862px;
+  }
+}
+@keyframes spread-dust-twinkle {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+:global([data-page-hidden]) .spread::before,
+:global([data-page-hidden]) .spread::after {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spread::before,
+  .spread::after {
+    animation: none;
+  }
+  .spread::after {
+    opacity: 0.6;
+  }
+}
+.spreadPanel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+@media (max-width: 767px) and (max-height: 680px) {
+  .spread {
+    padding-top: 2.5rem;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  }
+}
+.spreadHeader {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem max(1rem, env(safe-area-inset-right, 0px)) 0.5rem
+    max(1rem, env(safe-area-inset-left, 0px));
+}
+.spreadHeader button,
+.spreadHeader a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--gold-pale);
+  font: 400 0.8125rem / 1.5 var(--font-body);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+.spreadHeader button:active,
+.spreadHeader a:active {
+  opacity: 0.7;
+}
+.spreadHeader button:focus-visible,
+.spreadHeader a:focus-visible {
+  outline: 2px solid var(--gold-pale);
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .spreadHeader button:hover,
+  .spreadHeader a:hover {
+    color: var(--bone);
+  }
+}
+@media (min-width: 768px) {
+  .spreadHeader {
+    padding-inline: 2rem;
+  }
+}
+.drawHeader {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: var(--ink-deep);
+}
+.summary {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+}
+.question {
+  max-width: 36rem;
+  margin: auto;
+  color: var(--bone-dim);
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.editActions button {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+}
+.editActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+@media (max-width: 767px) {
+  .resultPanel {
+    padding: 1.5rem 0;
+  }
+  .shuffle {
+    padding-top: 6rem;
+  }
+  .shuffle h2 {
+    font-size: 2.25rem;
+  }
+  .shuffle :global(.mb-14) {
+    margin-bottom: 1.5rem;
+  }
+  .shuffle :global(.mt-12) {
+    margin-top: 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spreadHeader button,
+  .spreadHeader a {
+    transition: none;
+  }
+  .shuffle *,
+  .workspace * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
+.ritualExit {
+  padding: 1.125rem;
+  left: max(0px, calc((100% - 44rem) / 2));
+}
+.shuffleExit {
+  position: absolute;
+  top: 0.625rem;
+  left: max(0.75rem, calc((100% - 44rem) / 2 + 0.75rem));
+  z-index: 50;
+}
+.shuffleExit a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gold-faint);
+  border-radius: 2rem;
+  background: var(--ink-veil);
+  color: var(--gold-pale);
+  font: 400 0.8125rem / 1.5 var(--font-body);
+  text-decoration: none;
+}
+.shuffleExit svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.shuffleExit a:active {
+  background: var(--gold-faint);
+}
+@media (hover: hover) {
+  .shuffleExit a:hover {
+    border-color: var(--gold-dim);
+    background: var(--ink-surface);
+  }
+}
+.ritualExit a {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+}
+.ritualExit a > span:first-child {
+  font-size: 1.375rem;
+}
+.ritualExit a > span:last-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.spread {
+  padding-top: 1.75rem;
+}

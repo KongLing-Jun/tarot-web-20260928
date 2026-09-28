@@ -1,0 +1,163 @@
+.deck {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.stack {
+  position: relative;
+  height: min(60%, 13rem);
+  aspect-ratio: 8 / 13;
+  padding: 0;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  filter: drop-shadow(0 5px 7px rgba(4, 3, 8, 0.32));
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.stack:disabled {
+  cursor: wait;
+}
+.stack:focus-visible {
+  outline: 1px solid var(--gold-pale);
+  outline-offset: 0.75rem;
+}
+.card {
+  position: absolute;
+  inset: 0;
+  transform: translate(calc((var(--index) - 3.5) * 1px), calc(var(--index) * 1px));
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(4, 3, 8, 0.3);
+}
+/* Offset individual cards within two packets, then finish every card together. */
+.shuffling .card {
+  --feed-delay: calc(var(--index) * 45ms);
+  animation: shuffle-packets calc(var(--shuffle-duration) - var(--feed-delay))
+    cubic-bezier(0.4, 0, 0.2, 1) var(--feed-delay) both;
+}
+.orbit {
+  position: absolute;
+  height: 90%;
+  max-width: 96%;
+  aspect-ratio: 1;
+  background: url('/brand/spread-theme/orbit.webp') center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+.shuffling .orbit {
+  animation: shuffle-light var(--shuffle-duration) var(--ease-ritual) both;
+}
+.deck .primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+.caption {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0.5rem 1rem 0.25rem;
+  text-align: center;
+  color: var(--bone);
+  font: 300 0.9375rem / 1.8 var(--font-chinese), var(--ritual-font);
+}
+.caption::before,
+.caption::after {
+  content: '';
+  width: 1.875rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  background: url('/brand/spread-theme/star.webp') center / contain no-repeat;
+  opacity: 0.65;
+}
+@media (max-width: 359px) {
+  .caption {
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+  }
+  .caption::before,
+  .caption::after {
+    width: 0.75rem;
+  }
+}
+@keyframes shuffle-packets {
+  0%,
+  100% {
+    transform: translate(calc((var(--index) - 3.5) * 1px), calc(var(--index) * 1px)) rotate(0);
+  }
+  22%,
+  34% {
+    transform: translate(calc(var(--direction) * 58%), calc(-7% + var(--layer) * 2px))
+      rotate(calc(var(--direction) * 5deg));
+  }
+  52% {
+    transform: translate(calc(var(--direction) * 28%), calc(-3% + var(--index) * 1.5px))
+      rotate(calc(var(--direction) * 2deg));
+  }
+  70% {
+    transform: translate(calc(var(--direction) * 9%), calc(var(--index) * 1.5px))
+      rotate(calc(var(--direction) * 0.5deg));
+  }
+  88% {
+    transform: translate(calc((var(--index) - 3.5) * 1px), calc(var(--index) * 1px - 2%)) rotate(0);
+  }
+}
+@keyframes shuffle-light {
+  0%,
+  100% {
+    opacity: 0;
+    transform: rotate(-8deg) scale(0.9);
+  }
+  30%,
+  66% {
+    opacity: 0.35;
+    transform: rotate(8deg) scale(1);
+  }
+}
+@media (max-height: 740px) and (max-width: 767px) {
+  .caption {
+    padding-top: 0.25rem;
+    font-size: 0.8125rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shuffling .card,
+  .shuffling .orbit {
+    animation: none;
+  }
+}
+
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: url('/brand/ritual-theme/celestial-table.webp') center / 100% 100% no-repeat;
+  mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 88%, transparent);
+}
+.deck .primary:not(:disabled) {
+  background: linear-gradient(135deg, rgba(232, 213, 163, 0.2), rgba(201, 169, 97, 0.045));
+  border-color: rgba(232, 213, 163, 0.6);
+  box-shadow: inset 0 1px rgba(255, 241, 208, 0.12);
+}
+.deck .primary:active:not(:disabled) {
+  transform: scale(0.985);
+}

@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dimensions": {
+        "font": {
+          "family": "\"Miying Ritual Serif\", \"Songti SC\", SimSun, serif",
+          "weight": "400",
+          "shadow": "none"
+        },
+        "artwork": {
+          "src": "http://localhost:3001/brand/spread-theme/card-back.webp",
+          "naturalWidth": 240,
+          "rect": {
+            "x": 168.42893981933594,
+            "y": 283.6985778808594,
+            "width": 60.48893737792969,
+            "height": 96.33474731445312,
+            "top": 283.6985778808594,
+            "right": 228.91787719726562,
+            "bottom": 380.0333251953125,
+            "left": 168.42893981933594
+          },
+          "style": "color: transparent; position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+        },
+        "scrollWidth": 390,
+        "width": 390,
+        "height": 844,
+        "ringTop": 275.921875,
+        "ringBottom": 510.15625,
+        "dockTop": 721.609375,
+        "dockBottom": 844,
+        "cards": 78,
+        "images": []
+      },
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "limitations": "Chrome 隔离会话，模拟登录/配置/保存；没有验证微信真机和真实模型。"
+}

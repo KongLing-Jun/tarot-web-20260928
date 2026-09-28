@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1020" viewBox="0 0 1200 1020" role="img" aria-labelledby="title desc"><title id="title">AI 请求 · 流式生成与存档闭环</title><desc id="desc">正常 Agent 首轮先选阵再解读；此图展示单次模型调用的服务端链路。</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#BBB5C7"/></marker></defs><rect width="1200" height="1020" rx="18" fill="#08060F"/><style>text{font-family:'Microsoft YaHei','PingFang SC',sans-serif;fill:#EAE4D4}.mono{font-family:Consolas,'Microsoft YaHei',monospace}.title{font-family:'Microsoft YaHei',serif;font-weight:600}</style>
+<text x="40" y="40" font-size="14" style="fill:#C9A961" class="mono">月映卡语  /  CODE ATLAS</text>
+<text x="40" y="87" font-size="30" style="fill:#EAE4D4" class="title">AI 请求 · 流式生成与存档闭环</text>
+<text x="40" y="121" font-size="17" style="fill:#BBB5C7" class="">正常 Agent 首轮先选阵再解读；此图展示单次模型调用的服务端链路。</text>
+<path d="M40 145H1160" stroke="#464052"/>
+<text x="40" y="183" font-size="16" style="fill:#C9A961" class="">浏览器</text>
+<text x="420" y="183" font-size="16" style="fill:#8B9FD4" class="">Next.js 服务端</text>
+<text x="850" y="183" font-size="16" style="fill:#B2A8D6" class="">模型与数据</text>
+<g data-box="发起请求" data-x="40" data-y="205" data-w="310" data-h="125"><rect x="40" y="205" width="310" height="125" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 225h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="251" font-size="20" style="fill:#C9A961" class="">发起请求</text>
+<text x="58" y="278" font-size="16" style="fill:#EAE4D4" class="">streamInterpret</text>
+<text x="58" y="303" font-size="16" style="fill:#EAE4D4" class="">预算 / 取消 / operationId</text>
+</g>
+<g data-box="校验与规范化" data-x="420" data-y="205" data-w="370" data-h="125"><rect x="420" y="205" width="370" height="125" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M438 225h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="438" y="251" font-size="20" style="fill:#8B9FD4" class="">校验与规范化</text>
+<text x="438" y="278" font-size="16" style="fill:#EAE4D4" class="">用户会话、牌阵、牌面</text>
+<text x="438" y="303" font-size="16" style="fill:#EAE4D4" class="">每日牌由服务端重算</text>
+</g>
+<path d="M350 263H420" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="配置、提示词与幂等" data-x="420" data-y="375" data-w="370" data-h="125"><rect x="420" y="375" width="370" height="125" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M438 395h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="438" y="421" font-size="20" style="fill:#8B9FD4" class="">配置、提示词与幂等</text>
+<text x="438" y="448" font-size="16" style="fill:#EAE4D4" class="">按模式构建提示词</text>
+<text x="438" y="473" font-size="16" style="fill:#EAE4D4" class="">建立 exchange / 复用有效答案</text>
+</g>
+<path d="M605 330V375" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="外部模型" data-x="850" data-y="375" data-w="310" data-h="125"><rect x="850" y="375" width="310" height="125" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M868 395h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="868" y="421" font-size="20" style="fill:#B2A8D6" class="">外部模型</text>
+<text x="868" y="448" font-size="16" style="fill:#EAE4D4" class="">chat/completions</text>
+<text x="868" y="473" font-size="16" style="fill:#EAE4D4" class="">SSE 流式输出</text>
+</g>
+<path d="M790 438H850" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="流保护与可选依据校验" data-x="420" data-y="555" data-w="370" data-h="125"><rect x="420" y="555" width="370" height="125" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M438 575h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="438" y="601" font-size="20" style="fill:#8B9FD4" class="">流保护与可选依据校验</text>
+<text x="438" y="628" font-size="16" style="fill:#EAE4D4" class="">超时 / 心跳 / 取消</text>
+<text x="438" y="653" font-size="16" style="fill:#EAE4D4" class="">p1-grounded：引用检查</text>
+</g>
+<path d="M1005 500V610H790" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="逐步呈现" data-x="40" data-y="555" data-w="310" data-h="125"><rect x="40" y="555" width="310" height="125" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 575h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="601" font-size="20" style="fill:#C9A961" class="">逐步呈现</text>
+<text x="58" y="628" font-size="16" style="fill:#EAE4D4" class="">正文、生成状态</text>
+<text x="58" y="653" font-size="16" style="fill:#EAE4D4" class="">保存成功 / 失败提示</text>
+</g>
+<path d="M420 615H350" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="PostgreSQL" data-x="850" data-y="730" data-w="310" data-h="125"><rect x="850" y="730" width="310" height="125" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M868 750h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="868" y="776" font-size="20" style="fill:#B2A8D6" class="">PostgreSQL</text>
+<text x="868" y="803" font-size="16" style="fill:#EAE4D4" class="">消息、占卜、追问</text>
+<text x="868" y="828" font-size="16" style="fill:#EAE4D4" class="">每日解读与最终状态</text>
+</g>
+<path d="M790 655H818V790H850" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="840" y="710" font-size="16" style="fill:#BBB5C7" class="">增量与结束时保存</text>
+<g data-box="数据边界" data-x="40" data-y="730" data-w="750" data-h="125"><rect x="40" y="730" width="750" height="125" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M58 750h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="58" y="776" font-size="20" style="fill:#8B9FD4" class="">数据边界</text>
+<text x="58" y="803" font-size="16" style="fill:#EAE4D4" class="">内部决策会存档，但普通消息日志隐藏；重试通过操作标识控制重复。</text>
+<text x="58" y="828" font-size="16" style="fill:#EAE4D4" class="">引用校验只验证依据关系，不保证模型推论在语义上正确。</text>
+</g>
+<text x="40" y="922" font-size="18" style="fill:#BBB5C7" class="">配置、认证和取消等错误不统一吞掉；生成失败、截断和持久化失败分别表达。</text>
+<path d="M40 970H1160" stroke="#464052"/>
+<text x="40" y="998" font-size="14" style="fill:#BBB5C7" class="">源码基准 4c281c7  ·  2026-09-23  ·  箭头表示调用、跳转或状态方向</text>
+<text x="990" y="998" font-size="14" style="fill:#C9A961" class="mono">月映卡语 / DOCS</text>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "id": "three-card-1",
+  "source": "synthetic",
+  "promptHash": "75c2ead33b1b22f29eb698490bded31a1ceca04e916b3601698cdd6fed48489d",
+  "messagesHash": "eb2ba1be74a21182dd6421a6b37704468ffb1cfa01a1bcc1d5d6df72ff1159b3",
+  "revision": "aa6f0a2c98e064c0f338f600e73dd8c95e140f71",
+  "model": "deepseek-v4-flash",
+  "firstTokenMs": 13848,
+  "firstAnswerMs": 13848,
+  "status": "success",
+  "generationStatus": "completed",
+  "finishReason": "stop",
+  "validAnswer": true,
+  "usage": {
+    "prompt_tokens": 2178,
+    "completion_tokens": 2252,
+    "total_tokens": 4430,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1934
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2178
+  },
+  "quality": {
+    "issues": [],
+    "needsRetry": false
+  },
+  "durationMs": 15240
+}

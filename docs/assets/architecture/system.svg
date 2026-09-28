@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="890" viewBox="0 0 1200 890" role="img" aria-labelledby="title desc"><title id="title">系统分层 · 同一应用，两种入口</title><desc id="desc">网页交互与小程序容器共享 Next.js；业务数据和外部能力经服务端访问。</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#BBB5C7"/></marker></defs><rect width="1200" height="890" rx="18" fill="#08060F"/><style>text{font-family:'Microsoft YaHei','PingFang SC',sans-serif;fill:#EAE4D4}.mono{font-family:Consolas,'Microsoft YaHei',monospace}.title{font-family:'Microsoft YaHei',serif;font-weight:600}</style>
+<text x="40" y="40" font-size="14" style="fill:#C9A961" class="mono">月映卡语  /  CODE ATLAS</text>
+<text x="40" y="87" font-size="30" style="fill:#EAE4D4" class="title">系统分层 · 同一应用，两种入口</text>
+<text x="40" y="121" font-size="17" style="fill:#BBB5C7" class="">网页交互与小程序容器共享 Next.js；业务数据和外部能力经服务端访问。</text>
+<path d="M40 145H1160" stroke="#464052"/>
+<text x="40" y="185" font-size="16" style="fill:#C9A961" class="">访问入口</text>
+<g data-box="浏览器网页" data-x="40" data-y="202" data-w="530" data-h="96"><rect x="40" y="202" width="530" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 222h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="248" font-size="20" style="fill:#C9A961" class="">浏览器网页</text>
+<text x="58" y="275" font-size="16" style="fill:#EAE4D4" class="">游客凭据 → Cookie 会话</text>
+</g>
+<g data-box="微信小程序" data-x="630" data-y="202" data-w="530" data-h="96"><rect x="630" y="202" width="530" height="96" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M648 222h16" stroke="#C9A961" stroke-width="3"/>
+<text x="648" y="248" font-size="20" style="fill:#C9A961" class="">微信小程序</text>
+<text x="648" y="275" font-size="16" style="fill:#EAE4D4" class="">wx.login → 一次性票据 → web-view</text>
+</g>
+<path d="M305 298V330H600V360" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M895 298V330H600" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<text x="40" y="350" font-size="16" style="fill:#C9A961" class="">应用交互与编排</text>
+<g data-box="页面与组件" data-x="40" data-y="370" data-w="350" data-h="126"><rect x="40" y="370" width="350" height="126" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M58 390h16" stroke="#C9A961" stroke-width="3"/>
+<text x="58" y="416" font-size="20" style="fill:#C9A961" class="">页面与组件</text>
+<text x="58" y="443" font-size="16" style="fill:#EAE4D4" class="">app/page · components</text>
+<text x="58" y="468" font-size="16" style="fill:#EAE4D4" class="">导航、卡牌、报告、资料</text>
+</g>
+<g data-box="状态与业务流程" data-x="425" data-y="370" data-w="350" data-h="126"><rect x="425" y="370" width="350" height="126" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M443 390h16" stroke="#C9A961" stroke-width="3"/>
+<text x="443" y="416" font-size="20" style="fill:#C9A961" class="">状态与业务流程</text>
+<text x="443" y="443" font-size="16" style="fill:#EAE4D4" class="">UserSession · AgentChatSession</text>
+<text x="443" y="468" font-size="16" style="fill:#EAE4D4" class="">useReading · useAgentChat</text>
+</g>
+<g data-box="领域与传输" data-x="810" data-y="370" data-w="350" data-h="126"><rect x="810" y="370" width="350" height="126" rx="10" fill="#131022" stroke="#C9A961" stroke-opacity=".6"/><path d="M828 390h16" stroke="#C9A961" stroke-width="3"/>
+<text x="828" y="416" font-size="20" style="fill:#C9A961" class="">领域与传输</text>
+<text x="828" y="443" font-size="16" style="fill:#EAE4D4" class="">lib/tarot · lib/agent</text>
+<text x="828" y="468" font-size="16" style="fill:#EAE4D4" class="">Storage API · SSE client</text>
+</g>
+<path d="M215 496V528H600V558" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M600 496V558" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M985 496V528H600" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="Next.js 服务端  ·  app/api + lib/server" data-x="40" data-y="568" data-w="1120" data-h="96"><rect x="40" y="568" width="1120" height="96" rx="10" fill="#131022" stroke="#8B9FD4" stroke-opacity=".6"/><path d="M58 588h16" stroke="#8B9FD4" stroke-width="3"/>
+<text x="58" y="614" font-size="20" style="fill:#8B9FD4" class="">Next.js 服务端  ·  app/api + lib/server</text>
+<text x="58" y="641" font-size="16" style="fill:#EAE4D4" class="">会话校验、输入规范化、提示词、增量存档、图片登记与支付结算</text>
+</g>
+<path d="M600 664V690H165V712" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M600 690H455V712" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M600 690H745V712" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<path d="M600 690H1035V712" fill="none" stroke="#BBB5C7" stroke-width="1.5"  marker-end="url(#arrow)"/>
+<g data-box="PostgreSQL" data-x="40" data-y="720" data-w="250" data-h="96"><rect x="40" y="720" width="250" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M58 740h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="58" y="766" font-size="20" style="fill:#B2A8D6" class="">PostgreSQL</text>
+<text x="58" y="793" font-size="16" style="fill:#EAE4D4" class="">身份 / 档案 / 订单</text>
+</g>
+<g data-box="OSS 图片" data-x="330" data-y="720" data-w="250" data-h="96"><rect x="330" y="720" width="250" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M348 740h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="348" y="766" font-size="20" style="fill:#B2A8D6" class="">OSS 图片</text>
+<text x="348" y="793" font-size="16" style="fill:#EAE4D4" class="">文件与资源 URL</text>
+</g>
+<g data-box="外部模型" data-x="620" data-y="720" data-w="250" data-h="96"><rect x="620" y="720" width="250" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M638 740h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="638" y="766" font-size="20" style="fill:#B2A8D6" class="">外部模型</text>
+<text x="638" y="793" font-size="16" style="fill:#EAE4D4" class="">chat/completions</text>
+</g>
+<g data-box="微信 / 汇付" data-x="910" data-y="720" data-w="250" data-h="96"><rect x="910" y="720" width="250" height="96" rx="10" fill="#131022" stroke="#B2A8D6" stroke-opacity=".6"/><path d="M928 740h16" stroke="#B2A8D6" stroke-width="3"/>
+<text x="928" y="766" font-size="20" style="fill:#B2A8D6" class="">微信 / 汇付</text>
+<text x="928" y="793" font-size="16" style="fill:#EAE4D4" class="">身份交换 / 支付</text>
+</g>
+<path d="M40 840H1160" stroke="#464052"/>
+<text x="40" y="868" font-size="14" style="fill:#BBB5C7" class="">源码基准 4c281c7  ·  2026-09-23  ·  箭头表示调用、跳转或状态方向</text>
+<text x="990" y="868" font-size="14" style="fill:#C9A961" class="mono">月映卡语 / DOCS</text>
+</svg>
